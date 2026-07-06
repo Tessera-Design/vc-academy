@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VC Academy — Break into Venture Capital | Mosaic Venture Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg: #FAF9F6;
+  --bg-warm: #F3F0EB;
+  --bg-dark: #1A1A2E;
+  --bg-card: #FFFFFF;
+  --text: #1A1A2E;
+  --text-sec: #57534E;
+  --text-muted: #A8A29E;
+  --red: #DC2626;
+  --red-light: #FEF2F2;
+  --blue: #1E40AF;
+  --blue-light: #EFF6FF;
+  --teal: #0F766E;
+  --teal-light: #ECFDF5;
+  --amber: #D97706;
+  --border: #E7E5E4;
+  --sh-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --sh-md: 0 4px 20px rgba(0,0,0,0.06);
+  --sh-lg: 0 12px 40px rgba(0,0,0,0.08);
+}
+html { scroll-behavior: smooth; }
+body { font-family:'Instrument Sans',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(250,249,246,0.92); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid transparent; transition:all .3s; }
+nav.scrolled { border-bottom-color:var(--border); }
+.nav-inner { max-width:1340px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; height:68px; }
+.nav-brand { font-family:'DM Serif Display',serif; font-size:1.15rem; font-weight:400; color:var(--text); text-decoration:none; margin-right:3rem; letter-spacing:-0.01em; }
+.nav-brand em { color:var(--red); font-style:italic; }
+.nav-tabs { display:flex; gap:0; flex:1; height:100%; }
+.nav-tab { display:flex; align-items:center; padding:0 1.1rem; font-size:0.8rem; font-weight:500; letter-spacing:0.03em; color:var(--text-sec); text-decoration:none; height:100%; position:relative; transition:color .2s; cursor:pointer; border:none; background:none; font-family:inherit; text-transform:uppercase; }
+.nav-tab:hover { color:var(--text); }
+.nav-tab.active { color:var(--red); }
+.nav-tab.active::after { content:''; position:absolute; bottom:0; left:1.1rem; right:1.1rem; height:2px; background:var(--red); }
+.nav-lang { align-self:center; margin-right:1.5rem; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; color:var(--text-sec); text-decoration:none; padding:0.3rem 0.7rem; border:1px solid var(--border); border-radius:6px; white-space:nowrap; transition:all .2s; }
+.nav-lang:hover { color:var(--red); border-color:var(--red); }
+@media(max-width:900px){ .nav-lang { margin-right:auto; margin-left:0.25rem; } }
+
+/* LAYOUT */
+.section { max-width:1140px; margin:0 auto; padding:6rem 2rem; }
+.section-sm { max-width:1140px; margin:0 auto; padding:4rem 2rem; }
+.full-bleed { background:var(--bg-warm); }
+.full-dark { background:var(--bg-dark); color:white; }
+
+/* TYPOGRAPHY */
+.hero-tag { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:1.5rem; }
+.hero-title { font-family:'DM Serif Display',serif; font-size:clamp(3rem,7vw,5.5rem); line-height:1.05; letter-spacing:-0.02em; margin-bottom:1.5rem; }
+.hero-title em { font-style:italic; color:var(--red); }
+.hero-sub { font-size:1.15rem; line-height:1.7; color:var(--text-sec); max-width:620px; }
+.section-label { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); margin-bottom:1rem; }
+.section-heading { font-family:'DM Serif Display',serif; font-size:clamp(2rem,4vw,3rem); line-height:1.15; letter-spacing:-0.01em; margin-bottom:1.5rem; }
+.section-sub { font-size:1.05rem; line-height:1.7; color:var(--text-sec); max-width:640px; }
+
+/* CARDS */
+.card { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:2rem; transition:box-shadow .3s, transform .3s; }
+.card:hover { box-shadow:var(--sh-md); transform:translateY(-2px); }
+.card-dark { background:var(--bg-dark); border:1px solid rgba(255,255,255,0.08); color:white; border-radius:14px; padding:2rem; }
+.card-red { background:var(--red); color:white; border-radius:14px; padding:2rem; }
+
+/* COUNTERS */
+.counters { display:flex; gap:3rem; margin-top:2.5rem; }
+.counter h3 { font-family:'DM Serif Display',serif; font-size:2.5rem; letter-spacing:-0.02em; }
+.counter p { font-size:0.78rem; font-weight:500; color:var(--text-sec); text-transform:uppercase; letter-spacing:0.06em; margin-top:0.2rem; }
+
+/* GRID */
+.g2 { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
+.g3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+.g4 { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+
+/* PAGE SYSTEM */
+.page { display:none; }
+.page.active { display:block; }
+
+/* WEEK TIMELINE */
+.week-item { display:grid; grid-template-columns:80px 1fr; gap:2rem; padding:2rem 0; border-bottom:1px solid var(--border); }
+.week-item:last-child { border-bottom:none; }
+.week-num { font-family:'DM Serif Display',serif; font-size:2.5rem; color:var(--red); line-height:1; }
+.week-format { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-top:0.3rem; }
+.week-title { font-family:'DM Serif Display',serif; font-size:1.5rem; margin-bottom:0.5rem; }
+.week-desc { font-size:0.92rem; line-height:1.7; color:var(--text-sec); }
+.week-who { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--teal); margin-top:0.75rem; font-weight:500; }
+
+/* TRACK CARDS */
+.track-card { border-radius:14px; padding:2.5rem; }
+.track-a { background:var(--bg-dark); color:white; }
+.track-b { background:var(--blue); color:white; }
+.track-tag { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; font-weight:600; letter-spacing:0.1em; opacity:0.7; margin-bottom:0.75rem; }
+.track-title { font-family:'DM Serif Display',serif; font-size:1.6rem; margin-bottom:1rem; }
+.track-desc { font-size:0.9rem; line-height:1.7; opacity:0.85; }
+
+/* TIMELINE */
+.tl-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.tl-item { border-left:3px solid var(--red); padding-left:1.25rem; }
+.tl-year { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; font-weight:600; letter-spacing:0.08em; color:var(--red); margin-bottom:0.4rem; }
+.tl-title { font-size:0.92rem; font-weight:700; margin-bottom:0.3rem; }
+.tl-desc { font-size:0.82rem; color:var(--text-sec); line-height:1.6; }
+
+/* COMPARISON TABLE */
+.comp-table { width:100%; border-collapse:collapse; margin-top:2rem; }
+.comp-table th { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; padding:1rem; text-align:left; border-bottom:2px solid var(--text); }
+.comp-table td { padding:1rem; font-size:0.88rem; line-height:1.6; border-bottom:1px solid var(--border); vertical-align:top; }
+.comp-table td:first-child { font-weight:600; width:20%; }
+.comp-table .col-old { color:var(--text-muted); }
+.comp-table .col-new { color:var(--text); }
+.comp-table tr:nth-child(even) td { background:rgba(0,0,0,0.015); }
+
+/* PROMISE GRID */
+.promise-item { display:flex; gap:1rem; align-items:flex-start; }
+.promise-icon { width:40px; height:40px; border-radius:10px; background:var(--red-light); color:var(--red); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; font-weight:700; }
+.promise-text h4 { font-size:0.92rem; font-weight:700; margin-bottom:0.2rem; }
+.promise-text p { font-size:0.82rem; color:var(--text-sec); line-height:1.6; }
+
+/* QUOTE */
+.quote-card { background:var(--bg-warm); border-radius:14px; padding:2rem 2.5rem; position:relative; }
+.quote-card::before { content:'\201C'; font-family:'DM Serif Display',serif; font-size:4rem; color:var(--red); opacity:0.3; position:absolute; top:0.5rem; left:1.5rem; line-height:1; }
+.quote-text { font-size:1rem; line-height:1.7; color:var(--text); font-style:italic; padding-left:1rem; }
+.quote-attr { font-size:0.78rem; font-weight:600; color:var(--text-sec); margin-top:1rem; padding-left:1rem; }
+
+/* MENTOR GRID */
+.mentor-card { text-align:center; }
+.mentor-photo { width:100px; height:100px; border-radius:50%; background:var(--bg-warm); margin:0 auto 1rem; display:flex; align-items:center; justify-content:center; font-size:1.5rem; overflow:hidden; }
+.mentor-photo.initials { font-family:'DM Serif Display',serif; font-size:1.8rem; color:var(--red); background:var(--red-light); }
+.mentor-name { font-weight:700; font-size:0.88rem; }
+.mentor-role { font-size:0.75rem; color:var(--text-sec); line-height:1.5; margin-top:0.2rem; }
+
+/* CTA SECTION */
+.cta-section { background:var(--bg-dark); color:white; border-radius:20px; padding:4rem; text-align:center; }
+.cta-section h2 { font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,3.5vw,2.8rem); margin-bottom:1rem; }
+.cta-section p { font-size:1rem; opacity:0.75; max-width:520px; margin:0 auto 2rem; line-height:1.7; }
+.cta-btn { display:inline-block; padding:1rem 2.5rem; background:var(--red); color:white; text-decoration:none; border-radius:8px; font-weight:600; font-size:0.9rem; letter-spacing:0.02em; transition:all .2s; border:none; cursor:pointer; font-family:inherit; }
+.cta-btn:hover { background:#B91C1C; transform:translateY(-1px); }
+
+/* REVEAL */
+.reveal { opacity:0; transform:translateY(30px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* VISUAL ENHANCEMENTS */
+.accent-strip { height:4px; background:linear-gradient(90deg, var(--red), var(--blue), var(--teal)); border-radius:2px; margin:3rem 0; opacity:0.3; }
+.pattern-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1rem; }
+.stat-card { background:var(--bg-dark); color:white; border-radius:16px; padding:1.5rem; text-align:center; }
+.stat-card h3 { font-family:'DM Serif Display',serif; font-size:2.8rem; letter-spacing:-0.02em; line-height:1; }
+.stat-card p { font-size:0.72rem; font-weight:500; text-transform:uppercase; letter-spacing:0.06em; margin-top:0.4rem; opacity:0.7; }
+.stat-card.red { background:var(--red); }
+.how-card { background:white; border:1px solid var(--border); border-radius:14px; padding:2rem; position:relative; overflow:hidden; transition:box-shadow .3s, transform .3s; }
+.how-card:hover { box-shadow:var(--sh-md); transform:translateY(-2px); }
+.how-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
+.how-card.hc-red::before { background:var(--red); }
+.how-card.hc-blue::before { background:var(--blue); }
+.how-card.hc-teal::before { background:var(--teal); }
+.topic-card { background:white; border:1px solid var(--border); border-radius:14px; padding:2rem; position:relative; overflow:hidden; transition:box-shadow .3s, transform .3s; }
+.topic-card:hover { box-shadow:var(--sh-md); transform:translateY(-2px); }
+.topic-card h4 { font-family:'DM Serif Display',serif; font-size:1.4rem; line-height:1.2; margin-bottom:0.6rem; }
+.topic-badge { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:0.35rem 0.8rem; border-radius:6px; margin-bottom:1rem; }
+.full-accent { background:var(--bg-dark); color:white; position:relative; overflow:hidden; }
+.full-accent::before { content:''; position:absolute; top:-50%; right:-20%; width:400px; height:400px; background:radial-gradient(circle, rgba(220,38,38,0.15) 0%, transparent 70%); pointer-events:none; }
+
+/* PILLAR CARD */
+.pillar-card { border-radius:16px; padding:2.5rem; color:white; position:relative; overflow:hidden; }
+.pillar-num { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; font-weight:600; letter-spacing:0.1em; opacity:0.75; margin-bottom:0.75rem; }
+.pillar-card h3 { font-family:'DM Serif Display',serif; font-size:1.7rem; line-height:1.15; margin-bottom:1rem; }
+.pillar-card p { font-size:0.9rem; line-height:1.7; opacity:0.88; }
+.pillar-1 { background:var(--bg-dark); }
+.pillar-2 { background:var(--blue); }
+.pillar-3 { background:var(--teal); }
+.pillar-4 { background:var(--amber); }
+
+/* FREE BANNER */
+.free-banner { background:linear-gradient(135deg, var(--red) 0%, #B91C1C 100%); color:white; border-radius:18px; padding:2.5rem 3rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+.free-banner .fb-tag { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; opacity:0.85; margin-bottom:0.6rem; }
+.free-banner h3 { font-family:'DM Serif Display',serif; font-size:1.7rem; line-height:1.15; margin-bottom:0.5rem; }
+.free-banner p { font-size:0.92rem; line-height:1.6; opacity:0.9; max-width:520px; }
+.free-banner .fb-btn { background:white; color:var(--red); padding:0.9rem 2rem; border-radius:8px; font-weight:700; font-size:0.85rem; text-decoration:none; white-space:nowrap; transition:transform .2s; }
+.free-banner .fb-btn:hover { transform:translateY(-1px); }
+
+/* Logo strips */
+.logo-strip-label { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); text-align:center; margin-bottom:0.75rem; }
+.logo-strip { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:1.5rem 3rem; }
+.corp-logo { opacity:0.7; transition:opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease; }
+.corp-logo:hover { opacity:1; transform:scale(1.2); }
+.tl-title .corp-logo { height:18px !important; margin-left:6px; vertical-align:middle; opacity:0.75; }
+
+/* EVENT PHOTO CARDS */
+.event-card { border-radius:14px; overflow:hidden; position:relative; background:var(--bg-warm); }
+.event-photo { width:100%; aspect-ratio:4/3; background:var(--bg-warm); display:flex; align-items:center; justify-content:center; }
+.event-photo img { width:100%; height:100%; object-fit:cover; }
+.event-overlay { position:absolute; bottom:0; left:0; right:0; padding:1rem 1.25rem; background:linear-gradient(transparent, rgba(26,26,46,0.85)); color:white; }
+.event-overlay h4 { font-size:0.92rem; font-weight:700; }
+.event-overlay p { font-size:0.72rem; opacity:0.8; margin-top:0.15rem; }
+
+/* FAQ */
+.faq-item { border-bottom:1px solid var(--border); padding:1.5rem 0; }
+.faq-item h4 { font-size:1rem; font-weight:700; margin-bottom:0.5rem; }
+.faq-item p { font-size:0.9rem; color:var(--text-sec); line-height:1.7; }
+
+/* RESPONSIVE */
+@media(max-width:1100px) {
+  .g4 { grid-template-columns:repeat(2,1fr); }
+  .section,.section-sm { padding:4rem 1.5rem; }
+}
+@media(max-width:900px) {
+  .g2,.g3,.tl-grid { grid-template-columns:1fr; }
+  .g4 { grid-template-columns:repeat(2,1fr); }
+  .mentor-grid { grid-template-columns:repeat(3,1fr) !important; }
+  .week-item { grid-template-columns:60px 1fr; gap:1rem; }
+  .counters { flex-wrap:wrap; gap:1.5rem 2.5rem; }
+  .section,.section-sm { padding:3rem 1.25rem; }
+  .hero-title { font-size:clamp(2.2rem,8vw,3.5rem); }
+  .section-heading { font-size:clamp(1.6rem,5vw,2.4rem); }
+  .comp-table { font-size:0.8rem; }
+  .comp-table td, .comp-table th { padding:0.6rem 0.5rem; }
+  .cta-section { padding:2.5rem 1.5rem; }
+  .track-card,.pillar-card { padding:1.75rem; }
+  .quote-card { padding:1.5rem; }
+  .free-banner { padding:2rem; flex-direction:column; align-items:flex-start; }
+}
+@media(max-width:600px) {
+  .g4 { grid-template-columns:1fr 1fr; gap:0.75rem; }
+  .nav-inner { padding:0 1rem; height:56px; }
+  .nav-brand { font-size:1rem; margin-right:0; }
+  .nav-brand img { height:24px !important; }
+  .hero-tag { font-size:0.65rem; }
+  .hero-sub { font-size:1rem; }
+  .counter h3 { font-size:1.8rem; }
+  .counter p { font-size:0.68rem; }
+  .counters { gap:1rem 2rem; }
+  .section,.section-sm { padding:2.5rem 1rem; }
+  .card { padding:1.25rem; }
+  .card-dark { padding:1.25rem; }
+  .week-item { grid-template-columns:50px 1fr; gap:0.75rem; padding:1.25rem 0; }
+  .week-num { font-size:2rem; }
+  .week-title { font-size:1.2rem; }
+  .comp-table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .mentor-card { margin-bottom:0.5rem; }
+  .mentor-photo { width:80px; height:80px; }
+  .mentor-grid { grid-template-columns:repeat(2,1fr) !important; gap:0.75rem !important; }
+  .logo-strip { gap:1rem 1.5rem; }
+  .cta-section { padding:2rem 1.25rem; border-radius:14px; }
+  .cta-section h2 { font-size:1.5rem; }
+}
+
+/* MOBILE NAV HAMBURGER */
+.nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:0.5rem; margin-left:auto; }
+.nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); margin:5px 0; transition:all .3s; border-radius:1px; }
+@media(max-width:900px) {
+  .nav-hamburger { display:block; }
+  .nav-tabs { display:none !important; position:fixed; top:68px; left:0; right:0; height:auto !important; background:#FAF9F6; flex-direction:column; padding:0.5rem 0 1rem; border-bottom:2px solid var(--border); box-shadow:0 8px 30px rgba(0,0,0,0.12); z-index:9999; max-height:calc(100vh - 68px); overflow-y:auto; }
+  .nav-tabs.open { display:flex !important; }
+  .nav-tab { display:flex; height:auto; padding:0.85rem 2rem; justify-content:flex-start; font-size:0.9rem; border-bottom:1px solid var(--border); width:100%; text-align:left; }
+  .nav-tab:last-child { border-bottom:none; }
+  .nav-tab.active { background:var(--red-light); }
+  .nav-tab.active::after { display:none; }
+}
+@media(max-width:600px) {
+  .nav-tabs { top:56px; height:auto !important; max-height:calc(100vh - 56px); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+<div class="nav-inner">
+  <a class="nav-brand" href="#" onclick="showPage('home')"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Mosaic%20Venture%20Lab_U.jpg" style="height:28px;width:auto;vertical-align:middle;margin-right:8px;" alt="Mosaic">VC <em>Academy</em></a>
+  <button class="nav-hamburger" onclick="document.querySelector('.nav-tabs').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showPage('home')">Home</button>
+    <button class="nav-tab" onclick="showPage('free')">Launch Event</button>
+    <button class="nav-tab" onclick="showPage('curriculum')">Curriculum</button>
+    <button class="nav-tab" onclick="showPage('method')">Method</button>
+    <button class="nav-tab" onclick="showPage('outcomes')">Outcomes</button>
+    <button class="nav-tab" onclick="showPage('track')">Track Record</button>
+    <button class="nav-tab" onclick="showPage('mentors')">Mentors</button>
+    <button class="nav-tab" onclick="showPage('apply')">Apply</button>
+  </div>
+</div>
+</nav>
+
+<!-- ==================== HOME ==================== -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <div class="section" style="padding-top:10rem;padding-bottom:4rem;">
+    <div class="reveal">
+      <div class="hero-tag"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Mosaic%20Venture%20Lab_U.jpg" style="height:32px;width:auto;vertical-align:middle;margin-right:8px;" alt="Mosaic">VC Academy · by Mosaic Venture Lab · Taipei</div>
+      <h1 class="hero-title">How do you actually<br>become a <em>VC?</em></h1>
+      <p class="hero-sub">It's the question we hear most — from students, analysts, and founders ready to cross to the other side of the table. VC Academy is a small, in-person program in Taipei where working investors teach the real job: how the venture world runs, how to run due diligence without drowning in it, and how to handle a term sheet. A few weekends, about 20 seats — and it opens with a free launch event on Friday, July 31.</p>
+      <div class="g4 reveal" style="margin-top:2.5rem;">
+        <div class="stat-card"><h3>14</h3><p>Years in Taiwan's Ecosystem</p></div>
+        <div class="stat-card red"><h3>4</h3><p>Curriculum Pillars</p></div>
+        <div class="stat-card"><h3>20</h3><p>Founding-Cohort Seats</p></div>
+        <div class="stat-card"><h3>1</h3><p>Free Intro Session</p></div>
+      </div>
+
+      <!-- MENTOR COMPANY LOGOS -->
+      <div style="margin-top:2.5rem;">
+        <div class="logo-strip-label">Our mentors invest, operate, and scout across</div>
+        <div class="logo-strip">
+        <img src="data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'><path%20d='M12.48%2010.92v3.28h7.84c-.24%201.84-.853%203.187-1.787%204.133-1.147%201.147-2.933%202.4-6.053%202.4-4.827%200-8.6-3.893-8.6-8.72s3.773-8.72%208.6-8.72c2.6%200%204.507%201.027%205.907%202.347l2.307-2.307C18.747%201.44%2016.133%200%2012.48%200%205.867%200%20.307%205.387.307%2012s5.56%2012%2012.173%2012c3.573%200%206.267-1.173%208.373-3.36%202.16-2.16%202.84-5.213%202.84-7.667%200-.76-.053-1.467-.173-2.053H12.48z'%20fill='%23888888'/></svg>" alt="Google" class="corp-logo" style="height:28px;">
+        <img src="data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'><path%20d='M12%200C5.373%200%200%205.373%200%2012s5.373%2012%2012%2012%2012-5.373%2012-12C24.002%205.375%2018.632.002%2012.007%200H12zm7.327%2018.065s-.581-2.627-1.528-4.197c-.514-.857-1.308-1.553-2.368-1.532-.745%200-1.399.423-2.2%201.553-.469.77-.882%201.573-1.235%202.403%200%200-.29-.675-.63-1.343a8.038%208.038%200%200%200-.605-1.049c-.804-1.13-1.455-1.539-2.2-1.553-1.049-.021-1.854.675-2.364%201.528-.948%201.574-1.528%204.197-1.528%204.197h-.864l4.606-15.12%203.56%2011.804.024.021.024-.021%203.56-11.804%204.61%2015.113h-.862z'%20fill='%23888888'/></svg>" alt="Motorola" class="corp-logo" style="height:30px;">
+        <img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/IBM.png" alt="IBM" class="corp-logo" style="height:30px;object-fit:contain;">
+        <img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/AWS.png" alt="AWS" class="corp-logo" style="height:30px;object-fit:contain;">
+        <img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/continental.png" alt="Continental" class="corp-logo" style="height:28px;object-fit:contain;">
+        <img src="data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'><path%20d='M19.848%2C7.848c-0.992%2C0-1.902%2C0.348-2.616%2C0.928c-0.714-0.58-1.624-0.928-2.616-0.928%20c-0.992%2C0-1.902%2C0.348-2.616%2C0.928c-0.714-0.58-1.624-0.928-2.616-0.928c-0.992%2C0-1.902%2C0.348-2.616%2C0.928%20c-0.714-0.58-1.624-0.928-2.616-0.928C1.859%2C7.848%2C0%2C9.707%2C0%2C12s1.859%2C4.152%2C4.152%2C4.152c0.992%2C0%2C1.902-0.348%2C2.616-0.928%20c0.714%2C0.58%2C1.624%2C0.928%2C2.616%2C0.928c0.992%2C0%2C1.902-0.348%2C2.616-0.928c0.714%2C0.58%2C1.624%2C0.928%2C2.616%2C0.928%20c0.992%2C0%2C1.902-0.348%2C2.616-0.928c0.714%2C0.58%2C1.624%2C0.928%2C2.616%2C0.928C22.141%2C16.152%2C24%2C14.293%2C24%2C12S22.141%2C7.848%2C19.848%2C7.848z%20M17.232%2C13.866c-0.376-0.526-0.598-1.17-0.598-1.866c0-0.696%2C0.222-1.34%2C0.598-1.866c0.376%2C0.526%2C0.598%2C1.17%2C0.598%2C1.866%20C17.83%2C12.696%2C17.608%2C13.34%2C17.232%2C13.866z%20M12%2C13.866c-0.376-0.526-0.598-1.17-0.598-1.866c0-0.696%2C0.222-1.34%2C0.598-1.866%20c0.376%2C0.526%2C0.598%2C1.17%2C0.598%2C1.866C12.598%2C12.696%2C12.376%2C13.34%2C12%2C13.866z%20M6.768%2C13.866C6.392%2C13.34%2C6.17%2C12.696%2C6.17%2C12%20c0-0.696%2C0.222-1.34%2C0.598-1.866C7.144%2C10.66%2C7.366%2C11.304%2C7.366%2C12C7.366%2C12.696%2C7.144%2C13.34%2C6.768%2C13.866z%20M0.938%2C12%20c0-1.775%2C1.439-3.214%2C3.214-3.214c0.736%2C0%2C1.414%2C0.248%2C1.956%2C0.665C5.56%2C10.154%2C5.232%2C11.039%2C5.232%2C12%20c0%2C0.961%2C0.328%2C1.846%2C0.876%2C2.549c-0.542%2C0.416-1.22%2C0.665-1.956%2C0.665C2.377%2C15.214%2C0.938%2C13.775%2C0.938%2C12z%20M7.428%2C14.549%20C7.976%2C13.846%2C8.304%2C12.961%2C8.304%2C12c0-0.961-0.328-1.846-0.876-2.549c0.542-0.416%2C1.22-0.665%2C1.956-0.665%20c0.736%2C0%2C1.414%2C0.248%2C1.956%2C0.665c-0.549%2C0.704-0.876%2C1.588-0.876%2C2.549c0%2C0.961%2C0.328%2C1.846%2C0.876%2C2.549%20c-0.542%2C0.416-1.22%2C0.665-1.956%2C0.665C8.648%2C15.214%2C7.97%2C14.966%2C7.428%2C14.549z%20M12.66%2C14.549c0.549-0.704%2C0.876-1.588%2C0.876-2.549%20c0-0.961-0.328-1.846-0.876-2.55c0.542-0.416%2C1.22-0.665%2C1.956-0.665s1.414%2C0.248%2C1.956%2C0.665%20c-0.549%2C0.704-0.876%2C1.588-0.876%2C2.549c0%2C0.961%2C0.328%2C1.846%2C0.876%2C2.549c-0.542%2C0.416-1.22%2C0.665-1.956%2C0.665%20C13.88%2C15.214%2C13.202%2C14.966%2C12.66%2C14.549z%20M19.848%2C15.214c-0.736%2C0-1.414-0.248-1.956-0.665c0.548-0.704%2C0.876-1.588%2C0.876-2.549%20c0-0.961-0.328-1.846-0.876-2.549c0.542-0.416%2C1.22-0.665%2C1.956-0.665c1.775%2C0%2C3.214%2C1.439%2C3.214%2C3.214%20S21.623%2C15.214%2C19.848%2C15.214z'%20fill='%23888888'/></svg>" alt="Audi" class="corp-logo" style="height:32px;">
+        <img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/daimler.png" alt="Daimler" class="corp-logo" style="height:28px;object-fit:contain;">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <div class="full-bleed">
+    <div class="section">
+      <div class="reveal">
+        <div class="section-label">The Problem</div>
+        <h2 class="section-heading">Wanting in is easy.<br>The job is the hard part.</h2>
+        <p class="section-sub">After 14 years in Taiwan's startup scene, taking the same calls from students and would-be investors, three gaps come up again and again.</p>
+      </div>
+      <div class="g3 reveal" style="margin-top:2.5rem;">
+        <div class="card" style="border-top:4px solid var(--red);">
+          <div class="pattern-icon" style="background:var(--red-light);color:var(--red);">🚪</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;color:var(--red);margin-bottom:0.5rem;">GAP 1</div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;">No Path In</h3>
+          <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.6;">"How do I break into VC?" We get asked this more than anything else. Most people have never had it answered properly: what the job actually needs, how firms hire, and where to even start.</p>
+        </div>
+        <div class="card" style="border-top:4px solid var(--blue);">
+          <div class="pattern-icon" style="background:var(--blue-light);color:var(--blue);">📑</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;color:var(--blue);margin-bottom:0.5rem;">GAP 2</div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;">The Terminology Wall</h3>
+          <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.6;">Junior VCs freeze on the language of the deal. They're handed a term sheet — or asked to issue one — and don't know which clauses matter, what to push back on, or which tools to use.</p>
+        </div>
+        <div class="card" style="border-top:4px solid var(--teal);">
+          <div class="pattern-icon" style="background:var(--teal-light);color:var(--teal);">🔍</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;color:var(--teal);margin-bottom:0.5rem;">GAP 3</div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;">Checklist Diligence</h3>
+          <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.6;">New investors try to check everything. Real VCs run strategic, focused due diligence — asking the few questions that fit their thesis and passing early when a deal doesn't fit, instead of drowning in a generic checklist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THREE PILLARS -->
+  <div class="full-accent">
+    <div class="section">
+      <div class="reveal">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;">The Curriculum</div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.15;letter-spacing:-0.01em;margin-bottom:1.5rem;">Three pillars of craft.<br>Plus the business of VC.</h2>
+        <p style="font-size:1.05rem;line-height:1.7;color:rgba(255,255,255,0.65);max-width:640px;">Built around what junior VCs are usually missing, and benchmarked against how the leading programs abroad teach it, then tailored for Taiwan. The full curriculum also covers fund economics, portfolio math, and exits.</p>
+      </div>
+      <div class="g3 reveal" style="margin-top:2.5rem;">
+        <div class="pillar-card pillar-1">
+          <div class="pillar-num">PILLAR 01</div>
+          <h3>The VC Ecosystem</h3>
+          <p>How venture capital really works — investor types, stages, ticket sizes, and technology focus. Silicon Valley as the anchor case, extended to Japan, Korea, and Europe. How founders and family offices get connected to early-stage VCs.</p>
+        </div>
+        <div class="pillar-card pillar-2">
+          <div class="pillar-num">PILLAR 02</div>
+          <h3>Roles &amp; Strategic Due Diligence</h3>
+          <p>Know your seat: lead, anchor, or co-investor. Run focused, thesis-driven due diligence instead of checking everything. Build the right questions, read the founder's answers, and pass early when a deal doesn't fit.</p>
+        </div>
+        <div class="pillar-card pillar-3">
+          <div class="pillar-num">PILLAR 03</div>
+          <h3>Term Sheets &amp; the Deal</h3>
+          <p>Decode the terminology that trips up junior VCs. Read and issue term sheets, know which comments and items to add, and master the tools — all taught as real, structured cases from live deals.</p>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:2rem;">
+        <button class="cta-btn" onclick="showPage('curriculum')">See the full curriculum →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FREE INTRO HOOK -->
+  <div class="section">
+    <div class="free-banner reveal">
+      <div>
+        <div class="fb-tag">Launch Event · Free · Fri Jul 31 · 3 PM</div>
+        <h3>VC Academy Launch Event</h3>
+        <p>A free afternoon at our Taipei office — working VCs, live Q&amp;A, drinks, and a walk-through of the program. The afternoon we open VC Academy. Register to attend.</p>
+      </div>
+      <a href="#" class="fb-btn" onclick="showPage('free')">See launch event →</a>
+    </div>
+  </div>
+
+  <!-- TRACK RECORD -->
+  <div class="full-bleed">
+    <div class="section">
+      <div class="reveal">
+        <div class="section-label">14 Years in Taiwan</div>
+        <h2 class="section-heading">Built by people who actually<br>do this for a living.</h2>
+      </div>
+      <div class="tl-grid reveal" style="margin-top:2.5rem;">
+        <div class="tl-item">
+          <div class="tl-year">2011-2013</div>
+          <div class="tl-title">Yushan Ventures</div>
+          <div class="tl-desc">Co-founded in Taipei. Introduced Startup Weekend to Taiwan with events at Google, Microsoft, and top universities — first contact with thousands of founders.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2012-2018</div>
+          <div class="tl-title">APEC Accelerator Network</div>
+          <div class="tl-desc">Built the APEC Accelerator Network with Taiwan's MoEA. Pitch events and cross-border deal flow across APEC economies for 6 consecutive years.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2015-PRESENT</div>
+          <div class="tl-title">VW Group / Audi Scouting</div>
+          <div class="tl-desc">Technology scouting and diligence for Volkswagen Group and Audi. A 25+ country deal-sourcing network across 5 continents.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2018</div>
+          <div class="tl-title">Mosaic Venture Lab</div>
+          <div class="tl-desc">Deep-tech accelerator partnered with Audi AG and Continental AG. Evaluating, backing, and connecting East Asian innovation to global capital.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2024-2025</div>
+          <div class="tl-title">180+ Startups Trained</div>
+          <div class="tl-desc">Trained 180+ startups for CES and VivaTech, and professors for ITRI — from the investor's side of the table, evaluating what makes a company fundable.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2026</div>
+          <div class="tl-title">VC Academy</div>
+          <div class="tl-desc">What we've learned doing the job, turned into a proper in-person program for people in Taiwan who want to invest.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section">
+    <div class="reveal">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-heading">In person. On weekends.<br>In a room with working VCs.</h2>
+    </div>
+    <div class="g3 reveal" style="margin-top:2.5rem;">
+      <div class="how-card hc-red">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">🤝</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem;">Face-to-Face, Not a Webinar</h3>
+        <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">The first cohort meets in person at our Taipei office. Small room, ~20 people, real conversation. Weekend sessions, so working professionals and students can attend.</p>
+      </div>
+      <div class="how-card hc-blue">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">📂</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem;">Taught Through Real Cases</h3>
+        <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">No abstract lectures. Every module is structured around real deals — actual term sheets, real diligence questions, and the judgment calls investors make under uncertainty.</p>
+      </div>
+      <div class="how-card hc-teal">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">🧭</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem;">Mentored by Active Investors</h3>
+        <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">Our mentors are working VCs, operators, and corporate-venture scouts. They've sourced, diligenced, and passed on hundreds of deals — and they'll tell you why.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHART GALLERY -->
+  <div class="full-bleed">
+    <div class="section">
+      <div class="reveal">
+        <div class="section-label">By the Numbers</div>
+        <h2 class="section-heading">The skills you'll learn<br>to read on sight.</h2>
+        <p class="section-sub">A few of the things every investor handles without thinking. You'll work through them on real deals in the program. Figures are illustrative.</p>
+      </div>
+      <div class="g2 reveal" style="margin-top:2.5rem;gap:1.5rem;">
+
+        <!-- Chart B: Funding Ladder -->
+        <div class="card">
+          <svg viewBox="0 0 520 300" style="width:100%;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="Funding stages and check sizes">
+            <g font-size="12.5" font-weight="600" fill="#1A1A2E">
+              <text x="12" y="44">Pre-seed</text>
+              <text x="12" y="96">Seed</text>
+              <text x="12" y="148">Series A</text>
+              <text x="12" y="200">Series B</text>
+              <text x="12" y="252">Growth</text>
+            </g>
+            <rect x="118" y="28" width="55" height="28" rx="4" fill="#94A3B8"/>
+            <rect x="118" y="80" width="105" height="28" rx="4" fill="#1E40AF"/>
+            <rect x="118" y="132" width="195" height="28" rx="4" fill="#0F766E"/>
+            <rect x="118" y="184" width="285" height="28" rx="4" fill="#D97706"/>
+            <rect x="118" y="236" width="360" height="28" rx="4" fill="#DC2626"/>
+            <g font-size="11.5" font-weight="600" fill="#57534E">
+              <text x="180" y="47">$100K–$1M</text>
+              <text x="230" y="99">$1–4M</text>
+              <text x="320" y="151">$8–20M</text>
+              <text x="410" y="203">$20–50M</text>
+              <text x="470" y="255" text-anchor="end" fill="#FFFFFF">$50M+</text>
+            </g>
+          </svg>
+          <h4 style="font-size:1rem;font-weight:700;margin:1rem 0 0.3rem;">The funding ladder</h4>
+          <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">Every stage has its own check size. Read an investor's stage and you've read their strategy — and where you'd fit.</p>
+        </div>
+
+        <!-- Chart C: The Funnel -->
+        <div class="card">
+          <svg viewBox="0 0 520 300" style="width:100%;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="The deal funnel">
+            <rect x="40" y="28" width="320" height="38" rx="4" fill="#CBD5E1"/>
+            <rect x="85" y="80" width="230" height="38" rx="4" fill="#94A3B8"/>
+            <rect x="125" y="132" width="150" height="38" rx="4" fill="#0F766E"/>
+            <rect x="155" y="184" width="90" height="38" rx="4" fill="#1E40AF"/>
+            <rect x="175" y="236" width="50" height="38" rx="4" fill="#DC2626"/>
+            <g font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+              <text x="200" y="52">1,000</text>
+              <text x="200" y="104">200</text>
+              <text x="200" y="156">40</text>
+              <text x="200" y="208">10</text>
+              <text x="200" y="260">4</text>
+            </g>
+            <g font-size="12" fill="#57534E">
+              <text x="392" y="52">Deals seen</text>
+              <text x="392" y="104">First meeting</text>
+              <text x="392" y="156">Real diligence</text>
+              <text x="392" y="208">Term sheet</text>
+              <text x="392" y="260" font-weight="700" fill="#DC2626">Invested</text>
+            </g>
+          </svg>
+          <h4 style="font-size:1rem;font-weight:700;margin:1rem 0 0.3rem;">The funnel</h4>
+          <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">Hundreds of companies for every cheque written. Most of the job is a fast, well-reasoned no.</p>
+        </div>
+
+        <!-- Chart D: Dilution -->
+        <div class="card">
+          <svg viewBox="0 0 520 300" style="width:100%;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="Founder dilution across rounds">
+            <g font-size="12" font-weight="600" fill="#1A1A2E">
+              <text x="12" y="42">Founding</text>
+              <text x="12" y="98">After Seed</text>
+              <text x="12" y="154">After Series A</text>
+              <text x="12" y="210">After Series B</text>
+            </g>
+            <!-- Founding -->
+            <rect x="138" y="24" width="360" height="34" rx="3" fill="#1A1A2E"/>
+            <text x="318" y="46" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">100%</text>
+            <!-- After Seed: F80 I12 P8 -->
+            <rect x="138" y="80" width="288" height="34" rx="3" fill="#1A1A2E"/>
+            <rect x="426" y="80" width="43" height="34" fill="#1E40AF"/>
+            <rect x="469" y="80" width="29" height="34" rx="3" fill="#D97706"/>
+            <text x="282" y="102" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">80%</text>
+            <!-- After A: F62 I29 P9 -->
+            <rect x="138" y="136" width="223" height="34" rx="3" fill="#1A1A2E"/>
+            <rect x="361" y="136" width="105" height="34" fill="#1E40AF"/>
+            <rect x="466" y="136" width="32" height="34" rx="3" fill="#D97706"/>
+            <text x="250" y="158" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">62%</text>
+            <!-- After B: F48 I42 P10 -->
+            <rect x="138" y="192" width="173" height="34" rx="3" fill="#1A1A2E"/>
+            <rect x="311" y="192" width="151" height="34" fill="#1E40AF"/>
+            <rect x="462" y="192" width="36" height="34" rx="3" fill="#D97706"/>
+            <text x="224" y="214" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">48%</text>
+            <!-- Legend -->
+            <g font-size="11" fill="#57534E">
+              <rect x="138" y="252" width="12" height="12" rx="2" fill="#1A1A2E"/><text x="156" y="262">Founders</text>
+              <rect x="232" y="252" width="12" height="12" rx="2" fill="#1E40AF"/><text x="250" y="262">Investors</text>
+              <rect x="322" y="252" width="12" height="12" rx="2" fill="#D97706"/><text x="340" y="262">Option pool</text>
+            </g>
+          </svg>
+          <h4 style="font-size:1rem;font-weight:700;margin:1rem 0 0.3rem;">Dilution over time</h4>
+          <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">Founders give up ownership round after round. The cap table is where a deal's economics actually live.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- POSITIONING -->
+  <div class="section">
+    <div class="accent-strip"></div>
+    <div class="reveal">
+      <div class="section-label">How This Is Different</div>
+      <h2 class="section-heading">A finance degree teaches you<br>to value a company.<br>We teach you to back one.</h2>
+    </div>
+    <table class="comp-table reveal" style="margin-top:1.5rem;">
+      <thead>
+        <tr><th style="width:20%"></th><th class="col-old" style="width:40%">Typical Finance / VC Course</th><th class="col-new" style="width:40%">VC Academy</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Curriculum</td><td class="col-old">DCF models, market theory, case write-ups, fund structures in the abstract.</td><td class="col-new">Ecosystem mapping, deal sourcing, strategic due diligence, term-sheet navigation.</td></tr>
+        <tr><td>Taught By</td><td class="col-old">Professors and finance generalists.</td><td class="col-new">Working VCs, operators, and corporate-venture scouts who write and read term sheets.</td></tr>
+        <tr><td>Method</td><td class="col-old">Lectures and theoretical case studies.</td><td class="col-new">Real deals, real diligence questions, mentor debriefs on actual judgment calls.</td></tr>
+        <tr><td>The Question</td><td class="col-old">"What is venture capital?"</td><td class="col-new">"How do I become a VC — and what does the job actually require?"</td></tr>
+        <tr><td>Format</td><td class="col-old">Semester-long, lecture hall, graded.</td><td class="col-new">In-person, weekend cohort in Taipei. Invitation only, ~20 seats.</td></tr>
+        <tr><td>Best For</td><td class="col-old">Students wanting academic credit.</td><td class="col-new">Aspiring investors, analysts, founders, and family-office members who want in.</td></tr>
+      </tbody>
+    </table>
+    <p class="reveal" style="font-size:0.92rem;color:var(--text-sec);line-height:1.7;margin-top:1.75rem;max-width:760px;">To be clear: there are excellent programs out there — VC University, Kauffman Fellows, the Newton Program, Techstars' Venture Deals. Most run online, sit in the US or Europe, and are priced for people already inside the industry. We've borrowed the best of how they teach. VC Academy is the one built for here: in person, in Taipei, taught by investors working this market and the Silicon Valley, Berlin, and Tokyo corridors we operate in every day.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="section-sm">
+    <div class="cta-section reveal">
+      <h2>It starts with launch event.</h2>
+      <p>VC Academy opens with a free afternoon in Taipei on Friday, July 31 — working VCs, live Q&amp;A, drinks. Come and see if this is your room.</p>
+      <button class="cta-btn" onclick="showPage('free')">See launch event →</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== FREE SESSION ==================== -->
+<div class="page" id="page-free">
+  <div class="section" style="padding-top:8rem;">
+    <div class="reveal">
+      <div class="section-label">VC Academy Launch Event · Free</div>
+      <h1 class="section-heading">Break into Venture Capital.<br>One afternoon in Taipei.</h1>
+      <p class="section-sub">VC Academy opens with a free afternoon at our Taipei office. Working VCs share how they actually invest, you ask them anything, and we walk you through the program. Drinks, real conversation, a room full of people trying to get in. Friday, July 31, at 3:00 PM.</p>
+    </div>
+
+    <!-- WHAT YOU GET -->
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="section-label">The afternoon</div>
+      <h2 class="section-heading">An afternoon with<br>working VCs.</h2>
+    </div>
+    <div class="g2 reveal" style="margin-top:2rem;gap:2rem;">
+      <div class="promise-item">
+        <div class="promise-icon">01</div>
+        <div class="promise-text"><h4>Guest VCs, unfiltered</h4><p>Working investors share how they actually pick deals and where the returns really come from — then open the floor to your questions.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">02</div>
+        <div class="promise-text"><h4>How you break in</h4><p>The real routes into venture, and the honest truth about why there's no job posting to apply to.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">03</div>
+        <div class="promise-text"><h4>The program, walked through</h4><p>What VC Academy covers across four pillars, who it's for, and how the cohort runs once the program begins.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">04</div>
+        <div class="promise-text"><h4>The room</h4><p>Drinks and networking with founders, operators, and aspiring investors. On an afternoon like this, who you meet matters as much as what you hear.</p></div>
+      </div>
+    </div>
+
+    <!-- LOGISTICS -->
+    <div class="reveal" style="margin-top:3.5rem;">
+      <div class="g3" style="gap:1rem;">
+        <div class="card" style="text-align:center;">
+          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--red);">Fri, Jul 31</div>
+          <div style="font-size:0.8rem;color:var(--text-sec);margin-top:0.3rem;">3:00 PM · Mosaic office, Taipei</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--red);">Free</div>
+          <div style="font-size:0.8rem;color:var(--text-sec);margin-top:0.3rem;">Drinks + live VC guests</div>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--red);">Limited seats</div>
+          <div style="font-size:0.8rem;color:var(--text-sec);margin-top:0.3rem;">Register to attend</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="reveal" style="margin-top:2.5rem;">
+      <div class="free-banner">
+        <div>
+          <div class="fb-tag">VC Academy · Launch · Fri Jul 31 · 3 PM</div>
+          <h3>Come to the launch.</h3>
+          <p>Register free. If it's for you, we'll walk you through the full program on the day. Seats are limited, so put your name down.</p>
+        </div>
+        <a href="#" class="fb-btn" onclick="return openForm();">Register free →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CURRICULUM ==================== -->
+<div class="page" id="page-curriculum">
+  <div class="section" style="padding-top:8rem;">
+    <div class="reveal">
+      <div class="section-label">The Curriculum</div>
+      <h1 class="section-heading">From the ecosystem<br>to the exit.</h1>
+      <p class="section-sub">Four pillars, built around what junior VCs are usually missing and benchmarked against how the leading programs abroad teach it, then tailored for Taiwan. It opens with a free launch event, then gets into the actual work.</p>
+    </div>
+
+    <!-- FREE SESSION -->
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="free-banner">
+        <div>
+          <div class="fb-tag">Launch Event · Free · Fri Jul 31 · 3 PM</div>
+          <h3>VC Academy Launch Event</h3>
+          <p>The program opens with a free afternoon at our Taipei office — working VCs, live Q&amp;A, drinks, and a walk-through of the full curriculum.</p>
+        </div>
+        <a href="#" class="fb-btn" onclick="showPage('free')">See launch event →</a>
+      </div>
+    </div>
+
+    <!-- PILLAR 1 -->
+    <div class="reveal" style="margin-top:4rem;">
+      <div class="pillar-card pillar-1" style="margin-bottom:0;border-radius:16px 16px 0 0;">
+        <div class="pillar-num">PILLAR 01</div>
+        <h3 style="margin-bottom:0.5rem;">The Venture Capital Ecosystem</h3>
+        <p>A working map of how venture capital actually operates — and how to find your way into it.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="week-item">
+        <div><div class="week-num">1</div><div class="week-format">In-Person · Session</div></div>
+        <div>
+          <div class="week-title">How the Ecosystem Works</div>
+          <div class="week-desc">A brief but concrete introduction to the VC ecosystem, using Silicon Valley as the anchor case. What kinds of VCs exist, what stages they invest at, their typical ticket sizes, and the technologies they focus on. The mental model you need before anything else makes sense.</div>
+          <div class="week-who">→ FOUNDATION · Open to all cohort members</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">2</div><div class="week-format">In-Person · Session</div></div>
+        <div>
+          <div class="week-title">Getting Connected</div>
+          <div class="week-desc">How founders, angels, and family offices actually get connected to early-stage VCs — and how a new investor builds the relationships and deal flow that make a career possible. The unwritten mechanics of the network.</div>
+          <div class="week-who">→ FOUNDATION · Sourcing &amp; relationships</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">3</div><div class="week-format">In-Person · Session</div></div>
+        <div>
+          <div class="week-title">Taiwan, Asia &amp; Beyond Silicon Valley</div>
+          <div class="week-desc">The same ecosystem map, brought home to Taiwan and Greater China, then extended to Japan, Korea, and Europe. The local players you need to know — Taiwania Capital, the National Development Fund, AppWorks, CDIB — and how cross-border deals between Taipei, Silicon Valley, Berlin, and Tokyo actually get done. That bridge is what Mosaic does for a living.</div>
+          <div class="week-who">→ FOUNDATION · Taiwan in a global market</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 1 chart: funding ladder -->
+    <div class="reveal" style="margin-top:2.5rem;">
+      <div style="background:var(--bg-warm);border-radius:14px;padding:2rem;">
+        <svg viewBox="0 0 520 300" style="width:100%;max-width:560px;margin:0 auto;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="Funding stages and check sizes">
+          <g font-size="12.5" font-weight="600" fill="#1A1A2E">
+            <text x="12" y="44">Pre-seed</text><text x="12" y="96">Seed</text><text x="12" y="148">Series A</text><text x="12" y="200">Series B</text><text x="12" y="252">Growth</text>
+          </g>
+          <rect x="118" y="28" width="55" height="28" rx="4" fill="#94A3B8"/>
+          <rect x="118" y="80" width="105" height="28" rx="4" fill="#1E40AF"/>
+          <rect x="118" y="132" width="195" height="28" rx="4" fill="#0F766E"/>
+          <rect x="118" y="184" width="285" height="28" rx="4" fill="#D97706"/>
+          <rect x="118" y="236" width="360" height="28" rx="4" fill="#DC2626"/>
+          <g font-size="11.5" font-weight="600" fill="#57534E">
+            <text x="180" y="47">$100K–$1M</text><text x="230" y="99">$1–4M</text><text x="320" y="151">$8–20M</text><text x="410" y="203">$20–50M</text><text x="470" y="255" text-anchor="end" fill="#FFFFFF">$50M+</text>
+          </g>
+        </svg>
+        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Pillar 1: every investor lives on one rung of this ladder. Knowing which rung tells you almost everything about how they work.</p>
+      </div>
+    </div>
+
+    <!-- PILLAR 2 -->
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="pillar-card pillar-2" style="margin-bottom:0;border-radius:16px 16px 0 0;">
+        <div class="pillar-num">PILLAR 02</div>
+        <h3 style="margin-bottom:0.5rem;">Investor Roles &amp; Strategic Due Diligence</h3>
+        <p>Know your seat at the table — and how real investors decide what to dig into and what to walk away from.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="week-item">
+        <div><div class="week-num">4</div><div class="week-format">In-Person · Session</div></div>
+        <div>
+          <div class="week-title">Lead, Anchor, or Co-Investor</div>
+          <div class="week-desc">When deal flow arrives, you need to understand your position in the round. What it means to play lead investor versus anchor versus co-investor — the different responsibilities, leverage, and expectations that come with each seat.</div>
+          <div class="week-who">→ DEAL MECHANICS · Your role in the round</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">5</div><div class="week-format">In-Person · Session</div></div>
+        <div>
+          <div class="week-title">Strategic, Focused Diligence</div>
+          <div class="week-desc">A conceptual lecture on how to run strategic due diligence — not checking everything, but asking the questions that fit your thesis. How to build a strong, focused diligence question set instead of a generic checklist, and how to weight what you learn.</div>
+          <div class="week-who">→ DEAL MECHANICS · The art of the right questions</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">6</div><div class="week-format">In-Person · Session</div></div>
+        <div>
+          <div class="week-title">Reading the Answers &amp; Passing Early</div>
+          <div class="week-desc">Some questions a founder won't be able to answer — and that's signal. How to read those moments, recognize when a case doesn't fit your needs, and pass early with conviction instead of burning weeks on diligence that was never going to convert.</div>
+          <div class="week-who">→ DEAL MECHANICS · Conviction &amp; the early no</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 2 chart: deal funnel -->
+    <div class="reveal" style="margin-top:2.5rem;">
+      <div style="background:var(--bg-warm);border-radius:14px;padding:2rem;">
+        <svg viewBox="0 0 520 300" style="width:100%;max-width:560px;margin:0 auto;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="The deal funnel">
+          <rect x="40" y="28" width="320" height="38" rx="4" fill="#CBD5E1"/>
+          <rect x="85" y="80" width="230" height="38" rx="4" fill="#94A3B8"/>
+          <rect x="125" y="132" width="150" height="38" rx="4" fill="#0F766E"/>
+          <rect x="155" y="184" width="90" height="38" rx="4" fill="#1E40AF"/>
+          <rect x="175" y="236" width="50" height="38" rx="4" fill="#DC2626"/>
+          <g font-size="13" font-weight="700" text-anchor="middle">
+            <text x="200" y="52" fill="#1A1A2E">1,000</text><text x="200" y="104" fill="#FFFFFF">200</text><text x="200" y="156" fill="#FFFFFF">40</text><text x="200" y="208" fill="#FFFFFF">10</text><text x="200" y="260" fill="#FFFFFF">4</text>
+          </g>
+          <g font-size="12" fill="#57534E">
+            <text x="392" y="52">Deals seen</text><text x="392" y="104">First meeting</text><text x="392" y="156">Real diligence</text><text x="392" y="208">Term sheet</text><text x="392" y="260" font-weight="700" fill="#DC2626">Invested</text>
+          </g>
+        </svg>
+        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Pillar 2: hundreds of deals for every cheque. The skill is deciding fast what to dig into — and passing on the rest with a clear reason.</p>
+      </div>
+    </div>
+
+    <!-- PILLAR 3 -->
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="pillar-card pillar-3" style="margin-bottom:0;border-radius:16px 16px 0 0;">
+        <div class="pillar-num">PILLAR 03</div>
+        <h3 style="margin-bottom:0.5rem;">Term Sheets &amp; the Language of the Deal</h3>
+        <p>The detail work — the terminology, the documents, and the tools junior VCs are never taught.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="week-item">
+        <div><div class="week-num">7</div><div class="week-format">In-Person · Case Study</div></div>
+        <div>
+          <div class="week-title">Decoding the Terminology</div>
+          <div class="week-desc">The terms and concepts junior VCs trip over, made concrete. What they mean, why they exist, and how they shape a deal — so you can read a document and a conversation without bluffing.</div>
+          <div class="week-who">→ THE DEAL · Speaking the language</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">8</div><div class="week-format">In-Person · Case Study</div></div>
+        <div>
+          <div class="week-title">Issuing &amp; Receiving a Term Sheet</div>
+          <div class="week-desc">Whether you're providing a term sheet to a startup or receiving one from other investors, what comments and items you need to add, what to negotiate, and what to protect. Taught as a real, structured case rather than a definition list.</div>
+          <div class="week-who">→ THE DEAL · The document itself</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">9</div><div class="week-format">In-Person · Workshop</div></div>
+        <div>
+          <div class="week-title">Cap Tables, Valuation &amp; Dilution</div>
+          <div class="week-desc">Hands-on with a real capitalization table. Pre- and post-money valuation, how ownership and dilution move across rounds, the option pool, and what a term sheet does to the numbers. The math every investor is expected to run, often in their head.</div>
+          <div class="week-who">→ THE DEAL · The numbers behind the deal</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">10</div><div class="week-format">In-Person · Case Study</div></div>
+        <div>
+          <div class="week-title">The Tools of the Trade</div>
+          <div class="week-desc">The platforms and tools investors actually use to manage diligence, deals, and documents — and how to use them well. You leave able to operate, not just describe.</div>
+          <div class="week-who">→ THE DEAL · Working like a professional</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 3 chart: dilution -->
+    <div class="reveal" style="margin-top:2.5rem;">
+      <div style="background:var(--bg-warm);border-radius:14px;padding:2rem;">
+        <svg viewBox="0 0 520 300" style="width:100%;max-width:560px;margin:0 auto;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="Founder dilution across rounds">
+          <g font-size="12" font-weight="600" fill="#1A1A2E">
+            <text x="12" y="42">Founding</text><text x="12" y="98">After Seed</text><text x="12" y="154">After Series A</text><text x="12" y="210">After Series B</text>
+          </g>
+          <rect x="138" y="24" width="360" height="34" rx="3" fill="#1A1A2E"/>
+          <text x="318" y="46" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">100%</text>
+          <rect x="138" y="80" width="288" height="34" rx="3" fill="#1A1A2E"/>
+          <rect x="426" y="80" width="43" height="34" fill="#1E40AF"/>
+          <rect x="469" y="80" width="29" height="34" rx="3" fill="#D97706"/>
+          <text x="282" y="102" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">80%</text>
+          <rect x="138" y="136" width="223" height="34" rx="3" fill="#1A1A2E"/>
+          <rect x="361" y="136" width="105" height="34" fill="#1E40AF"/>
+          <rect x="466" y="136" width="32" height="34" rx="3" fill="#D97706"/>
+          <text x="250" y="158" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">62%</text>
+          <rect x="138" y="192" width="173" height="34" rx="3" fill="#1A1A2E"/>
+          <rect x="311" y="192" width="151" height="34" fill="#1E40AF"/>
+          <rect x="462" y="192" width="36" height="34" rx="3" fill="#D97706"/>
+          <text x="224" y="214" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">48%</text>
+          <g font-size="11" fill="#57534E">
+            <rect x="138" y="252" width="12" height="12" rx="2" fill="#1A1A2E"/><text x="156" y="262">Founders</text>
+            <rect x="232" y="252" width="12" height="12" rx="2" fill="#1E40AF"/><text x="250" y="262">Investors</text>
+            <rect x="322" y="252" width="12" height="12" rx="2" fill="#D97706"/><text x="340" y="262">Option pool</text>
+          </g>
+        </svg>
+        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Pillar 3: what a term sheet does to the cap table. Founders give up ownership round after round — you'll learn to read and run these numbers.</p>
+      </div>
+    </div>
+
+    <!-- PILLAR 4 -->
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="pillar-card pillar-4" style="margin-bottom:0;border-radius:16px 16px 0 0;">
+        <div class="pillar-num">PILLAR 04</div>
+        <h3 style="margin-bottom:0.5rem;">The Business of VC: Funds, Economics &amp; Exits</h3>
+        <p>How the money actually works — the part most courses skip and most juniors learn the hard way.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="week-item">
+        <div><div class="week-num">11</div><div class="week-format">In-Person · Session</div></div>
+        <div>
+          <div class="week-title">How a Fund Makes Money</div>
+          <div class="week-desc">The structure behind every VC: limited partners and general partners, the management fee, carried interest, and the ten-year fund lifecycle. Why fund size quietly dictates what stage you invest at and how big your checks can be. Understand this and you understand why VCs behave the way they do.</div>
+          <div class="week-who">→ THE BUSINESS · Fund economics</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">12</div><div class="week-format">In-Person · Session</div></div>
+        <div>
+          <div class="week-title">Portfolio Construction &amp; the Power Law</div>
+          <div class="week-desc">Ownership targets, reserves and follow-on capital, how many bets a fund actually makes, and why a single outlier has to carry the whole portfolio. How that one piece of math shapes every decision a VC makes — including the ones that look irrational from the outside.</div>
+          <div class="week-who">→ THE BUSINESS · Building a portfolio</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">13</div><div class="week-format">In-Person · Session</div></div>
+        <div>
+          <div class="week-title">Exits, Returns &amp; Life After the Check</div>
+          <div class="week-desc">How money comes back: trade sales, IPOs, and the secondary market. Why exits decide a fund's reputation and its next raise. Then the years in between — the board seat, governance, and the real job of supporting a founder once your money is in.</div>
+          <div class="week-who">→ THE BUSINESS · Returns &amp; post-investment</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 4 chart: the J-curve -->
+    <div class="reveal" style="margin-top:2.5rem;">
+      <div style="background:var(--bg-warm);border-radius:14px;padding:2rem;">
+        <svg viewBox="0 0 520 300" style="width:100%;max-width:560px;margin:0 auto;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="The fund J-curve">
+          <line x1="55" y1="40" x2="55" y2="272" stroke="#E7E5E4" stroke-width="1.5"/>
+          <line x1="55" y1="160" x2="500" y2="160" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <text x="48" y="164" font-size="11" fill="#A8A29E" text-anchor="end">0</text>
+          <path d="M60 158 C 130 235, 165 250, 205 245 C 260 238, 305 195, 335 162 C 390 110, 455 78, 498 55" fill="none" stroke="#DC2626" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="205" cy="245" r="4" fill="#DC2626"/>
+          <circle cx="498" cy="55" r="4" fill="#DC2626"/>
+          <text x="205" y="268" font-size="10.5" fill="#57534E" text-anchor="middle">fees &amp; early markdowns</text>
+          <text x="496" y="44" font-size="11" font-weight="700" fill="#0F766E" text-anchor="end">exits pay out</text>
+          <text x="22" y="150" font-size="11" fill="#A8A29E" transform="rotate(-90 22 150)" text-anchor="middle">Net return to LPs</text>
+          <g font-size="11" fill="#A8A29E">
+            <text x="60" y="288">Year 0</text><text x="277" y="288" text-anchor="middle">Year 5</text><text x="498" y="288" text-anchor="end">Year 10</text>
+          </g>
+        </svg>
+        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Pillar 4: a fund loses money for years before exits pay out — the J-curve. It's why patience, management fees, and carry all work the way they do.</p>
+      </div>
+    </div>
+
+    <p class="reveal" style="font-size:0.88rem;color:var(--text-sec);margin-top:2.5rem;line-height:1.7;">Four pillars, taught in person on weekends at our Taipei office, each one through real cases with mentor Q&amp;A. The structure draws on how the leading programs teach — VC University (Berkeley Law / NVCA), Kauffman Fellows, the Newton Program (London Business School), and Techstars' Venture Deals — adapted for Taiwan and for the people who actually invest here. Final session count and sequencing are set with each cohort.</p>
+  </div>
+</div>
+
+<!-- ==================== METHOD ==================== -->
+<div class="page" id="page-method">
+  <div class="section" style="padding-top:8rem;">
+    <div class="reveal">
+      <div class="section-label">Teaching Method</div>
+      <h1 class="section-heading">How the sessions<br>actually run.</h1>
+      <p class="section-sub">A lot of VC teaching is either theory you can't use or war stories you can't learn from. We work off real deals, and the investors who've done them sit in and talk through the calls they made.</p>
+    </div>
+    <div class="g4 reveal" style="margin-top:3rem;">
+      <div class="card-dark" style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">20%</div>
+        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">Concept</div>
+        <div style="font-size:0.75rem;opacity:0.7;margin-top:0.3rem;">The framework. The mental model before the detail.</div>
+      </div>
+      <div class="card-red" style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">45%</div>
+        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">Real Cases</div>
+        <div style="font-size:0.75rem;opacity:0.85;margin-top:0.3rem;">Actual deals, term sheets, and diligence sets.</div>
+      </div>
+      <div class="card-dark" style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">20%</div>
+        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">Mentor Debrief</div>
+        <div style="font-size:0.75rem;opacity:0.7;margin-top:0.3rem;">Working VCs on why they'd back it — or pass.</div>
+      </div>
+      <div class="card-dark" style="text-align:center;">
+        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">15%</div>
+        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">Your Reps</div>
+        <div style="font-size:0.75rem;opacity:0.7;margin-top:0.3rem;">You build the question set. You mark up the sheet.</div>
+      </div>
+    </div>
+
+    <!-- KEY EXERCISES -->
+    <div class="reveal" style="margin-top:4rem;">
+      <div class="section-label">What Happens in the Room</div>
+      <h2 class="section-heading">You'll be doing the work.</h2>
+    </div>
+    <div class="g2 reveal" style="margin-top:2rem;">
+      <div class="card">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">The Diligence Build</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">Given a real deal and a thesis, build the focused set of questions that actually matter. A mentor plays the founder. Some questions land; some can't be answered — and you decide what that tells you.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">The Term-Sheet Markup</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">Take a real term sheet and mark it up from the investor's side. Which clauses to add, which to push on, which to protect. A mentor who has negotiated the same terms walks the room through their reasoning.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">The Early No</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">A stack of deals, limited time. Practice the skill real VCs live by: passing fast on what doesn't fit your thesis, with a clear reason — instead of running full diligence on every case that crosses your desk.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">Know Your Seat</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">Run the same deal as lead, as anchor, and as co-investor. See how your leverage, responsibilities, and questions change with the seat you hold in the round.</p>
+      </div>
+    </div>
+
+    <!-- WHY THIS METHOD -->
+    <div class="reveal" style="margin-top:4rem;padding:3rem;background:var(--bg-warm);border-radius:16px;">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;margin-bottom:1rem;">Why this method.</h3>
+      <p style="font-size:0.95rem;line-height:1.8;color:var(--text-sec);">Junior VCs don't fail because they lack frameworks — they fail because they've never seen a real term sheet, never built a diligence set under time pressure, and never had a working investor tell them why a deal was a pass. We've spent 14 years on the investor's side of the table, scouting for Volkswagen and Audi and evaluating hundreds of startups for CES and VivaTech. VC Academy is that experience, structured into reps you can actually practice.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== OUTCOMES ==================== -->
+<div class="page" id="page-outcomes">
+  <div class="section" style="padding-top:8rem;">
+    <div class="reveal">
+      <div class="section-label">What You Walk Away With</div>
+      <h1 class="section-heading">Skills you can use<br>on a real deal.</h1>
+      <p class="section-sub">Everything on this list is something you can use the first time a real deal lands on your desk.</p>
+    </div>
+    <div class="g2 reveal" style="margin-top:3rem;gap:2rem;">
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <div class="promise-text"><h4>A working map of the ecosystem</h4><p>Investor types, stages, ticket sizes, and tech focus — across Silicon Valley, Japan, Korea, and Europe. You know who does what, and where you fit.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <div class="promise-text"><h4>Clarity on the path in</h4><p>A straight answer to "how do I become a VC?" — the core requirements, the real career routes, and how the industry actually hires.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <div class="promise-text"><h4>A strategic diligence framework</h4><p>The ability to build a focused, thesis-driven diligence question set instead of a generic checklist — and to know what each answer means.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <div class="promise-text"><h4>The confidence to pass early</h4><p>How to recognize when a deal doesn't fit and walk away fast, with a clear reason — the discipline that separates real investors from collectors of meetings.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <div class="promise-text"><h4>Command of the terminology</h4><p>You can read a term sheet and a deal conversation without bluffing — you know what the language means and why it's there.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <div class="promise-text"><h4>Term-sheet fluency</h4><p>How to issue and receive a term sheet, which comments and items to add, and what to negotiate — practiced on a real document.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <div class="promise-text"><h4>Role awareness</h4><p>A clear sense of how to operate as lead, anchor, or co-investor, and how your leverage and responsibilities shift with each seat.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">✓</div>
+        <div class="promise-text"><h4>A network of working investors</h4><p>Direct time with active VCs, operators, and corporate-venture scouts — the kind of relationships that open the first door.</p></div>
+      </div>
+    </div>
+
+    <!-- QUOTE -->
+    <div class="reveal" style="margin-top:4rem;">
+      <div class="section-label">From the Faculty</div>
+      <h2 class="section-heading">Why we built this.</h2>
+    </div>
+    <div class="g2 reveal" style="margin-top:2rem;align-items:start;">
+      <div class="quote-card" style="margin-bottom:1.25rem;">
+        <div class="quote-text">How can I become a VC? I can't count how many calls I've had with a business student asking exactly that. They don't need another lecture on what venture capital is — they need someone to show them the craft.</div>
+        <div class="quote-attr">— Volker Heistermann · Founder, Mosaic Venture Lab</div>
+      </div>
+      <div>
+        <div class="quote-card" style="margin-bottom:1.25rem;">
+          <div class="quote-text">A junior VC's hardest moments are the small ones — the term they don't recognize, the diligence question they don't know to ask. We teach those through real cases, the way you actually learn them on the job.</div>
+          <div class="quote-attr">— Johnny Yu · Partner, Mosaic Venture Lab</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">The best investors don't check everything. They ask the few questions that matter, read the answers, and move. That judgment is learnable — and it's what this program is for.</div>
+          <div class="quote-attr">— Ken Huang · Partner, Mosaic Venture Lab</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TRACK RECORD ==================== -->
+<div class="page" id="page-track">
+  <div class="section" style="padding-top:8rem;">
+    <div class="reveal">
+      <div class="section-label">Who We Are</div>
+      <h1 class="section-heading">14 years on the investor's<br>side of the table.</h1>
+      <p class="section-sub">Mosaic Venture Lab has been in Taiwan's venture ecosystem since 2011, originally as Yushan Ventures. We don't teach venture capital from a textbook — we've been sourcing, scouting, and evaluating deals the whole time.</p>
+    </div>
+    <div class="g2 reveal" style="margin-top:3rem;">
+      <div>
+        <div class="tl-item" style="margin-bottom:2rem;">
+          <div class="tl-year">2011-2013</div>
+          <div class="tl-title">Yushan Ventures &amp; Startup Weekend Taiwan</div>
+          <div class="tl-desc">Co-founded Yushan Ventures in Taipei. Introduced Startup Weekend to Taiwan — events at Google Taiwan, Microsoft Taiwan, and top universities in Hsinchu, Tainan, Kaohsiung, and Taipei. First contact with thousands of founders.</div>
+        </div>
+        <div class="tl-item" style="margin-bottom:2rem;">
+          <div class="tl-year">2012-2018</div>
+          <div class="tl-title">APEC Accelerator Network O2O</div>
+          <div class="tl-desc">Conceptualized and co-managed the APEC Accelerator Network with Taiwan's Ministry of Economic Affairs (MoEA/SMEA). Cross-border pitch events and deal flow across APEC economies for 6 years.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2015-PRESENT</div>
+          <div class="tl-title">Volkswagen Group / Audi Scouting</div>
+          <div class="tl-desc">Technology scouting and diligence partner for Volkswagen Group, with Audi as innovation partner. Active deal-sourcing network across 25+ countries and 5 continents.</div>
+        </div>
+      </div>
+      <div>
+        <div class="tl-item" style="margin-bottom:2rem;">
+          <div class="tl-year">2018</div>
+          <div class="tl-title">Mosaic Venture Lab</div>
+          <div class="tl-desc">Established as a deep-tech accelerator and scouting partner for Audi AG and Continental AG. Focused on connecting East Asian innovation to European automotive and industrial capital.</div>
+        </div>
+        <div class="tl-item" style="margin-bottom:2rem;">
+          <div class="tl-year">2024-2025</div>
+          <div class="tl-title">CES, VivaTech &amp; ITRI</div>
+          <div class="tl-desc">Trained 180+ startups for CES 2026 and VivaTech 2025, and professors for ITRI on patent commercialization — evaluating, from the investor's seat, what actually makes a company fundable.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2026</div>
+          <div class="tl-title">VC Academy</div>
+          <div class="tl-desc">The first structured, in-person program in Taiwan dedicated to training the next generation of venture capitalists — built from everything we've learned doing the job.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTNER LOGOS -->
+    <div style="margin-top:3.5rem;">
+      <div class="logo-strip-label">Programs &amp; Partners</div>
+      <div class="logo-strip">
+        <img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/startup-weekend-vector-logo.png" alt="Startup Weekend" class="corp-logo" style="height:28px;object-fit:contain;">
+        <img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/TTA.jpg" alt="TTA" class="corp-logo" style="height:30px;object-fit:contain;">
+        <img src="data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'><path%20d='M19.848%2C7.848c-0.992%2C0-1.902%2C0.348-2.616%2C0.928c-0.714-0.58-1.624-0.928-2.616-0.928%20c-0.992%2C0-1.902%2C0.348-2.616%2C0.928c-0.714-0.58-1.624-0.928-2.616-0.928c-0.992%2C0-1.902%2C0.348-2.616%2C0.928%20c-0.714-0.58-1.624-0.928-2.616-0.928C1.859%2C7.848%2C0%2C9.707%2C0%2C12s1.859%2C4.152%2C4.152%2C4.152c0.992%2C0%2C1.902-0.348%2C2.616-0.928%20c0.714%2C0.58%2C1.624%2C0.928%2C2.616%2C0.928c0.992%2C0%2C1.902-0.348%2C2.616-0.928c0.714%2C0.58%2C1.624%2C0.928%2C2.616%2C0.928%20c0.992%2C0%2C1.902-0.348%2C2.616-0.928c0.714%2C0.58%2C1.624%2C0.928%2C2.616%2C0.928C22.141%2C16.152%2C24%2C14.293%2C24%2C12S22.141%2C7.848%2C19.848%2C7.848z%20M17.232%2C13.866c-0.376-0.526-0.598-1.17-0.598-1.866c0-0.696%2C0.222-1.34%2C0.598-1.866c0.376%2C0.526%2C0.598%2C1.17%2C0.598%2C1.866%20C17.83%2C12.696%2C17.608%2C13.34%2C17.232%2C13.866z%20M12%2C13.866c-0.376-0.526-0.598-1.17-0.598-1.866c0-0.696%2C0.222-1.34%2C0.598-1.866%20c0.376%2C0.526%2C0.598%2C1.17%2C0.598%2C1.866C12.598%2C12.696%2C12.376%2C13.34%2C12%2C13.866z%20M6.768%2C13.866C6.392%2C13.34%2C6.17%2C12.696%2C6.17%2C12%20c0-0.696%2C0.222-1.34%2C0.598-1.866C7.144%2C10.66%2C7.366%2C11.304%2C7.366%2C12C7.366%2C12.696%2C7.144%2C13.34%2C6.768%2C13.866z%20M0.938%2C12%20c0-1.775%2C1.439-3.214%2C3.214-3.214c0.736%2C0%2C1.414%2C0.248%2C1.956%2C0.665C5.56%2C10.154%2C5.232%2C11.039%2C5.232%2C12%20c0%2C0.961%2C0.328%2C1.846%2C0.876%2C2.549c-0.542%2C0.416-1.22%2C0.665-1.956%2C0.665C2.377%2C15.214%2C0.938%2C13.775%2C0.938%2C12z%20M7.428%2C14.549%20C7.976%2C13.846%2C8.304%2C12.961%2C8.304%2C12c0-0.961-0.328-1.846-0.876-2.549c0.542-0.416%2C1.22-0.665%2C1.956-0.665%20c0.736%2C0%2C1.414%2C0.248%2C1.956%2C0.665c-0.549%2C0.704-0.876%2C1.588-0.876%2C2.549c0%2C0.961%2C0.328%2C1.846%2C0.876%2C2.549%20c-0.542%2C0.416-1.22%2C0.665-1.956%2C0.665C8.648%2C15.214%2C7.97%2C14.966%2C7.428%2C14.549z%20M12.66%2C14.549c0.549-0.704%2C0.876-1.588%2C0.876-2.549%20c0-0.961-0.328-1.846-0.876-2.55c0.542-0.416%2C1.22-0.665%2C1.956-0.665s1.414%2C0.248%2C1.956%2C0.665%20c-0.549%2C0.704-0.876%2C1.588-0.876%2C2.549c0%2C0.961%2C0.328%2C1.846%2C0.876%2C2.549c-0.542%2C0.416-1.22%2C0.665-1.956%2C0.665%20C13.88%2C15.214%2C13.202%2C14.966%2C12.66%2C14.549z%20M19.848%2C15.214c-0.736%2C0-1.414-0.248-1.956-0.665c0.548-0.704%2C0.876-1.588%2C0.876-2.549%20c0-0.961-0.328-1.846-0.876-2.549c0.542-0.416%2C1.22-0.665%2C1.956-0.665c1.775%2C0%2C3.214%2C1.439%2C3.214%2C3.214%20S21.623%2C15.214%2C19.848%2C15.214z'%20fill='%23888888'/></svg>" alt="Audi" class="corp-logo" style="height:32px;">
+        <img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/continental.png" alt="Continental" class="corp-logo" style="height:28px;object-fit:contain;">
+        <img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/ITRI.png" alt="ITRI" class="corp-logo" style="height:28px;object-fit:contain;">
+        <img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Liteon.png" alt="LITEON" class="corp-logo" style="height:28px;object-fit:contain;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MENTORS ==================== -->
+<div class="page" id="page-mentors">
+  <div class="section" style="padding-top:8rem;">
+    <div class="reveal">
+      <div class="section-label">Faculty &amp; Mentors</div>
+      <h1 class="section-heading">People who do this<br>for a living.</h1>
+      <p class="section-sub">The program is led by Mosaic Venture Lab's partners and taught with a volunteer network of VCs, operators, and corporate-venture scouts — people who source, diligence, and negotiate deals as their day job.</p>
+    </div>
+
+    <!-- CORE FACULTY -->
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="section-label" style="color:var(--text-muted);">Core Faculty · Mosaic Venture Lab</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem;" class="reveal mentor-grid">
+      <div class="mentor-card"><div class="mentor-photo initials">VH</div><div class="mentor-name">Volker Heistermann</div><div class="mentor-role">Founder, Mosaic Venture Lab<br>Managing Partner, Yushan Ventures<br>VW / Audi tech scouting</div></div>
+      <div class="mentor-card"><div class="mentor-photo initials">JY</div><div class="mentor-name">Johnny Yu</div><div class="mentor-role">Partner, Mosaic Venture Lab<br>Curriculum lead<br>Term sheets &amp; due diligence</div></div>
+      <div class="mentor-card"><div class="mentor-photo initials">KH</div><div class="mentor-name">Ken Huang</div><div class="mentor-role">Partner, Mosaic Venture Lab<br>Lecturer, NCU<br>Sourcing &amp; ecosystem</div></div>
+    </div>
+
+    <!-- MENTOR NETWORK -->
+    <div class="reveal" style="margin-top:3.5rem;">
+      <div class="section-label" style="color:var(--text-muted);">Volunteer VC &amp; Investor Network</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem;margin-top:1.5rem;" class="reveal mentor-grid">
+      <div class="mentor-card"><div class="mentor-photo"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/deborah.jpg" alt="Deborah Magid" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="mentor-name">Deborah Magid</div><div class="mentor-role">MD, NextStar Ventures<br>Ex-IBM Ventures</div></div>
+      <div class="mentor-card"><div class="mentor-photo"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Chander%20Kant.png" alt="Chander Kant" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="mentor-name">Chander Kant</div><div class="mentor-role">CEO, K Ventures<br>Former CEO, Zmanda</div></div>
+      <div class="mentor-card"><div class="mentor-photo"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Todd%20Lin_0.png" alt="Todd Lin" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="mentor-name">Todd Lin</div><div class="mentor-role">Semiconductor &amp; M&amp;A<br>Ex-GE, Acer, Egis Tech</div></div>
+      <div class="mentor-card"><div class="mentor-photo"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Mark%20Birch.png" alt="Mark Birch" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="mentor-name">Mark Birch</div><div class="mentor-role">Founder, TribeROI<br>Ex-AWS Global Advocate</div></div>
+      <div class="mentor-card"><div class="mentor-photo"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Volker%20Kaese_0.jpg" alt="Dr. Volker Kaese" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="mentor-name">Dr. Volker Kaese</div><div class="mentor-role">CEO, Ingenev Mobility<br>Ex-Audi/VW Innovation</div></div>
+      <div class="mentor-card"><div class="mentor-photo"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Shafeen.png" alt="Shafeen Charania" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="mentor-name">Shafeen Charania</div><div class="mentor-role">COO, fluency<br>Ex-DXC Enterprise IT</div></div>
+      <div class="mentor-card"><div class="mentor-photo"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Ashley.png" alt="Ashley Hsueh" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="mentor-name">Ashley Hsueh</div><div class="mentor-role">Management Consultant<br>Bain &amp; Company</div></div>
+      <div class="mentor-card"><div class="mentor-photo"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Christian.png" alt="Christian Walter" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="mentor-name">Christian Walter</div><div class="mentor-role">CEO, RegionRise<br>Ex-Google Europe</div></div>
+      <div class="mentor-card"><div class="mentor-photo initials" style="font-size:1.4rem;">+</div><div class="mentor-name">Guest Investors</div><div class="mentor-role">A rotating circle of VC friends<br>joining each cohort</div></div>
+    </div>
+    <p class="reveal" style="font-size:0.82rem;color:var(--text-muted);margin-top:2rem;line-height:1.7;font-style:italic;">Mentors participate on a volunteer basis. The lineup is confirmed with each cohort and may vary by session.</p>
+  </div>
+</div>
+
+<!-- ==================== APPLY ==================== -->
+<div class="page" id="page-apply">
+  <div class="section" style="padding-top:8rem;">
+    <div class="reveal">
+      <div class="section-label">Join the Founding Cohort</div>
+      <h1 class="section-heading">The launch is Friday, July 31.<br>The cohort starts after.<br>Register free.</h1>
+    </div>
+
+    <!-- FREE SESSION BANNER -->
+    <div class="reveal" style="margin-top:2.5rem;">
+      <div class="free-banner">
+        <div>
+          <div class="fb-tag">Step 1 · Free</div>
+          <h3>VC Academy Launch — Fri, July 31 · 3 PM</h3>
+          <p>A free afternoon at our Taipei office: working VCs, live Q&amp;A, drinks, and a walk-through of the full program. Register to attend, then decide if the cohort is for you.</p>
+        </div>
+        <a href="#" class="fb-btn" onclick="return openForm();">Register free →</a>
+      </div>
+    </div>
+
+    <div class="g2 reveal" style="margin-top:3rem;">
+      <div>
+        <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:1.25rem;">Who should apply.</h3>
+        <div style="font-size:0.92rem;color:var(--text-sec);line-height:1.8;">
+          <p style="margin-bottom:0.75rem;">Business students and recent graduates who keep asking how to break into venture capital. Analysts and operators who want to move into investing. Founders and family-office members who need to understand the other side of the table. Anyone serious about the craft of backing companies.</p>
+          <p>The founding cohort is small and invitation-only — we keep the room to about 20 people so every participant gets real time with the mentors.</p>
+        </div>
+        <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin:2rem 0 1rem;">Program details.</h3>
+        <div style="font-size:0.88rem;color:var(--text-sec);line-height:2;">
+          <p><strong>Format:</strong> In-person, weekend sessions at the Mosaic Venture Lab office, Taipei.</p>
+          <p><strong>First cohort:</strong> Launches late July 2026.</p>
+          <p><strong>Cohort size:</strong> ~20 participants. Invitation only.</p>
+          <p><strong>Start here:</strong> VC Academy launch event — free, Friday July 31 at 3:00 PM.</p>
+          <p><strong>Investment:</strong> Program details and pricing are shared at launch event.</p>
+        </div>
+      </div>
+      <div>
+        <div class="cta-section" style="border-radius:16px;">
+          <h2 style="font-size:1.8rem;">Ready to apply?</h2>
+          <p style="font-size:0.92rem;">The launch is Friday, July 31 at 3 PM. Register free and we'll be in touch about the cohort.</p>
+          <a href="#" class="cta-btn" onclick="return openForm();">Apply Now →</a>
+          <p style="font-size:0.75rem;opacity:0.5;margin-top:1.5rem;">Applications reviewed on a rolling basis.<br>Founding cohort limited to ~20 seats.</p>
+        </div>
+        <div style="margin-top:1.5rem;padding:2rem;background:var(--bg-warm);border-radius:14px;">
+          <h4 style="font-size:0.88rem;font-weight:700;margin-bottom:0.75rem;">Questions?</h4>
+          <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.7;">Contact the VC Academy team at Mosaic Venture Lab.<br>Email: jy@mvl.biz · kh@mvl.biz · vh@mvl.biz<br>Location: Taipei, Taiwan</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="reveal" style="margin-top:4rem;">
+      <div class="section-label">Common Questions</div>
+      <h2 class="section-heading">Before you apply.</h2>
+      <div style="margin-top:1.5rem;">
+        <div class="faq-item">
+          <h4>Do I need finance or investing experience?</h4>
+          <p>No. The program is built for people trying to break in — business students, aspiring analysts, operators, and founders. We start from how the ecosystem works and build up to the deal mechanics.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Is the launch event really free?</h4>
+          <p>Yes. The VC Academy launch on Friday, July 31 (3:00 PM) is free and held in person at our Taipei office — working VCs, Q&amp;A, and drinks. It's where we present the full program. Seats are limited, so register early.</p>
+        </div>
+        <div class="faq-item">
+          <h4>When and where does it run?</h4>
+          <p>In person, on weekends, at the Mosaic Venture Lab office in Taipei. The first cohort launches in late July 2026.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How big is the cohort?</h4>
+          <p>Small by design — about 20 participants for the founding cohort, invitation only, so everyone gets direct time with working investors.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What does it cost?</h4>
+          <p>We share program details and pricing at launch event, where you can ask questions and decide whether to continue.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+/* ===================================================================
+   GOOGLE REGISTRATION FORM
+   Paste Johnny's Google Form link between the quotes below.
+   Every "Apply" / "Request an invitation" button uses this one value.
+   =================================================================== */
+const FORM_URL = "PASTE_GOOGLE_FORM_URL_HERE";
+
+function openForm() {
+  if (FORM_URL && FORM_URL.indexOf("http") === 0) {
+    window.open(FORM_URL, "_blank", "noopener");
+  } else {
+    alert("Add your Google Form link to the FORM_URL variable in the page source.");
+  }
+  return false;
+}
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  if (event && event.target) {
+    var tab = event.target.closest('.nav-tab');
+    if (tab) tab.classList.add('active');
+  }
+  document.querySelector('.nav-tabs').classList.remove('open');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(initReveals, 100);
+}
+
+function initReveals() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el));
+}
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Init
+document.addEventListener('DOMContentLoaded', initReveals);
+</script>
+</body>
+</html>
