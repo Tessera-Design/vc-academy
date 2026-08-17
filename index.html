@@ -252,6 +252,20 @@ nav.scrolled { border-bottom-color:var(--border); }
   padding:0.8rem 1rem; font-size:0.78rem; color:var(--red); line-height:1.6; margin-bottom:1.25rem; }
 @media(max-width:600px){ .form-row { grid-template-columns:1fr; gap:0; } .apply-form { padding:1.5rem; } }
 
+/* DECK DOWNLOAD */
+.deck-cta { display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; background:var(--bg-warm);
+  border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; margin-top:2rem; }
+.deck-cta-text { flex:1; min-width:220px; }
+.deck-cta-text h4 { font-size:0.95rem; font-weight:700; margin-bottom:0.25rem; }
+.deck-cta-text p { font-size:0.82rem; color:var(--text-sec); line-height:1.6; }
+.btn-download { display:inline-flex; align-items:center; gap:0.6rem; padding:0.9rem 1.6rem; background:var(--red);
+  color:white; border:none; border-radius:8px; font-family:inherit; font-weight:700; font-size:0.88rem;
+  text-decoration:none; cursor:pointer; white-space:nowrap; transition:background .2s, transform .2s; }
+.btn-download:hover { background:#B91C1C; transform:translateY(-1px); }
+.btn-download svg { width:16px; height:16px; flex-shrink:0; }
+.btn-download[aria-disabled="true"] { background:var(--text-muted); cursor:not-allowed; transform:none; }
+@media(max-width:600px){ .deck-cta { padding:1.25rem; } .btn-download { width:100%; justify-content:center; } }
+
 /* FAQ */
 .faq-item { border-bottom:1px solid var(--border); padding:1.5rem 0; }
 .faq-item h4 { font-size:1rem; font-weight:700; margin-bottom:0.5rem; }
@@ -709,6 +723,20 @@ nav.scrolled { border-bottom-color:var(--border); }
           <img src="assets/launch-2026-08-14/slide-gravity-of-capital.jpg" alt="Slide: the gravity of capital changes with your coordinates — Palo Alto, Beijing, Taipei" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:12px;">
           <figcaption style="font-size:0.82rem;color:var(--text-sec);line-height:1.65;margin-top:0.75rem;">And why none of it transfers cleanly. Risk, sourcing, and exits work differently in Palo Alto, Beijing, and Taipei — knowing which rules you're playing by is most of the job.</figcaption>
         </figure>
+      </div>
+
+      <!-- DECK DOWNLOAD -->
+      <div class="deck-cta">
+        <div class="deck-cta-text">
+          <h4>Want the full deck?</h4>
+          <p>The complete slides from the August 14 launch — the ecosystem map, the scouting routes in, and the walk-through of the program.</p>
+        </div>
+        <a href="#" class="btn-download" id="deckBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download the deck
+        </a>
       </div>
     </div>
 
@@ -1429,8 +1457,55 @@ nav.scrolled { border-bottom-color:var(--border); }
    =================================================================== */
 const APPLY_URL = "";   // ← 例：https://script.google.com/macros/s/AKfycb.../exec
 
+/* ===================================================================
+   簡報下載連結 — LAUNCH DECK
+   -------------------------------------------------------------------
+   Recap 頁「Download the deck」按鈕。可填兩種：
+
+   A. 放在這個 repo 裡（推薦，速度快、不會被權限擋）：
+        把 PDF 放到 assets/launch-2026-08-14/ 之下，然後填相對路徑：
+        "assets/launch-2026-08-14/vc-academy-launch-deck.pdf"
+
+   B. 外部連結（Google Slides / Drive）：
+        填完整網址即可。⚠ 記得把共用權限設成「知道連結的任何人」，
+        否則訪客會看到要求存取權的畫面。
+
+   留空時按鈕會自動隱藏，不會出現壞掉的下載鈕。
+   =================================================================== */
+const DECK_URL = "";    // ← 例：assets/launch-2026-08-14/vc-academy-launch-deck.pdf
+
 /* 8/14 launch event 的 Luma 頁（活動已結束，保留備查） */
 const LUMA_RECAP_URL = "https://luma.com/bp6g466r?tk=p0HIRf";
+
+(function initDeckDownload() {
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+
+  ready(function () {
+    const btn = document.getElementById('deckBtn');
+    if (!btn) return;
+    const box = btn.closest('.deck-cta');
+
+    // 未設定就整塊隱藏，避免訪客點到壞掉的下載鈕
+    if (!DECK_URL) {
+      if (box) box.style.display = 'none';
+      return;
+    }
+
+    btn.href = DECK_URL;
+    const external = /^https?:\/\//i.test(DECK_URL);
+    if (external) {
+      // 跨網域無法觸發下載，改開新分頁
+      btn.target = '_blank';
+      btn.rel = 'noopener noreferrer';
+    } else {
+      // 同網域檔案：直接下載並指定檔名
+      btn.setAttribute('download', '');
+    }
+  });
+})();
 
 (function initApplyForm() {
   function ready(fn) {
