@@ -295,9 +295,14 @@ nav.scrolled { border-bottom-color:var(--border); }
 .btn-download svg { width:16px; height:16px; flex-shrink:0; }
 .btn-download[aria-disabled="true"] { background:var(--text-muted); cursor:not-allowed; transform:none; }
 /* 下載進行中的狀態 —— 檔案有幾 MB，沒有回饋使用者會以為按鈕壞了 */
-.btn-download.is-loading, .nav-apply.is-loading { pointer-events:none; opacity:0.85; }
-.btn-download.is-loading svg, .nav-apply.is-loading svg { animation:spinDown 0.9s linear infinite; }
-@keyframes spinDown { to { transform:rotate(360deg); } }
+.btn-download.is-loading, .nav-apply.is-loading { pointer-events:none; opacity:0.9; }
+/* 下載圖示換成標準的環形 spinner（旋轉箭頭看起來像圖示壞掉） */
+.btn-download.is-loading .dl-icon, .nav-apply.is-loading .dl-icon { display:none; }
+.spinner { display:none; width:15px; height:15px; flex-shrink:0; border-radius:50%;
+  border:2px solid rgba(255,255,255,0.35); border-top-color:#fff;
+  animation:spin 0.7s linear infinite; }
+.btn-download.is-loading .spinner, .nav-apply.is-loading .spinner { display:block; }
+@keyframes spin { to { transform:rotate(360deg); } }
 @media(max-width:600px){ .deck-cta { padding:1.25rem; } .btn-download { width:100%; justify-content:center; } }
 
 /* FAQ */
@@ -414,9 +419,10 @@ nav.scrolled { border-bottom-color:var(--border); }
   <a class="nav-brand" href="#" onclick="return showPage('home')"><img src="assets/brand/mosaic-logo.png" style="height:28px;width:auto;vertical-align:middle;margin-right:8px;" alt="Mosaic Venture Lab">VC <em>Academy</em></a>
   <button class="nav-apply" id="navApply" onclick="return openApplyModal();">Apply →</button>
   <a class="nav-apply nav-deck" id="navDeck" href="#" download><span class="nd-label">Get deck</span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;" aria-hidden="true">
+    <svg class="dl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;" aria-hidden="true">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-    </svg></a>
+    </svg>
+    <span class="spinner" aria-hidden="true"></span></a>
   <button class="nav-hamburger" onclick="document.querySelector('.nav-tabs').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -809,10 +815,11 @@ nav.scrolled { border-bottom-color:var(--border); }
           <p>The complete slides from the August 14 launch — the ecosystem map, the scouting routes in, and the walk-through of the program.</p>
         </div>
         <a href="#" class="btn-download" id="deckBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="dl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
-          Download the deck
+          <span class="spinner" aria-hidden="true"></span>
+          <span class="nd-label">Download the deck</span>
         </a>
       </div>
     </div>
@@ -1713,17 +1720,15 @@ function closeApplyModal() {
       el.addEventListener('click', function () {
         if (el.classList.contains('is-loading')) return;
         const label = el.querySelector('.nd-label');
-        const original = label ? label.textContent : null;
-        const originalText = label ? null : el.childNodes[el.childNodes.length - 1].textContent;
+        if (!label) return;
+        const original = label.textContent;
 
         el.classList.add('is-loading');
-        if (label) label.textContent = 'Preparing…';
-        else el.childNodes[el.childNodes.length - 1].textContent = ' Preparing…';
+        label.textContent = 'Preparing…';
 
         setTimeout(function () {
           el.classList.remove('is-loading');
-          if (label) label.textContent = original;
-          else el.childNodes[el.childNodes.length - 1].textContent = originalText;
+          label.textContent = original;
         }, 3500);
       });
     });
