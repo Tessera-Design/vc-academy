@@ -33,11 +33,12 @@ body { font-family:'Instrument Sans',sans-serif; background:var(--bg); color:var
 /* NAV */
 nav { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(250,249,246,0.92); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid transparent; transition:all .3s; }
 nav.scrolled { border-bottom-color:var(--border); }
-.nav-inner { max-width:1340px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; height:68px; }
-.nav-brand { font-family:'DM Serif Display',serif; font-size:1.15rem; font-weight:400; color:var(--text); text-decoration:none; margin-right:3rem; letter-spacing:-0.01em; }
+.nav-inner { max-width:1340px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; height:68px; min-height:68px; }
+/* 不用 display:flex —— 會把 "VC" 與 <em>Academy</em> 之間的空格吃掉 */
+.nav-brand { font-family:'DM Serif Display',serif; font-size:1.15rem; font-weight:400; color:var(--text); text-decoration:none; margin-right:2rem; letter-spacing:-0.01em; white-space:nowrap; flex-shrink:0; }
 .nav-brand em { color:var(--red); font-style:italic; }
 .nav-tabs { display:flex; gap:0; flex:1; height:100%; }
-.nav-tab { display:flex; align-items:center; padding:0 1.1rem; font-size:0.8rem; font-weight:500; letter-spacing:0.03em; color:var(--text-sec); text-decoration:none; height:100%; position:relative; transition:color .2s; cursor:pointer; border:none; background:none; font-family:inherit; text-transform:uppercase; }
+.nav-tab { display:flex; align-items:center; padding:0 0.85rem; font-size:0.76rem; font-weight:500; letter-spacing:0.02em; color:var(--text-sec); text-decoration:none; height:100%; position:relative; transition:color .2s; cursor:pointer; border:none; background:none; font-family:inherit; text-transform:uppercase; white-space:nowrap; }
 .nav-tab:hover { color:var(--text); }
 .nav-tab.active { color:var(--red); }
 .nav-tab.active::after { content:''; position:absolute; bottom:0; left:1.1rem; right:1.1rem; height:2px; background:var(--red); }
@@ -47,16 +48,18 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 /* LAYOUT */
 .section { max-width:1140px; margin:0 auto; padding:6rem 2rem; }
-/* 分頁頂端留白 — 需避開固定導覽列（桌機 68px / 手機 56px），故隨螢幕縮放 */
-.section-hero { padding-top:10rem; padding-bottom:4rem; }
-.section-top  { padding-top:8rem; }
-@media(max-width:900px){
-  .section-hero { padding-top:6.5rem; padding-bottom:2.5rem; }
-  .section-top  { padding-top:5.5rem; }
+/* 分頁頂端留白 — 需避開固定導覽列（桌機 68px / 手機 56px），故隨螢幕縮放。
+   用 .section.section-hero 複合選擇器提高特異性，否則會被後面
+   @media(max-width:1100px) 的 .section 內距規則覆蓋，導致內容被導覽列蓋住。 */
+.section.section-hero { padding-top:10rem; padding-bottom:4rem; }
+.section.section-top  { padding-top:8rem; }
+@media(max-width:1000px){
+  .section.section-hero { padding-top:7rem; padding-bottom:2.5rem; }
+  .section.section-top  { padding-top:6rem; }
 }
 @media(max-width:600px){
-  .section-hero { padding-top:4.5rem; padding-bottom:2rem; }
-  .section-top  { padding-top:4rem; }
+  .section.section-hero { padding-top:5rem; padding-bottom:2rem; }
+  .section.section-top  { padding-top:4.5rem; }
 }
 .section-sm { max-width:1140px; margin:0 auto; padding:4rem 2rem; }
 .full-bleed { background:var(--bg-warm); }
@@ -354,7 +357,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 .nav-apply:active { transform:scale(0.97); }
 /* 兩顆按鈕由 JS 依當前分頁擇一顯示，預設都不顯示 */
 .nav-apply, .nav-deck { display:none !important; }
-@media(max-width:900px){
+@media(max-width:1000px){
   .nav-apply.is-shown, .nav-deck.is-shown { display:inline-flex !important; margin-left:auto; }
 }
 
@@ -376,10 +379,16 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 /* MOBILE NAV HAMBURGER */
 .nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:0.5rem;
-  margin-left:auto; min-width:44px; min-height:44px; align-items:center; justify-content:center;
+  margin-left:auto; min-width:44px; min-height:44px; flex-direction:column;
+  align-items:center; justify-content:center;
   -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
-.nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); margin:5px 0; transition:all .3s; border-radius:1px; }
-@media(max-width:900px) {
+.nav-hamburger span { display:block; width:26px; height:2.5px; background:var(--text); margin:3.5px 0; transition:all .3s; border-radius:2px; }
+/* 滑鼠／觸控點擊後不留焦點外框，鍵盤操作仍保留（無障礙） */
+.nav-hamburger:focus { outline:none; }
+.nav-hamburger:focus-visible { outline:2px solid var(--red); outline-offset:2px; border-radius:8px; }
+.nav-apply:focus { outline:none; }
+.nav-apply:focus-visible { outline:2px solid var(--text); outline-offset:2px; }
+@media(max-width:1000px) {
   .nav-hamburger { display:flex; margin-left:0.6rem; }
   .nav-tabs { display:none !important; position:fixed; top:68px; left:0; right:0; height:auto !important; background:#FAF9F6; flex-direction:column; padding:0.5rem 0 1rem; border-bottom:2px solid var(--border); box-shadow:0 8px 30px rgba(0,0,0,0.12); z-index:9999; max-height:calc(100vh - 68px); overflow-y:auto; }
   .nav-tabs.open { display:flex !important; }
@@ -1550,10 +1559,34 @@ const LUMA_RECAP_URL = "https://luma.com/bp6g466r?tk=p0HIRf";
 let applyFormAnchor = null;   // 記住原始位置的錨點
 let savedScrollY = 0;
 
+/* 送出成功後表單會停在成功畫面。再次開啟時要還原成空白表單，
+   否則同一台裝置無法送出第二筆（例如兩個人共用一支手機）。
+   只在「已送出成功」時重設，避免清掉使用者打到一半的內容。 */
+function resetApplyFormIfSubmitted() {
+  const inner   = document.getElementById('cohortForm');
+  const success = document.getElementById('formSuccess');
+  const submit  = document.getElementById('formSubmit');
+  const notice  = document.getElementById('formNotice');
+  if (!inner || !success) return;
+  if (getComputedStyle(success).display === 'none') return;   // 沒送出過就不動
+
+  inner.querySelectorAll('[data-field]').forEach(function (el) {
+    el.value = '';
+    const field = el.closest('.field');
+    if (field) field.classList.remove('invalid');
+  });
+  inner.style.display = '';
+  success.style.display = 'none';
+  if (notice) notice.style.display = 'none';
+  if (submit) { submit.disabled = false; submit.textContent = 'Submit application →'; }
+}
+
 function openApplyModal() {
   const form  = document.getElementById('applyForm');
   const modal = document.getElementById('applyModal');
   if (!form || !modal) return false;
+
+  resetApplyFormIfSubmitted();
 
   if (!applyFormAnchor) {
     applyFormAnchor = document.createComment('apply-form-home');
@@ -1579,7 +1612,7 @@ function openApplyModal() {
 
 /* Apply 頁上方的行動按鈕：手機開彈窗，桌機捲到表單並聚焦第一欄 */
 function goToApplyForm() {
-  if (window.innerWidth <= 900) return openApplyModal();
+  if (window.innerWidth <= 1000) return openApplyModal();
 
   const form = document.getElementById('applyForm');
   if (!form) return false;
@@ -1630,7 +1663,7 @@ function closeApplyModal() {
 
     // 轉成桌機寬度時若彈窗還開著，收起來並把表單歸位
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 900 && modal.classList.contains('open')) closeApplyModal();
+      if (window.innerWidth > 1000 && modal.classList.contains('open')) closeApplyModal();
     });
   });
 })();
