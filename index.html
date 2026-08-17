@@ -196,6 +196,39 @@ nav.scrolled { border-bottom-color:var(--border); }
 .event-overlay h4 { font-size:0.92rem; font-weight:700; }
 .event-overlay p { font-size:0.72rem; opacity:0.8; margin-top:0.15rem; }
 
+/* APPLY FORM */
+.apply-form { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2rem; box-shadow:var(--sh-sm); }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.field { margin-bottom:1.1rem; }
+.field label { display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.02em; margin-bottom:0.4rem; color:var(--text); }
+.field label .req { color:var(--red); margin-left:0.15rem; }
+.field input, .field select, .field textarea {
+  width:100%; font-family:inherit; font-size:0.9rem; color:var(--text); background:var(--bg);
+  border:1px solid var(--border); border-radius:8px; padding:0.7rem 0.85rem; transition:border-color .2s, box-shadow .2s;
+}
+.field textarea { resize:vertical; min-height:110px; line-height:1.6; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline:none; border-color:var(--red); box-shadow:0 0 0 3px rgba(220,38,38,0.10);
+}
+.field input::placeholder, .field textarea::placeholder { color:var(--text-muted); }
+.field .hint { font-size:0.72rem; color:var(--text-muted); margin-top:0.3rem; }
+.field.invalid input, .field.invalid select, .field.invalid textarea { border-color:var(--red); }
+.field .err { display:none; font-size:0.72rem; color:var(--red); margin-top:0.3rem; font-weight:500; }
+.field.invalid .err { display:block; }
+.form-submit { width:100%; padding:0.95rem 1.5rem; background:var(--red); color:white; border:none; border-radius:8px;
+  font-family:inherit; font-weight:700; font-size:0.9rem; letter-spacing:0.02em; cursor:pointer; transition:background .2s, transform .2s; }
+.form-submit:hover:not(:disabled) { background:#B91C1C; transform:translateY(-1px); }
+.form-submit:disabled { opacity:0.6; cursor:not-allowed; }
+.form-foot { font-size:0.72rem; color:var(--text-muted); line-height:1.6; margin-top:0.9rem; text-align:center; }
+.form-success { display:none; text-align:center; padding:2.5rem 1rem; }
+.form-success .fs-icon { width:52px; height:52px; border-radius:50%; background:var(--teal-light); color:var(--teal);
+  display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 1rem; }
+.form-success h3 { font-family:'DM Serif Display',serif; font-size:1.5rem; margin-bottom:0.5rem; }
+.form-success p { font-size:0.88rem; color:var(--text-sec); line-height:1.7; }
+.form-notice { background:var(--red-light); border:1px solid rgba(220,38,38,0.2); border-radius:8px;
+  padding:0.8rem 1rem; font-size:0.78rem; color:var(--red); line-height:1.6; margin-bottom:1.25rem; }
+@media(max-width:600px){ .form-row { grid-template-columns:1fr; gap:0; } .apply-form { padding:1.5rem; } }
+
 /* FAQ */
 .faq-item { border-bottom:1px solid var(--border); padding:1.5rem 0; }
 .faq-item h4 { font-size:1rem; font-weight:700; margin-bottom:0.5rem; }
@@ -275,7 +308,7 @@ nav.scrolled { border-bottom-color:var(--border); }
   </button>
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="showPage('home')">Home</button>
-    <button class="nav-tab" onclick="showPage('free')">Launch Event</button>
+    <button class="nav-tab" onclick="showPage('free')">Aug 14 Recap</button>
     <button class="nav-tab" onclick="showPage('curriculum')">Curriculum</button>
     <button class="nav-tab" onclick="showPage('method')">Method</button>
     <button class="nav-tab" onclick="showPage('outcomes')">Outcomes</button>
@@ -294,12 +327,12 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal">
       <div class="hero-tag"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Mosaic%20Venture%20Lab_U.jpg" style="height:32px;width:auto;vertical-align:middle;margin-right:8px;" alt="Mosaic">VC Academy · by Mosaic Venture Lab · Taipei</div>
       <h1 class="hero-title">How do you actually<br>become a <em>VC?</em></h1>
-      <p class="hero-sub">It's the question we hear most — from students, analysts, and founders ready to cross to the other side of the table. VC Academy is a small, in-person program in Taipei where working investors teach the real job: how the venture world runs, how to run due diligence without drowning in it, and how to handle a term sheet. A few weekends, about 20 seats — and it opens with a free launch event on Friday, August 14.</p>
+      <p class="hero-sub">It's the question we hear most — from students, analysts, and founders ready to cross to the other side of the table. VC Academy is a small, in-person program in Taipei where working investors teach the real job: how the venture world runs, how to run due diligence without drowning in it, and how to handle a term sheet. A few weekends, about 20 seats. We opened the program in Taipei on August 14 — applications for the founding cohort are now open.</p>
       <div class="g4 reveal" style="margin-top:2.5rem;">
         <div class="stat-card"><h3>14</h3><p>Years in Taiwan's Ecosystem</p></div>
         <div class="stat-card red"><h3>4</h3><p>Curriculum Pillars</p></div>
         <div class="stat-card"><h3>20</h3><p>Founding-Cohort Seats</p></div>
-        <div class="stat-card"><h3>1</h3><p>Free Intro Session</p></div>
+        <div class="stat-card"><h3>2026</h3><p>Founding Cohort</p></div>
       </div>
 
       <!-- MENTOR COMPANY LOGOS -->
@@ -385,11 +418,11 @@ nav.scrolled { border-bottom-color:var(--border); }
   <div class="section">
     <div class="free-banner reveal">
       <div>
-        <div class="fb-tag">Launch Event · Free · Fri Aug 14 · 3 PM</div>
-        <h3>VC Academy Launch Event</h3>
-        <p>A free afternoon at our Taipei office — working VCs, live Q&amp;A, drinks, and a walk-through of the program. The afternoon we open VC Academy. Register to attend.</p>
+        <div class="fb-tag">Applications Open · Founding Cohort · ~20 Seats</div>
+        <h3>Apply to the founding cohort.</h3>
+        <p>We launched VC Academy in Taipei on August 14. The founding cohort is now taking applications — about 20 seats, in person, on weekends. <a href="#" onclick="showPage('free')" style="color:white;text-decoration:underline;">See what the launch was like →</a></p>
       </div>
-      <a href="#" class="fb-btn" onclick="showPage('free')">See launch event →</a>
+      <a href="#" class="fb-btn" onclick="showPage('apply')">Apply now →</a>
     </div>
   </div>
 
@@ -592,9 +625,9 @@ nav.scrolled { border-bottom-color:var(--border); }
   <!-- CTA -->
   <div class="section-sm">
     <div class="cta-section reveal">
-      <h2>It starts with launch event.</h2>
-      <p>VC Academy opens with a free afternoon in Taipei on Friday, August 14 — working VCs, live Q&amp;A, drinks. Come and see if this is your room.</p>
-      <button class="cta-btn" onclick="showPage('free')">See launch event →</button>
+      <h2>The founding cohort is forming.</h2>
+      <p>We launched in Taipei on August 14. What comes next is the program itself — in person, on weekends, about 20 seats. Applications are open now.</p>
+      <button class="cta-btn" onclick="showPage('apply')">Apply to the cohort →</button>
     </div>
   </div>
 
@@ -604,49 +637,60 @@ nav.scrolled { border-bottom-color:var(--border); }
 <div class="page" id="page-free">
   <div class="section" style="padding-top:8rem;">
     <div class="reveal">
-      <div class="section-label">VC Academy Launch Event · Free</div>
-      <h1 class="section-heading">Break into Venture Capital.<br>One afternoon in Taipei.</h1>
-      <p class="section-sub">VC Academy opens with a free afternoon at our Taipei office. Working VCs share how they actually invest, you ask them anything, and we walk you through the program. Drinks, real conversation, a room full of people trying to get in. Friday, August 14, at 3:00 PM.</p>
+      <div class="section-label">Recap · Launch Event · Fri, Aug 14 2026</div>
+      <h1 class="section-heading">We opened VC Academy.<br>One afternoon in Taipei.</h1>
+      <p class="section-sub">On Friday, August 14, we opened VC Academy with a free afternoon at the Mosaic Venture Lab office in Taipei. Working VCs talked about how they actually invest, the floor opened up for questions, and we walked the room through the full program — over whisky highballs and a lot of good conversation. Here's what the afternoon covered.</p>
     </div>
 
-    <!-- WHAT YOU GET -->
+    <!-- WHAT WE COVERED -->
     <div class="reveal" style="margin-top:3rem;">
-      <div class="section-label">The afternoon</div>
+      <div class="section-label">What we covered</div>
       <h2 class="section-heading">An afternoon with<br>working VCs.</h2>
     </div>
     <div class="g2 reveal" style="margin-top:2rem;gap:2rem;">
       <div class="promise-item">
         <div class="promise-icon">01</div>
-        <div class="promise-text"><h4>Guest VCs, unfiltered</h4><p>Working investors share how they actually pick deals and where the returns really come from — then open the floor to your questions.</p></div>
+        <div class="promise-text"><h4>Guest VCs, unfiltered</h4><p>Working investors talked through how they actually pick deals and where the returns really come from — then opened the floor to the room's questions.</p></div>
       </div>
       <div class="promise-item">
         <div class="promise-icon">02</div>
-        <div class="promise-text"><h4>How you break in</h4><p>The real routes into venture, and the honest truth about why there's no job posting to apply to.</p></div>
+        <div class="promise-text"><h4>How you break in</h4><p>The real routes into venture, the myth that stops most people, and the honest truth about why there's no job posting to apply to.</p></div>
       </div>
       <div class="promise-item">
         <div class="promise-icon">03</div>
-        <div class="promise-text"><h4>The program, walked through</h4><p>What VC Academy covers across four pillars, who it's for, and how the cohort runs once the program begins.</p></div>
+        <div class="promise-text"><h4>How Silicon Valley invests</h4><p>An inside look at how the Valley actually deploys capital — and what carries over to Taiwan, what doesn't, and why the difference matters.</p></div>
       </div>
       <div class="promise-item">
         <div class="promise-icon">04</div>
-        <div class="promise-text"><h4>The room</h4><p>Drinks and networking with founders, operators, and aspiring investors. On an afternoon like this, who you meet matters as much as what you hear.</p></div>
+        <div class="promise-text"><h4>The program, walked through</h4><p>A first look at the full VC Academy curriculum across four pillars, who it's for, and how the founding cohort will run.</p></div>
       </div>
     </div>
+
+    <!-- PHOTOS — 照片到位後把下面這段的註解拿掉，並換上圖片網址即可啟用
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="section-label">The room</div>
+      <div class="g3" style="margin-top:1.5rem;gap:1rem;">
+        <div class="event-card"><div class="event-photo"><img src="照片網址1" alt="VC Academy launch event, Taipei"></div></div>
+        <div class="event-card"><div class="event-photo"><img src="照片網址2" alt="Guest VCs speaking at the launch"></div></div>
+        <div class="event-card"><div class="event-photo"><img src="照片網址3" alt="Networking after the session"></div></div>
+      </div>
+    </div>
+    -->
 
     <!-- LOGISTICS -->
     <div class="reveal" style="margin-top:3.5rem;">
       <div class="g3" style="gap:1rem;">
         <div class="card" style="text-align:center;">
           <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--red);">Fri, Aug 14</div>
-          <div style="font-size:0.8rem;color:var(--text-sec);margin-top:0.3rem;">3:00 PM · Mosaic office, Taipei</div>
+          <div style="font-size:0.8rem;color:var(--text-sec);margin-top:0.3rem;">3:00–5:00 PM · Mosaic office, Taipei</div>
         </div>
         <div class="card" style="text-align:center;">
-          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--red);">Free</div>
-          <div style="font-size:0.8rem;color:var(--text-sec);margin-top:0.3rem;">Drinks + live VC guests</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--red);">Free entry</div>
+          <div style="font-size:0.8rem;color:var(--text-sec);margin-top:0.3rem;">Live VC guests + highballs</div>
         </div>
         <div class="card" style="text-align:center;">
-          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--red);">Limited seats</div>
-          <div style="font-size:0.8rem;color:var(--text-sec);margin-top:0.3rem;">Register to attend</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--red);">Now open</div>
+          <div style="font-size:0.8rem;color:var(--text-sec);margin-top:0.3rem;">Founding-cohort applications</div>
         </div>
       </div>
     </div>
@@ -655,11 +699,11 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal" style="margin-top:2.5rem;">
       <div class="free-banner">
         <div>
-          <div class="fb-tag">VC Academy · Launch · Fri Aug 14 · 3 PM</div>
-          <h3>Come to the launch.</h3>
-          <p>Register free. If it's for you, we'll walk you through the full program on the day. Seats are limited, so put your name down.</p>
+          <div class="fb-tag">Missed it? · Applications Open</div>
+          <h3>The program starts now.</h3>
+          <p>The launch is done — the founding cohort is what comes next. In person, on weekends in Taipei, about 20 seats. If the afternoon sounded like your room, apply.</p>
         </div>
-        <a href="#" class="fb-btn" onclick="return openForm();">Register free →</a>
+        <a href="#" class="fb-btn" onclick="showPage('apply')">Apply to the cohort →</a>
       </div>
     </div>
   </div>
@@ -671,18 +715,18 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal">
       <div class="section-label">The Curriculum</div>
       <h1 class="section-heading">From the ecosystem<br>to the exit.</h1>
-      <p class="section-sub">Four pillars, built around what junior VCs are usually missing and benchmarked against how the leading programs abroad teach it, then tailored for Taiwan. It opens with a free launch event, then gets into the actual work.</p>
+      <p class="section-sub">Four pillars, built around what junior VCs are usually missing and benchmarked against how the leading programs abroad teach it, then tailored for Taiwan. This is what the founding cohort works through, session by session.</p>
     </div>
 
     <!-- FREE SESSION -->
     <div class="reveal" style="margin-top:3rem;">
       <div class="free-banner">
         <div>
-          <div class="fb-tag">Launch Event · Free · Fri Aug 14 · 3 PM</div>
-          <h3>VC Academy Launch Event</h3>
-          <p>The program opens with a free afternoon at our Taipei office — working VCs, live Q&amp;A, drinks, and a walk-through of the full curriculum.</p>
+          <div class="fb-tag">Applications Open · Founding Cohort</div>
+          <h3>Ready to sit in the room?</h3>
+          <p>This is the curriculum the founding cohort works through — in person, on weekends at our Taipei office, about 20 seats.</p>
         </div>
-        <a href="#" class="fb-btn" onclick="showPage('free')">See launch event →</a>
+        <a href="#" class="fb-btn" onclick="showPage('apply')">Apply now →</a>
       </div>
     </div>
 
@@ -1163,19 +1207,8 @@ nav.scrolled { border-bottom-color:var(--border); }
   <div class="section" style="padding-top:8rem;">
     <div class="reveal">
       <div class="section-label">Join the Founding Cohort</div>
-      <h1 class="section-heading">The launch is Friday, August 14.<br>The cohort starts after.<br>Register free.</h1>
-    </div>
-
-    <!-- FREE SESSION BANNER -->
-    <div class="reveal" style="margin-top:2.5rem;">
-      <div class="free-banner">
-        <div>
-          <div class="fb-tag">Step 1 · Free</div>
-          <h3>VC Academy Launch — Fri, Aug 14 · 3 PM</h3>
-          <p>A free afternoon at our Taipei office: working VCs, live Q&amp;A, drinks, and a walk-through of the full program. Register to attend, then decide if the cohort is for you.</p>
-        </div>
-        <a href="#" class="fb-btn" onclick="return openForm();">Register free →</a>
-      </div>
+      <h1 class="section-heading">Applications are open.<br>About 20 seats.</h1>
+      <p class="section-sub">We launched VC Academy in Taipei on August 14. What comes next is the program itself — in person, on weekends, taught by working investors. Tell us a little about yourself below and we'll be in touch.</p>
     </div>
 
     <div class="g2 reveal" style="margin-top:3rem;">
@@ -1188,18 +1221,79 @@ nav.scrolled { border-bottom-color:var(--border); }
         <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin:2rem 0 1rem;">Program details.</h3>
         <div style="font-size:0.88rem;color:var(--text-sec);line-height:2;">
           <p><strong>Format:</strong> In-person, weekend sessions at the Mosaic Venture Lab office, Taipei.</p>
-          <p><strong>First cohort:</strong> Launches late August 2026.</p>
+          <p><strong>First cohort:</strong> Founding cohort, starting 2026.</p>
           <p><strong>Cohort size:</strong> ~20 participants. Invitation only.</p>
-          <p><strong>Start here:</strong> VC Academy launch event — free, Friday August 14 at 3:00 PM.</p>
-          <p><strong>Investment:</strong> Program details and pricing are shared at launch event.</p>
+          <p><strong>Launched:</strong> Opened to the public in Taipei on August 14, 2026.</p>
+          <p><strong>Investment:</strong> Program details and pricing are shared with shortlisted applicants.</p>
         </div>
       </div>
       <div>
-        <div class="cta-section" style="border-radius:16px;">
-          <h2 style="font-size:1.8rem;">Ready to apply?</h2>
-          <p style="font-size:0.92rem;">The launch is Friday, August 14 at 3 PM. Register free and we'll be in touch about the cohort.</p>
-          <a href="#" class="cta-btn" onclick="return openForm();">Apply Now →</a>
-          <p style="font-size:0.75rem;opacity:0.5;margin-top:1.5rem;">Applications reviewed on a rolling basis.<br>Founding cohort limited to ~20 seats.</p>
+        <!-- APPLICATION FORM -->
+        <div class="apply-form" id="applyForm">
+          <div id="formNotice" class="form-notice" style="display:none;"></div>
+          <form id="cohortForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="af-name">Full name <span class="req">*</span></label>
+                <input type="text" id="af-name" data-field="name" autocomplete="name" placeholder="Jane Chen">
+                <div class="err">Please enter your name.</div>
+              </div>
+              <div class="field">
+                <label for="af-email">Email <span class="req">*</span></label>
+                <input type="email" id="af-email" data-field="email" autocomplete="email" placeholder="jane@company.com">
+                <div class="err">Please enter a valid email.</div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="af-role">Current role &amp; company</label>
+                <input type="text" id="af-role" data-field="role" placeholder="Analyst, Acme Capital">
+              </div>
+              <div class="field">
+                <label for="af-linkedin">LinkedIn</label>
+                <input type="text" id="af-linkedin" data-field="linkedin" placeholder="linkedin.com/in/…">
+              </div>
+            </div>
+            <div class="field">
+              <label for="af-background">Which best describes you? <span class="req">*</span></label>
+              <select id="af-background" data-field="background">
+                <option value="">Select one…</option>
+                <option>Student / recent graduate</option>
+                <option>Analyst or associate</option>
+                <option>Operator moving into investing</option>
+                <option>Founder</option>
+                <option>Angel / family office</option>
+                <option>Working investor</option>
+                <option>Other</option>
+              </select>
+              <div class="err">Please choose one.</div>
+            </div>
+            <div class="field">
+              <label for="af-why">Why do you want to join the founding cohort? <span class="req">*</span></label>
+              <textarea id="af-why" data-field="why" placeholder="A few sentences is plenty — what you're hoping to get out of it, and where you are today."></textarea>
+              <div class="hint">A few sentences is enough. We read every one.</div>
+              <div class="err">Please tell us a little about why.</div>
+            </div>
+            <div class="field">
+              <label for="af-source">How did you hear about VC Academy?</label>
+              <select id="af-source" data-field="source">
+                <option value="">Select one…</option>
+                <option>The Aug 14 launch event</option>
+                <option>Mosaic Venture Lab</option>
+                <option>A friend or colleague</option>
+                <option>LinkedIn</option>
+                <option>Luma</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button type="submit" class="form-submit" id="formSubmit">Submit application →</button>
+            <p class="form-foot">Applications reviewed on a rolling basis.<br>Founding cohort limited to ~20 seats.</p>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="fs-icon">✓</div>
+            <h3>Application received.</h3>
+            <p>Thanks — we've got it. We review applications on a rolling basis and will be in touch by email.</p>
+          </div>
         </div>
         <div style="margin-top:1.5rem;padding:2rem;background:var(--bg-warm);border-radius:14px;">
           <h4 style="font-size:0.88rem;font-weight:700;margin-bottom:0.75rem;">Questions?</h4>
@@ -1218,12 +1312,12 @@ nav.scrolled { border-bottom-color:var(--border); }
           <p>No. The program is built for people trying to break in — business students, aspiring analysts, operators, and founders. We start from how the ecosystem works and build up to the deal mechanics.</p>
         </div>
         <div class="faq-item">
-          <h4>Is the launch event really free?</h4>
-          <p>Yes. The VC Academy launch on Friday, August 14 (3:00 PM) is free and held in person at our Taipei office — working VCs, Q&amp;A, and drinks. It's where we present the full program. Seats are limited, so register early.</p>
+          <h4>I missed the launch event — can I still apply?</h4>
+          <p>Yes. The free launch event on August 14 was an introduction to the program, not a requirement. Applications for the founding cohort are open to everyone — you can read the <a href="#" onclick="showPage('free')" style="color:var(--red);">recap of that afternoon</a> to see what it covered.</p>
         </div>
         <div class="faq-item">
           <h4>When and where does it run?</h4>
-          <p>In person, on weekends, at the Mosaic Venture Lab office in Taipei. The first cohort launches in late August 2026.</p>
+          <p>In person, on weekends, at the Mosaic Venture Lab office in Taipei. Dates for the founding cohort are confirmed with applicants once the room is set.</p>
         </div>
         <div class="faq-item">
           <h4>How big is the cohort?</h4>
@@ -1231,7 +1325,7 @@ nav.scrolled { border-bottom-color:var(--border); }
         </div>
         <div class="faq-item">
           <h4>What does it cost?</h4>
-          <p>We share program details and pricing at launch event, where you can ask questions and decide whether to continue.</p>
+          <p>We share full program details and pricing with shortlisted applicants, so you can ask questions and decide whether to continue before committing to anything.</p>
         </div>
       </div>
     </div>
@@ -1241,20 +1335,128 @@ nav.scrolled { border-bottom-color:var(--border); }
 <!-- SCRIPTS -->
 <script>
 /* ===================================================================
-   REGISTRATION LINK
-   Luma event page for the VC Academy launch (Fri, Aug 14).
-   Every "Apply" / "Register" button uses this one value.
-   =================================================================== */
-const FORM_URL = "https://luma.com/bp6g466r?tk=p0HIRf";
+   申請表單設定 — APPLICATION FORM CONFIG
+   -------------------------------------------------------------------
+   報名資料會送到你的 Google 表單。設定方式：
 
-function openForm() {
-  if (FORM_URL && FORM_URL.indexOf("http") === 0) {
-    window.open(FORM_URL, "_blank", "noopener");
-  } else {
-    alert("Add your registration link to the FORM_URL variable in the page source.");
+   1. 建立一份 Google 表單，欄位對應下面的 fields（7 個）。
+   2. 按「傳送」→ 複製連結取得表單 ID，組成 action 填入下方：
+        https://docs.google.com/forms/d/e/<表單ID>/formResponse
+      ⚠ 結尾必須是 formResponse，不是 viewform。
+   3. 開啟表單填寫頁 → 右鍵「檢視網頁原始碼」→ 搜尋 "entry."
+      找出每個欄位的 entry.XXXXXXXXX 編號，填入對應位置。
+
+   action 未填之前，送出鈕會停用並顯示提醒，資料不會靜默遺失。
+   =================================================================== */
+const APPLY_FORM = {
+  action: "",                    // ← 例：https://docs.google.com/forms/d/e/1FAIpQL.../formResponse
+  fields: {
+    name:       "",              // ← 例：entry.1234567890
+    email:      "",
+    role:       "",
+    linkedin:   "",
+    background: "",
+    why:        "",
+    source:     ""
   }
-  return false;
-}
+};
+
+/* 8/14 launch event 的 Luma 頁（活動已結束，保留備查） */
+const LUMA_RECAP_URL = "https://luma.com/bp6g466r?tk=p0HIRf";
+
+(function initApplyForm() {
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+
+  ready(function () {
+    const form    = document.getElementById('cohortForm');
+    const notice  = document.getElementById('formNotice');
+    const success = document.getElementById('formSuccess');
+    const submit  = document.getElementById('formSubmit');
+    if (!form) return;
+
+    const configured = APPLY_FORM.action.indexOf('http') === 0;
+    if (!configured) {
+      notice.style.display = 'block';
+      notice.textContent = '⚠ 尚未連接 Google 表單 — 請在 index.html 的 APPLY_FORM 填入 action 與 entry 編號。上線前務必完成，否則訪客無法送出申請。';
+      submit.disabled = true;
+      submit.textContent = 'Form not connected yet';
+    }
+
+    const fieldOf = el => el.closest('.field');
+
+    function validate() {
+      let ok = true;
+      const required = [
+        ['name',       v => v.trim().length > 0],
+        ['email',      v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())],
+        ['background', v => v !== ''],
+        ['why',        v => v.trim().length > 0]
+      ];
+      required.forEach(function (pair) {
+        const el = form.querySelector('[data-field="' + pair[0] + '"]');
+        if (!el) return;
+        const valid = pair[1](el.value);
+        fieldOf(el).classList.toggle('invalid', !valid);
+        if (!valid && ok) { el.focus(); ok = false; }
+      });
+      return ok;
+    }
+
+    form.querySelectorAll('[data-field]').forEach(function (el) {
+      ['input', 'change'].forEach(function (evt) {
+        el.addEventListener(evt, function () { fieldOf(el).classList.remove('invalid'); });
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validate() || !configured) return;
+
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+
+      // Google 表單擋跨網域讀取，因此用隱藏 iframe 送出。
+      let frame = document.getElementById('applyFrame');
+      if (!frame) {
+        frame = document.createElement('iframe');
+        frame.id = 'applyFrame';
+        frame.name = 'applyFrame';
+        frame.style.display = 'none';
+        document.body.appendChild(frame);
+      }
+
+      const proxy = document.createElement('form');
+      proxy.action = APPLY_FORM.action;
+      proxy.method = 'POST';
+      proxy.target = 'applyFrame';
+      proxy.style.display = 'none';
+
+      form.querySelectorAll('[data-field]').forEach(function (el) {
+        const entry = APPLY_FORM.fields[el.dataset.field];
+        if (!entry) return;
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = entry;
+        input.value = el.value;
+        proxy.appendChild(input);
+      });
+
+      document.body.appendChild(proxy);
+      proxy.submit();
+
+      // 無法讀取 Google 的跨網域回應，因此以送出完成視為成功。
+      setTimeout(function () {
+        form.style.display = 'none';
+        notice.style.display = 'none';
+        success.style.display = 'block';
+        proxy.remove();
+      }, 600);
+    });
+  });
+})();
 
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
