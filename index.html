@@ -1348,6 +1348,9 @@ nav.scrolled { border-bottom-color:var(--border); }
       <div class="section-label">Join the Founding Cohort</div>
       <h1 class="section-heading">Applications are open.<br>About 10 seats.</h1>
       <p class="section-sub">We launched VC Academy in Taipei on August 14 — attendees rated the afternoon <strong style="color:var(--red);">4.9 out of 5</strong>. What comes next is the program itself: in person, built around your working week, taught by working investors. Tell us a little about yourself below and we'll be in touch.</p>
+      <div style="margin-top:1.75rem;">
+        <button class="cta-btn" onclick="return goToApplyForm();">Submit application →</button>
+      </div>
     </div>
 
     <div class="g2 reveal" style="margin-top:3rem;">
@@ -1546,6 +1549,19 @@ function openApplyModal() {
 
   const first = form.querySelector('[data-field="name"]');
   if (first) setTimeout(function () { first.focus(); }, 120);
+  return false;
+}
+
+/* Apply 頁上方的行動按鈕：手機開彈窗，桌機捲到表單並聚焦第一欄 */
+function goToApplyForm() {
+  if (window.innerWidth <= 900) return openApplyModal();
+
+  const form = document.getElementById('applyForm');
+  if (!form) return false;
+  form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  const first = form.querySelector('[data-field="name"]');
+  if (first) setTimeout(function () { first.focus({ preventScroll: true }); }, 500);
   return false;
 }
 
