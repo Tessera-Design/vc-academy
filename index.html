@@ -244,6 +244,17 @@ nav.scrolled { border-bottom-color:var(--border); }
 .field input, .field select, .field textarea {
   width:100%; font-family:inherit; font-size:0.9rem; color:var(--text); background:var(--bg);
   border:1px solid var(--border); border-radius:8px; padding:0.7rem 0.85rem; transition:border-color .2s, box-shadow .2s;
+  -webkit-appearance:none; appearance:none;   /* 移除 iOS 內建圓角與陰影 */
+}
+/* iOS Safari 會在聚焦字級 <16px 的欄位時自動放大整頁，導致版面跳動。
+   手機上一律用 16px，杜絕這個行為。 */
+@media(max-width:900px){
+  .field input, .field select, .field textarea { font-size:16px; padding:0.8rem 0.9rem; }
+}
+/* select 移除 appearance 後要自己畫箭頭 */
+.field select {
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2357534E' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 0.9rem center; padding-right:2.4rem;
 }
 .field textarea { resize:vertical; min-height:110px; line-height:1.6; }
 .field input:focus, .field select:focus, .field textarea:focus {
@@ -259,7 +270,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 .form-submit:hover:not(:disabled) { background:#B91C1C; transform:translateY(-1px); }
 .form-submit:disabled { opacity:0.6; cursor:not-allowed; }
 .form-foot { font-size:0.72rem; color:var(--text-muted); line-height:1.6; margin-top:0.9rem; text-align:center; }
-.form-success { display:none; text-align:center; padding:2.5rem 1rem; }
+.form-success { display:none; text-align:center; padding:1.75rem 0.5rem 1rem; }
 .form-success .fs-icon { width:52px; height:52px; border-radius:50%; background:var(--teal-light); color:var(--teal);
   display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 1rem; }
 .form-success h3 { font-family:'DM Serif Display',serif; font-size:1.5rem; margin-bottom:0.5rem; }
@@ -334,10 +345,12 @@ nav.scrolled { border-bottom-color:var(--border); }
 }
 
 /* MOBILE APPLY BUTTON + MODAL */
-.nav-apply { display:none; align-items:center; gap:0.35rem; background:var(--red); color:white;
-  font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.02em;
-  padding:0.55rem 0.95rem; border-radius:7px; text-decoration:none; white-space:nowrap;
-  border:none; cursor:pointer; }
+/* 觸控目標至少 44px（iOS HIG）／48px（Android Material） */
+.nav-apply { display:none; align-items:center; justify-content:center; gap:0.35rem;
+  background:var(--red); color:white; font-family:inherit; font-size:0.82rem; font-weight:700;
+  letter-spacing:0.02em; padding:0 1.1rem; min-height:44px; border-radius:8px;
+  text-decoration:none; white-space:nowrap; border:none; cursor:pointer;
+  -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
 .nav-apply:active { transform:scale(0.97); }
 /* 兩顆按鈕由 JS 依當前分頁擇一顯示，預設都不顯示 */
 .nav-apply, .nav-deck { display:none !important; }
@@ -350,20 +363,24 @@ nav.scrolled { border-bottom-color:var(--border); }
   -webkit-overflow-scrolling:touch; }
 .apply-modal.open { display:block; }
 .apply-modal-inner { position:relative; max-width:560px; margin:3rem auto; }
-.apply-modal-close { position:absolute; top:-2.5rem; right:0; width:36px; height:36px; border-radius:50%;
-  background:rgba(255,255,255,0.9); border:none; font-size:1.35rem; line-height:1; color:var(--text);
-  cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.apply-modal-close { position:absolute; top:-3rem; right:0; width:44px; height:44px; border-radius:50%;
+  background:rgba(255,255,255,0.95); border:none; font-size:1.5rem; line-height:1; color:var(--text);
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
 .apply-modal .apply-form { box-shadow:0 24px 60px rgba(0,0,0,0.28); }
 @media(max-width:600px){
-  .apply-modal { padding:0.75rem; }
-  .apply-modal-inner { margin:3.25rem auto 2rem; }
+  .apply-modal { padding:1.25rem; }
+  .apply-modal-inner { margin:3.5rem auto 2rem; }
+  .apply-modal .apply-form { border-radius:18px; padding:1.5rem 1.25rem; }
 }
 
 /* MOBILE NAV HAMBURGER */
-.nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:0.5rem; margin-left:auto; }
+.nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:0.5rem;
+  margin-left:auto; min-width:44px; min-height:44px; align-items:center; justify-content:center;
+  -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
 .nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); margin:5px 0; transition:all .3s; border-radius:1px; }
 @media(max-width:900px) {
-  .nav-hamburger { display:block; margin-left:0.6rem; }
+  .nav-hamburger { display:flex; margin-left:0.6rem; }
   .nav-tabs { display:none !important; position:fixed; top:68px; left:0; right:0; height:auto !important; background:#FAF9F6; flex-direction:column; padding:0.5rem 0 1rem; border-bottom:2px solid var(--border); box-shadow:0 8px 30px rgba(0,0,0,0.12); z-index:9999; max-height:calc(100vh - 68px); overflow-y:auto; }
   .nav-tabs.open { display:flex !important; }
   .nav-tab { display:flex; height:auto; padding:0.85rem 2rem; justify-content:flex-start; font-size:0.9rem; border-bottom:1px solid var(--border); width:100%; text-align:left; }
@@ -1531,6 +1548,7 @@ const LUMA_RECAP_URL = "https://luma.com/bp6g466r?tk=p0HIRf";
    不複製表單 —— 避免重複 id 與兩套驗證邏輯打架。
    =================================================================== */
 let applyFormAnchor = null;   // 記住原始位置的錨點
+let savedScrollY = 0;
 
 function openApplyModal() {
   const form  = document.getElementById('applyForm');
@@ -1544,11 +1562,18 @@ function openApplyModal() {
   document.getElementById('applyModalSlot').appendChild(form);
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
   document.querySelector('.nav-tabs').classList.remove('open');
 
-  const first = form.querySelector('[data-field="name"]');
-  if (first) setTimeout(function () { first.focus(); }, 120);
+  // iOS Safari 不理會 body{overflow:hidden}，必須用 position:fixed 才鎖得住背景
+  savedScrollY = window.scrollY || window.pageYOffset || 0;
+  document.body.style.position = 'fixed';
+  document.body.style.top      = (-savedScrollY) + 'px';
+  document.body.style.left     = '0';
+  document.body.style.right    = '0';
+  document.body.style.width    = '100%';
+  document.body.style.overflow = 'hidden';
+
+  // 不自動聚焦：手機自動彈鍵盤會遮住表單、且使用者尚未決定要填
   return false;
 }
 
@@ -1576,7 +1601,15 @@ function closeApplyModal() {
   }
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
+
+  // 解除 iOS 的 position:fixed 鎖定，並還原原本捲動位置
+  document.body.style.position = '';
+  document.body.style.top      = '';
+  document.body.style.left     = '';
+  document.body.style.right    = '';
+  document.body.style.width    = '';
   document.body.style.overflow = '';
+  window.scrollTo(0, savedScrollY);
   return false;
 }
 
@@ -1706,6 +1739,9 @@ function closeApplyModal() {
       }).then(function () {
         form.style.display = 'none';
         success.style.display = 'block';
+        // 在彈窗內送出時，捲回頂端讓使用者看到成功訊息
+        const modal = document.getElementById('applyModal');
+        if (modal && modal.classList.contains('open')) modal.scrollTop = 0;
       }).catch(function () {
         submit.disabled = false;
         submit.textContent = 'Submit application →';
