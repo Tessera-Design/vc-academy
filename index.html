@@ -60,6 +60,29 @@ nav.scrolled { border-bottom-color:var(--border); }
 .section-heading { font-family:'DM Serif Display',serif; font-size:clamp(2rem,4vw,3rem); line-height:1.15; letter-spacing:-0.01em; margin-bottom:1.5rem; }
 .section-sub { font-size:1.05rem; line-height:1.7; color:var(--text-sec); max-width:640px; }
 
+/* HERO — APPLICATIONS OPEN */
+.hero-badge { display:inline-flex; align-items:center; gap:0.55rem; background:var(--red); color:white;
+  font-family:'IBM Plex Mono',monospace; font-size:0.72rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+  padding:0.5rem 1rem; border-radius:100px; margin-bottom:1.25rem; box-shadow:0 4px 14px rgba(220,38,38,0.25); }
+.hero-badge .dot { width:7px; height:7px; border-radius:50%; background:white; flex-shrink:0; animation:pulseDot 2s ease-in-out infinite; }
+@keyframes pulseDot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.35; transform:scale(0.8); } }
+.hero-brand { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; font-weight:600; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--text-muted); display:flex; align-items:center; margin-bottom:1.1rem; }
+.hero-lede { font-size:1.35rem; line-height:1.55; color:var(--text); max-width:660px; font-weight:500; margin-bottom:1rem; }
+.hero-lede strong { color:var(--red); font-weight:700; }
+.hero-actions { display:flex; align-items:center; gap:1rem; margin-top:1.75rem; flex-wrap:wrap; }
+.btn-ghost { display:inline-flex; align-items:center; padding:1rem 1.75rem; background:transparent; color:var(--text);
+  border:1px solid var(--border); border-radius:8px; font-family:inherit; font-weight:600; font-size:0.9rem;
+  text-decoration:none; cursor:pointer; transition:border-color .2s, color .2s, transform .2s; }
+.btn-ghost:hover { border-color:var(--text); transform:translateY(-1px); }
+.hero-meta { font-size:0.82rem; color:var(--text-muted); margin-top:1rem; }
+.hero-meta b { color:var(--text-sec); font-weight:600; }
+@media(max-width:600px){
+  .hero-lede { font-size:1.1rem; }
+  .hero-actions { gap:0.6rem; }
+  .hero-actions .cta-btn, .hero-actions .btn-ghost { width:100%; justify-content:center; text-align:center; }
+}
+
 /* CARDS */
 .card { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:2rem; transition:box-shadow .3s, transform .3s; }
 .card:hover { box-shadow:var(--sh-md); transform:translateY(-2px); }
@@ -325,9 +348,16 @@ nav.scrolled { border-bottom-color:var(--border); }
   <!-- HERO -->
   <div class="section" style="padding-top:10rem;padding-bottom:4rem;">
     <div class="reveal">
-      <div class="hero-tag"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Mosaic%20Venture%20Lab_U.jpg" style="height:32px;width:auto;vertical-align:middle;margin-right:8px;" alt="Mosaic">VC Academy · by Mosaic Venture Lab · Taipei</div>
+      <div class="hero-brand"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Mosaic%20Venture%20Lab_U.jpg" style="height:26px;width:auto;vertical-align:middle;margin-right:8px;" alt="Mosaic">VC Academy · by Mosaic Venture Lab · Taipei</div>
+      <div class="hero-badge"><span class="dot"></span>Applications open · Founding cohort</div>
       <h1 class="hero-title">How do you actually<br>become a <em>VC?</em></h1>
-      <p class="hero-sub">It's the question we hear most — from students, analysts, and founders ready to cross to the other side of the table. VC Academy is a small, in-person program in Taipei where working investors teach the real job: how the venture world runs, how to run due diligence without drowning in it, and how to handle a term sheet. A few weekends, about 10 seats. We opened the program in Taipei on August 14 — applications for the founding cohort are now open.</p>
+      <p class="hero-lede">We launched VC Academy in Taipei on August 14. <strong>Applications for the founding cohort are now open</strong> — about 10 seats.</p>
+      <p class="hero-sub">It's the question we hear most — from students, analysts, and founders ready to cross to the other side of the table. VC Academy is a small, in-person program where working investors teach the real job: how the venture world runs, how to run due diligence without drowning in it, and how to handle a term sheet.</p>
+      <div class="hero-actions">
+        <button class="cta-btn" onclick="showPage('apply')">Apply to the founding cohort →</button>
+        <a href="#" class="btn-ghost" onclick="showPage('free');return false;">See the Aug 14 launch →</a>
+      </div>
+      <p class="hero-meta">In person · Weekends in Taipei · <b>~10 seats, invitation only</b> · Applications reviewed on a rolling basis</p>
       <div class="g4 reveal" style="margin-top:2.5rem;">
         <div class="stat-card"><h3>14</h3><p>Years in Taiwan's Ecosystem</p></div>
         <div class="stat-card red"><h3>4</h3><p>Curriculum Pillars</p></div>
@@ -663,6 +693,22 @@ nav.scrolled { border-bottom-color:var(--border); }
       <div class="promise-item">
         <div class="promise-icon">04</div>
         <div class="promise-text"><h4>The gravity of capital</h4><p>Why what works in Palo Alto gets you ignored in Taipei — how risk, sourcing, and exits change completely with your coordinates. Plus a first look at the full VC Academy curriculum.</p></div>
+      </div>
+    </div>
+
+    <!-- SLIDES FROM THE DECK -->
+    <div class="reveal" style="margin-top:3.5rem;">
+      <div class="section-label">From the deck</div>
+      <h2 class="section-heading" style="margin-bottom:1.5rem;">Two ideas from the afternoon.</h2>
+      <div class="g2" style="gap:1.5rem;align-items:start;">
+        <figure style="margin:0;">
+          <img src="assets/launch-2026-08-14/slide-silicon-valley.jpg" alt="Slide: Silicon Valley, the open ecosystem — capital, network, liability and exits" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:12px;">
+          <figcaption style="font-size:0.82rem;color:var(--text-sec);line-height:1.65;margin-top:0.75rem;">Why the Valley works the way it does: founder-friendly risk capital, networks you can actually reach, limited personal liability, and more than one way out.</figcaption>
+        </figure>
+        <figure style="margin:0;">
+          <img src="assets/launch-2026-08-14/slide-gravity-of-capital.jpg" alt="Slide: the gravity of capital changes with your coordinates — Palo Alto, Beijing, Taipei" loading="lazy" style="width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:12px;">
+          <figcaption style="font-size:0.82rem;color:var(--text-sec);line-height:1.65;margin-top:0.75rem;">And why none of it transfers cleanly. Risk, sourcing, and exits work differently in Palo Alto, Beijing, and Taipei — knowing which rules you're playing by is most of the job.</figcaption>
+        </figure>
       </div>
     </div>
 
