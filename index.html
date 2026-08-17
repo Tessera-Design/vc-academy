@@ -1366,29 +1366,20 @@ nav.scrolled { border-bottom-color:var(--border); }
 /* ===================================================================
    申請表單設定 — APPLICATION FORM CONFIG
    -------------------------------------------------------------------
-   報名資料會送到你的 Google 表單。設定方式：
+   與 SELL GLOBAL (training.mvl.biz) 相同做法：表單直接送到
+   Google Apps Script Web App，由它寫進 Google Sheet。
 
-   1. 建立一份 Google 表單，欄位對應下面的 fields（7 個）。
-   2. 按「傳送」→ 複製連結取得表單 ID，組成 action 填入下方：
-        https://docs.google.com/forms/d/e/<表單ID>/formResponse
-      ⚠ 結尾必須是 formResponse，不是 viewform。
-   3. 開啟表單填寫頁 → 右鍵「檢視網頁原始碼」→ 搜尋 "entry."
-      找出每個欄位的 entry.XXXXXXXXX 編號，填入對應位置。
+   設定步驟：
+   1. 建立一份 Google Sheet。
+   2. 擴充功能 → Apps Script，貼上 doPost 程式碼（見 APPS_SCRIPT.md）。
+   3. 部署 → 新增部署作業 → 網頁應用程式
+        執行身分：我
+        存取權：任何人
+   4. 複製 /exec 結尾的網址，填進下面的 APPLY_URL。
 
-   action 未填之前，送出鈕會停用並顯示提醒，資料不會靜默遺失。
+   未填之前送出鈕會停用並顯示提醒，資料不會靜默遺失。
    =================================================================== */
-const APPLY_FORM = {
-  action: "",                    // ← 例：https://docs.google.com/forms/d/e/1FAIpQL.../formResponse
-  fields: {
-    name:       "",              // ← 例：entry.1234567890
-    email:      "",
-    role:       "",
-    linkedin:   "",
-    background: "",
-    why:        "",
-    source:     ""
-  }
-};
+const APPLY_URL = "";   // ← 例：https://script.google.com/macros/s/AKfycb.../exec
 
 /* 8/14 launch event 的 Luma 頁（活動已結束，保留備查） */
 const LUMA_RECAP_URL = "https://luma.com/bp6g466r?tk=p0HIRf";
@@ -1406,10 +1397,10 @@ const LUMA_RECAP_URL = "https://luma.com/bp6g466r?tk=p0HIRf";
     const submit  = document.getElementById('formSubmit');
     if (!form) return;
 
-    const configured = APPLY_FORM.action.indexOf('http') === 0;
+    const configured = APPLY_URL.indexOf('http') === 0;
     if (!configured) {
       notice.style.display = 'block';
-      notice.textContent = '⚠ 尚未連接 Google 表單 — 請在 index.html 的 APPLY_FORM 填入 action 與 entry 編號。上線前務必完成，否則訪客無法送出申請。';
+      notice.textContent = '⚠ 尚未連接 Apps Script — 請在 index.html 的 APPLY_URL 填入 /exec 網址。上線前務必完成，否則訪客無法送出申請。';
       submit.disabled = true;
       submit.textContent = 'Form not connected yet';
     }
@@ -1446,43 +1437,28 @@ const LUMA_RECAP_URL = "https://luma.com/bp6g466r?tk=p0HIRf";
 
       submit.disabled = true;
       submit.textContent = 'Sending…';
+      notice.style.display = 'none';
 
-      // Google 表單擋跨網域讀取，因此用隱藏 iframe 送出。
-      let frame = document.getElementById('applyFrame');
-      if (!frame) {
-        frame = document.createElement('iframe');
-        frame.id = 'applyFrame';
-        frame.name = 'applyFrame';
-        frame.style.display = 'none';
-        document.body.appendChild(frame);
-      }
-
-      const proxy = document.createElement('form');
-      proxy.action = APPLY_FORM.action;
-      proxy.method = 'POST';
-      proxy.target = 'applyFrame';
-      proxy.style.display = 'none';
-
+      const payload = { timestamp: new Date().toISOString() };
       form.querySelectorAll('[data-field]').forEach(function (el) {
-        const entry = APPLY_FORM.fields[el.dataset.field];
-        if (!entry) return;
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = entry;
-        input.value = el.value;
-        proxy.appendChild(input);
+        payload[el.dataset.field] = el.value.trim() || '—';
       });
 
-      document.body.appendChild(proxy);
-      proxy.submit();
-
-      // 無法讀取 Google 的跨網域回應，因此以送出完成視為成功。
-      setTimeout(function () {
+      // Apps Script 不回 CORS 標頭，因此用 no-cors 送出（無法讀取回應）。
+      fetch(APPLY_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function () {
         form.style.display = 'none';
-        notice.style.display = 'none';
         success.style.display = 'block';
-        proxy.remove();
-      }, 600);
+      }).catch(function () {
+        submit.disabled = false;
+        submit.textContent = 'Submit application →';
+        notice.style.display = 'block';
+        notice.textContent = 'Something went wrong. Please try again, or email us directly at jy@mvl.biz.';
+      });
     });
   });
 })();
