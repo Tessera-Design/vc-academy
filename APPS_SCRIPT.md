@@ -47,7 +47,7 @@ function doPost(e) {
 
     // 每筆申請寄一封通知信（不需要就把這行連同下面 3 行刪掉）
     MailApp.sendEmail({
-      to: 'jy@mvl.biz',
+      to: 'vh@mvl.biz',
       subject: 'VC Academy — new application: ' + (data.name || 'unknown'),
       body: [
         'Name:       ' + (data.name || ''),
@@ -74,7 +74,8 @@ function doPost(e) {
 }
 ```
 
-> 通知信收件者目前設為 `jy@mvl.biz`，要改成別的信箱請直接改那一行。
+> 通知信收件者目前設為 `vh@mvl.biz`。要改成別的信箱請直接改那一行；
+> 要同時寄給多人，用逗號分隔即可：`'vh@mvl.biz, kh@mvl.biz, jy@mvl.biz'`。
 
 ## 步驟 3 — 部署
 
