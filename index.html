@@ -252,22 +252,6 @@ nav.scrolled { border-bottom-color:var(--border); }
   padding:0.8rem 1rem; font-size:0.78rem; color:var(--red); line-height:1.6; margin-bottom:1.25rem; }
 @media(max-width:600px){ .form-row { grid-template-columns:1fr; gap:0; } .apply-form { padding:1.5rem; } }
 
-/* SURVEY → NEEDS MAPPING */
-.need-item { display:grid; grid-template-columns:104px 1fr; gap:1.75rem; padding:1.6rem 0; border-bottom:1px solid var(--border); align-items:start; }
-.need-item:last-child { border-bottom:none; }
-.need-stat { font-family:'DM Serif Display',serif; font-size:2.1rem; line-height:1; color:var(--red); letter-spacing:-0.02em; }
-.need-stat small { display:block; font-family:'IBM Plex Mono',monospace; font-size:0.6rem; font-weight:600;
-  letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-top:0.4rem; line-height:1.4; }
-.need-said { font-size:0.98rem; font-weight:700; line-height:1.45; margin-bottom:0.45rem; }
-.need-do { font-size:0.86rem; color:var(--text-sec); line-height:1.7; }
-.need-do b { color:var(--teal); font-weight:600; }
-.survey-note { font-size:0.72rem; color:var(--text-muted); line-height:1.6; margin-top:1.5rem; font-style:italic; }
-@media(max-width:600px){
-  .need-item { grid-template-columns:1fr; gap:0.5rem; padding:1.25rem 0; }
-  .need-stat { font-size:1.7rem; }
-  .need-stat small { display:inline; margin-left:0.5rem; }
-}
-
 /* FAQ */
 .faq-item { border-bottom:1px solid var(--border); padding:1.5rem 0; }
 .faq-item h4 { font-size:1rem; font-weight:700; margin-bottom:0.5rem; }
@@ -1299,7 +1283,7 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal">
       <div class="section-label">Join the Founding Cohort</div>
       <h1 class="section-heading">Applications are open.<br>About 10 seats.</h1>
-      <p class="section-sub">We launched VC Academy in Taipei on August 14 — attendees rated the afternoon <strong style="color:var(--red);">4.9 out of 5</strong>. What comes next is the program itself, built around what that room told us they needed: in person, on weekends, taught by working investors. Tell us a little about yourself below and we'll be in touch.</p>
+      <p class="section-sub">We launched VC Academy in Taipei on August 14 — attendees rated the afternoon <strong style="color:var(--red);">4.9 out of 5</strong>. What comes next is the program itself: in person, on weekends, taught by working investors. Tell us a little about yourself below and we'll be in touch.</p>
     </div>
 
     <div class="g2 reveal" style="margin-top:3rem;">
@@ -1312,11 +1296,11 @@ nav.scrolled { border-bottom-color:var(--border); }
         </div>
         <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin:2rem 0 1rem;">Program details.</h3>
         <div style="font-size:0.88rem;color:var(--text-sec);line-height:2;">
-          <p><strong>Format:</strong> In-person, weekend sessions at the Mosaic Venture Lab office, Taipei — the format launch attendees asked for.</p>
+          <p><strong>Format:</strong> In-person, weekend sessions at the Mosaic Venture Lab office, Taipei.</p>
           <p><strong>First cohort:</strong> Founding cohort, starting 2026.</p>
           <p><strong>Cohort size:</strong> ~10 participants. Invitation only.</p>
-          <p><strong>Focus:</strong> Deal evaluation, term sheets, and valuation — the three topics the room ranked highest.</p>
-          <p><strong>Launched:</strong> Opened to the public in Taipei on August 14, 2026. Rated 4.9/5 by attendees.</p>
+          <p><strong>Focus:</strong> Deal evaluation, term sheets, and valuation.</p>
+          <p><strong>Launched:</strong> Opened to the public in Taipei on August 14, 2026.</p>
           <p><strong>Investment:</strong> Program details and pricing are shared with shortlisted applicants.</p>
         </div>
       </div>
@@ -1392,61 +1376,6 @@ nav.scrolled { border-bottom-color:var(--border); }
           <h4 style="font-size:0.88rem;font-weight:700;margin-bottom:0.75rem;">Questions?</h4>
           <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.7;">Contact the VC Academy team at Mosaic Venture Lab.<br>Email: jy@mvl.biz · kh@mvl.biz · vh@mvl.biz<br>Location: Taipei, Taiwan</p>
         </div>
-      </div>
-    </div>
-
-    <!-- BUILT FROM THE SURVEY -->
-    <div class="reveal" style="margin-top:4.5rem;">
-      <div class="section-label">Built from what you asked for</div>
-      <h2 class="section-heading">We asked the room<br>what they actually needed.</h2>
-      <p class="section-sub" style="margin-bottom:0.5rem;">After the August 14 launch we surveyed everyone who came. The cohort is shaped around what they said — here's the mapping, straight across.</p>
-    </div>
-    <div class="reveal" style="margin-top:2rem;">
-      <div class="need-item">
-        <div class="need-stat">80%<small>of the room</small></div>
-        <div>
-          <div class="need-said">“I want to go deeper on how investors actually evaluate a deal.”</div>
-          <div class="need-do">The single most requested topic — so it's the spine of the program. <b>Pillar 2</b> is thesis-driven diligence on real deals: building the question set that matters, reading the founder's answers, and knowing when to pass.</div>
-        </div>
-      </div>
-      <div class="need-item">
-        <div class="need-stat">80%<small>asked for</small></div>
-        <div>
-          <div class="need-said">Term sheets and valuation.</div>
-          <div class="need-do">Tied for first. <b>Pillar 3</b> is four sessions on exactly this — decoding the terminology, issuing and receiving a real term sheet, and a hands-on workshop on cap tables, pre/post-money, and dilution.</div>
-        </div>
-      </div>
-      <div class="need-item">
-        <div class="need-stat">90%<small>weren't sure</small></div>
-        <div>
-          <div class="need-said">Reading a startup's financial forecast — how the numbers are built, whether the assumptions hold, how they compare to benchmarks.</div>
-          <div class="need-do">Only one person said they were confident here. So we work through the numbers on live cases until you can pressure-test a forecast instead of taking it on trust — <b>the cap-table and valuation workshop</b> is built for this.</div>
-        </div>
-      </div>
-      <div class="need-item">
-        <div class="need-stat">#1<small>gap for angels</small></div>
-        <div>
-          <div class="need-said">“What I lack most is access to deal flow.”</div>
-          <div class="need-do">Named more often than lack of capital. <b>Pillar 1</b> covers how deals actually reach early-stage investors, and the cohort itself puts you in a room with working VCs, operators, and corporate scouts — which is how deal flow starts.</div>
-        </div>
-      </div>
-      <div class="need-item">
-        <div class="need-stat">60%<small>wanted</small></div>
-        <div>
-          <div class="need-said">Career insight from senior VCs — not theory, the actual path.</div>
-          <div class="need-do">Every session ends with a <b>mentor debrief</b>: a working investor explaining why they'd back it or pass. With about 10 people in the room, that's real conversation, not a Q&amp;A queue.</div>
-        </div>
-      </div>
-      <div class="need-item">
-        <div class="need-stat">4.9<small>out of 5</small></div>
-        <div>
-          <div class="need-said">How attendees rated the launch afternoon.</div>
-          <div class="need-do">Nine of ten gave it full marks. A majority also asked for <b>in-person sessions on weekends</b> — which is exactly how the cohort runs.</div>
-        </div>
-      </div>
-      <p class="survey-note">Based on 10 responses to the post-event survey following the August 14 launch. Small sample, real answers — we'd rather build from it than guess.</p>
-      <div style="margin-top:2rem;">
-        <button class="cta-btn" onclick="document.getElementById('applyForm').scrollIntoView({behavior:'smooth',block:'center'})">Apply to the founding cohort →</button>
       </div>
     </div>
 
