@@ -47,6 +47,17 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 /* LAYOUT */
 .section { max-width:1140px; margin:0 auto; padding:6rem 2rem; }
+/* 分頁頂端留白 — 需避開固定導覽列（桌機 68px / 手機 56px），故隨螢幕縮放 */
+.section-hero { padding-top:10rem; padding-bottom:4rem; }
+.section-top  { padding-top:8rem; }
+@media(max-width:900px){
+  .section-hero { padding-top:6.5rem; padding-bottom:2.5rem; }
+  .section-top  { padding-top:5.5rem; }
+}
+@media(max-width:600px){
+  .section-hero { padding-top:4.5rem; padding-bottom:2rem; }
+  .section-top  { padding-top:4rem; }
+}
 .section-sm { max-width:1140px; margin:0 auto; padding:4rem 2rem; }
 .full-bleed { background:var(--bg-warm); }
 .full-dark { background:var(--bg-dark); color:white; }
@@ -322,11 +333,38 @@ nav.scrolled { border-bottom-color:var(--border); }
   .cta-section h2 { font-size:1.5rem; }
 }
 
+/* MOBILE APPLY BUTTON + MODAL */
+.nav-apply { display:none; align-items:center; gap:0.35rem; background:var(--red); color:white;
+  font-family:inherit; font-size:0.78rem; font-weight:700; letter-spacing:0.02em;
+  padding:0.55rem 0.95rem; border-radius:7px; text-decoration:none; white-space:nowrap;
+  border:none; cursor:pointer; }
+.nav-apply:active { transform:scale(0.97); }
+.nav-deck { background:var(--bg-dark); }
+/* 兩顆按鈕由 JS 依當前分頁擇一顯示，預設都不顯示 */
+.nav-apply, .nav-deck { display:none !important; }
+@media(max-width:900px){
+  .nav-apply.is-shown, .nav-deck.is-shown { display:inline-flex !important; margin-left:auto; }
+}
+
+.apply-modal { display:none; position:fixed; inset:0; z-index:2000; background:rgba(26,26,46,0.55);
+  -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); padding:1rem; overflow-y:auto;
+  -webkit-overflow-scrolling:touch; }
+.apply-modal.open { display:block; }
+.apply-modal-inner { position:relative; max-width:560px; margin:3rem auto; }
+.apply-modal-close { position:absolute; top:-2.5rem; right:0; width:36px; height:36px; border-radius:50%;
+  background:rgba(255,255,255,0.9); border:none; font-size:1.35rem; line-height:1; color:var(--text);
+  cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.apply-modal .apply-form { box-shadow:0 24px 60px rgba(0,0,0,0.28); }
+@media(max-width:600px){
+  .apply-modal { padding:0.75rem; }
+  .apply-modal-inner { margin:3.25rem auto 2rem; }
+}
+
 /* MOBILE NAV HAMBURGER */
 .nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:0.5rem; margin-left:auto; }
 .nav-hamburger span { display:block; width:22px; height:2px; background:var(--text); margin:5px 0; transition:all .3s; border-radius:1px; }
 @media(max-width:900px) {
-  .nav-hamburger { display:block; }
+  .nav-hamburger { display:block; margin-left:0.6rem; }
   .nav-tabs { display:none !important; position:fixed; top:68px; left:0; right:0; height:auto !important; background:#FAF9F6; flex-direction:column; padding:0.5rem 0 1rem; border-bottom:2px solid var(--border); box-shadow:0 8px 30px rgba(0,0,0,0.12); z-index:9999; max-height:calc(100vh - 68px); overflow-y:auto; }
   .nav-tabs.open { display:flex !important; }
   .nav-tab { display:flex; height:auto; padding:0.85rem 2rem; justify-content:flex-start; font-size:0.9rem; border-bottom:1px solid var(--border); width:100%; text-align:left; }
@@ -345,6 +383,8 @@ nav.scrolled { border-bottom-color:var(--border); }
 <nav id="navbar">
 <div class="nav-inner">
   <a class="nav-brand" href="#" onclick="return showPage('home')"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Mosaic%20Venture%20Lab_U.jpg" style="height:28px;width:auto;vertical-align:middle;margin-right:8px;" alt="Mosaic">VC <em>Academy</em></a>
+  <button class="nav-apply" id="navApply" onclick="return openApplyModal();">Apply →</button>
+  <a class="nav-apply nav-deck" id="navDeck" href="#" download>Get deck ↓</a>
   <button class="nav-hamburger" onclick="document.querySelector('.nav-tabs').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -365,7 +405,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 <div class="page active" id="page-home">
 
   <!-- HERO -->
-  <div class="section" style="padding-top:10rem;padding-bottom:4rem;">
+  <div class="section section-hero">
     <div class="reveal">
       <div class="hero-brand">VC Academy · by Mosaic Venture Lab · Taipei</div>
       <div class="hero-badge"><span class="dot"></span>Applications open · Founding cohort</div>
@@ -684,7 +724,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 <!-- ==================== FREE SESSION ==================== -->
 <div class="page" id="page-free">
-  <div class="section" style="padding-top:8rem;">
+  <div class="section section-top">
     <div class="reveal">
       <div class="section-label">Recap · Launch Event · Fri, Aug 14 2026</div>
       <h1 class="section-heading">We opened VC Academy.<br>One afternoon in Taipei.</h1>
@@ -811,7 +851,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 <!-- ==================== CURRICULUM ==================== -->
 <div class="page" id="page-curriculum">
-  <div class="section" style="padding-top:8rem;">
+  <div class="section section-top">
     <div class="reveal">
       <div class="section-label">The Curriculum</div>
       <h1 class="section-heading">From the ecosystem<br>to the exit.</h1>
@@ -1076,7 +1116,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 <!-- ==================== METHOD ==================== -->
 <div class="page" id="page-method">
-  <div class="section" style="padding-top:8rem;">
+  <div class="section section-top">
     <div class="reveal">
       <div class="section-label">Teaching Method</div>
       <h1 class="section-heading">How the sessions<br>actually run.</h1>
@@ -1139,7 +1179,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 <!-- ==================== OUTCOMES ==================== -->
 <div class="page" id="page-outcomes">
-  <div class="section" style="padding-top:8rem;">
+  <div class="section section-top">
     <div class="reveal">
       <div class="section-label">What You Walk Away With</div>
       <h1 class="section-heading">Skills you can use<br>on a real deal.</h1>
@@ -1206,7 +1246,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 <!-- ==================== TRACK RECORD ==================== -->
 <div class="page" id="page-track">
-  <div class="section" style="padding-top:8rem;">
+  <div class="section section-top">
     <div class="reveal">
       <div class="section-label">Who We Are</div>
       <h1 class="section-heading">14 years on the investor's<br>side of the table.</h1>
@@ -1266,7 +1306,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 <!-- ==================== MENTORS ==================== -->
 <div class="page" id="page-mentors">
-  <div class="section" style="padding-top:8rem;">
+  <div class="section section-top">
     <div class="reveal">
       <div class="section-label">Faculty &amp; Mentors</div>
       <h1 class="section-heading">People who do this<br>for a living.</h1>
@@ -1304,7 +1344,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 <!-- ==================== APPLY ==================== -->
 <div class="page" id="page-apply">
-  <div class="section" style="padding-top:8rem;">
+  <div class="section section-top">
     <div class="reveal">
       <div class="section-label">Join the Founding Cohort</div>
       <h1 class="section-heading">Applications are open.<br>About 10 seats.</h1>
@@ -1435,6 +1475,14 @@ nav.scrolled { border-bottom-color:var(--border); }
   </div>
 </div>
 
+<!-- MOBILE APPLY MODAL — 表單本體會被搬進這裡，全站只有一份表單 -->
+<div class="apply-modal" id="applyModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Apply to VC Academy">
+  <div class="apply-modal-inner">
+    <button class="apply-modal-close" id="applyModalClose" aria-label="Close">&times;</button>
+    <div id="applyModalSlot"></div>
+  </div>
+</div>
+
 <!-- SCRIPTS -->
 <script>
 /* ===================================================================
@@ -1475,6 +1523,70 @@ const DECK_URL = "assets/launch-2026-08-14/VC-Academy-Launch-Deck-2026-08-14.pdf
 /* 8/14 launch event 的 Luma 頁（活動已結束，保留備查） */
 const LUMA_RECAP_URL = "https://luma.com/bp6g466r?tk=p0HIRf";
 
+/* ===================================================================
+   手機版申請彈窗
+   把既有的 #applyForm 節點「搬進」彈窗，關閉時搬回原位。
+   不複製表單 —— 避免重複 id 與兩套驗證邏輯打架。
+   =================================================================== */
+let applyFormAnchor = null;   // 記住原始位置的錨點
+
+function openApplyModal() {
+  const form  = document.getElementById('applyForm');
+  const modal = document.getElementById('applyModal');
+  if (!form || !modal) return false;
+
+  if (!applyFormAnchor) {
+    applyFormAnchor = document.createComment('apply-form-home');
+    form.parentNode.insertBefore(applyFormAnchor, form);
+  }
+  document.getElementById('applyModalSlot').appendChild(form);
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  document.querySelector('.nav-tabs').classList.remove('open');
+
+  const first = form.querySelector('[data-field="name"]');
+  if (first) setTimeout(function () { first.focus(); }, 120);
+  return false;
+}
+
+function closeApplyModal() {
+  const form  = document.getElementById('applyForm');
+  const modal = document.getElementById('applyModal');
+  if (!modal) return false;
+
+  // 搬回原位，維持 desktop 版面完整
+  if (form && applyFormAnchor && applyFormAnchor.parentNode) {
+    applyFormAnchor.parentNode.insertBefore(form, applyFormAnchor);
+  }
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  return false;
+}
+
+(function initApplyModal() {
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+  ready(function () {
+    const modal = document.getElementById('applyModal');
+    if (!modal) return;
+
+    document.getElementById('applyModalClose').addEventListener('click', closeApplyModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeApplyModal(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeApplyModal();
+    });
+
+    // 轉成桌機寬度時若彈窗還開著，收起來並把表單歸位
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900 && modal.classList.contains('open')) closeApplyModal();
+    });
+  });
+})();
+
 (function initDeckDownload() {
   function ready(fn) {
     if (document.readyState !== 'loading') fn();
@@ -1482,26 +1594,31 @@ const LUMA_RECAP_URL = "https://luma.com/bp6g466r?tk=p0HIRf";
   }
 
   ready(function () {
-    const btn = document.getElementById('deckBtn');
-    if (!btn) return;
-    const box = btn.closest('.deck-cta');
+    const btn     = document.getElementById('deckBtn');
+    const navDeck = document.getElementById('navDeck');
+    const box     = btn ? btn.closest('.deck-cta') : null;
 
     // 未設定就整塊隱藏，避免訪客點到壞掉的下載鈕
     if (!DECK_URL) {
       if (box) box.style.display = 'none';
+      if (navDeck) navDeck.remove();
       return;
     }
 
-    btn.href = DECK_URL;
     const external = /^https?:\/\//i.test(DECK_URL);
-    if (external) {
-      // 跨網域無法觸發下載，改開新分頁
-      btn.target = '_blank';
-      btn.rel = 'noopener noreferrer';
-    } else {
-      // 同網域檔案：直接下載並指定檔名
-      btn.setAttribute('download', '');
-    }
+    [btn, navDeck].forEach(function (el) {
+      if (!el) return;
+      el.href = DECK_URL;
+      if (external) {
+        // 跨網域無法觸發下載，改開新分頁
+        el.target = '_blank';
+        el.rel = 'noopener noreferrer';
+        el.removeAttribute('download');
+      } else {
+        // 同網域檔案：直接下載
+        el.setAttribute('download', '');
+      }
+    });
   });
 })();
 
@@ -1607,6 +1724,19 @@ function resolvePage(raw) {
 /* 內部 id → 網址用的名稱（free 對外顯示為 recap，比較好懂） */
 function slugFor(id) { return id === 'free' ? 'recap' : id; }
 
+/* 手機版導覽列的行動按鈕：Recap 頁顯示「下載簡報」，其他分頁顯示「申請」 */
+function updateNavCta(id) {
+  const apply = document.getElementById('navApply');
+  const deck  = document.getElementById('navDeck');
+  if (!apply || !deck) return;
+
+  const deckReady = typeof DECK_URL === 'string' && DECK_URL.length > 0;
+  const showDeck  = (id === 'free') && deckReady;
+
+  deck.classList.toggle('is-shown', showDeck);
+  apply.classList.toggle('is-shown', !showDeck);
+}
+
 function showPage(id, fromHistory) {
   id = resolvePage(id);
 
@@ -1620,6 +1750,7 @@ function showPage(id, fromHistory) {
   });
 
   document.querySelector('.nav-tabs').classList.remove('open');
+  updateNavCta(id);
 
   if (!fromHistory) {
     const base = location.pathname + location.search;
