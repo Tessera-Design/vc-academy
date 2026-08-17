@@ -135,6 +135,83 @@ const APPLY_URL = "";   // ← 貼在這裡
 
 ---
 
+## 備案：獨立腳本（Sheet 開不了 Apps Script 時用）
+
+若「擴充功能 → Apps Script」出現 **「很抱歉，目前無法開啟這個檔案」**，
+多半是多個 Google 帳號同時登入導致帳號索引錯誤。可改用獨立腳本：
+
+**1. 先取得 Sheet ID** —— 從 Sheet 網址中間那段：
+
+```
+https://docs.google.com/spreadsheets/d/【這一段就是 SHEET_ID】/edit#gid=0
+```
+
+**2. 到 [script.google.com/create](https://script.google.com/create) 建立新專案**，貼上：
+
+```javascript
+const SHEET_ID   = '把上面複製的 SHEET_ID 貼在這裡';
+const SHEET_NAME = 'Applications';
+
+function doPost(e) {
+  try {
+    const data = JSON.parse(e.postData.contents);
+    const ss = SpreadsheetApp.openById(SHEET_ID);   // ← 與容器綁定版的唯一差別
+    let sheet = ss.getSheetByName(SHEET_NAME);
+
+    if (!sheet) {
+      sheet = ss.insertSheet(SHEET_NAME);
+      sheet.appendRow([
+        'Submitted at', 'Name', 'Email', 'Role & company',
+        'LinkedIn', 'Background', 'Why', 'Source'
+      ]);
+      sheet.getRange(1, 1, 1, 8).setFontWeight('bold');
+      sheet.setFrozenRows(1);
+    }
+
+    sheet.appendRow([
+      new Date(),
+      data.name       || '',
+      data.email      || '',
+      data.role       || '',
+      data.linkedin   || '',
+      data.background || '',
+      data.why        || '',
+      data.source     || ''
+    ]);
+
+    MailApp.sendEmail({
+      to: 'vh@mvl.biz',
+      subject: 'VC Academy — new application: ' + (data.name || 'unknown'),
+      body: [
+        'Name:       ' + (data.name || ''),
+        'Email:      ' + (data.email || ''),
+        'Role:       ' + (data.role || ''),
+        'LinkedIn:   ' + (data.linkedin || ''),
+        'Background: ' + (data.background || ''),
+        'Source:     ' + (data.source || ''),
+        '',
+        'Why they want to join:',
+        (data.why || '')
+      ].join('\n')
+    });
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: 'success' }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: 'error', message: err.message }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+```
+
+**3. 部署方式與上面完全相同**（網頁應用程式 → 執行身分「我」→ 存取權「任何人」）。
+
+> 第一次授權時會多要一項 Google Sheets 的存取權限，這是正常的 ——
+> 因為獨立腳本需要被授權去開啟那份試算表。
+
 ## 常見踩雷點
 
 **① 存取權沒設成「任何人」← 最常見**
