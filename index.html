@@ -221,6 +221,11 @@ nav.scrolled { border-bottom-color:var(--border); }
 
 /* APPLY FORM */
 .apply-form { background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:2rem; box-shadow:var(--sh-sm); }
+.form-title { font-family:'DM Serif Display',serif; font-size:2rem; line-height:1.1; letter-spacing:-0.01em;
+  margin-bottom:1.75rem; padding-bottom:0.85rem; position:relative; }
+.form-title::after { content:''; position:absolute; left:0; bottom:0; width:56px; height:4px;
+  background:var(--red); border-radius:2px; }
+@media(max-width:600px){ .form-title { font-size:1.7rem; margin-bottom:1.5rem; } }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
 .field { margin-bottom:1.1rem; }
 .field label { display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.02em; margin-bottom:0.4rem; color:var(--text); }
@@ -362,7 +367,7 @@ nav.scrolled { border-bottom-color:var(--border); }
   <!-- HERO -->
   <div class="section" style="padding-top:10rem;padding-bottom:4rem;">
     <div class="reveal">
-      <div class="hero-brand"><img src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Mosaic%20Venture%20Lab_U.jpg" style="height:26px;width:auto;vertical-align:middle;margin-right:8px;" alt="Mosaic">VC Academy · by Mosaic Venture Lab · Taipei</div>
+      <div class="hero-brand">VC Academy · by Mosaic Venture Lab · Taipei</div>
       <div class="hero-badge"><span class="dot"></span>Applications open · Founding cohort</div>
       <h1 class="hero-title">How do you actually<br>become a <em>VC?</em></h1>
       <p class="hero-lede">We launched VC Academy in Taipei on August 14. <strong>Applications for the founding cohort are now open</strong> — about 10 seats.</p>
@@ -1327,7 +1332,7 @@ nav.scrolled { border-bottom-color:var(--border); }
       <div>
         <!-- APPLICATION FORM -->
         <div class="apply-form" id="applyForm">
-          <h3 style="font-family:'DM Serif Display',serif;font-size:1.35rem;margin-bottom:1.5rem;">Application</h3>
+          <h3 class="form-title">Application</h3>
           <div id="formNotice" class="form-notice" style="display:none;"></div>
           <form id="cohortForm" novalidate>
             <div class="form-row">
