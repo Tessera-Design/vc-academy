@@ -126,6 +126,23 @@ nav.scrolled { border-bottom-color:var(--border); }
 .week-desc { font-size:0.92rem; line-height:1.7; color:var(--text-sec); }
 .week-who { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--teal); margin-top:0.75rem; font-weight:500; }
 
+/* EVENING TIMELINE */
+.evening-row { display:grid; grid-template-columns:72px 1fr; gap:1.5rem; padding:1.1rem 0; border-bottom:1px solid var(--border); }
+.evening-row:last-child { border-bottom:none; padding-bottom:0; }
+.evening-row:first-child { padding-top:0; }
+.evening-time { font-family:'IBM Plex Mono',monospace; font-size:0.9rem; font-weight:600; color:var(--red); line-height:1.5; }
+.evening-title { font-weight:700; font-size:1rem; margin-bottom:0.3rem; }
+.evening-mins { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; font-weight:500; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-left:0.5rem; }
+.evening-desc { font-size:0.9rem; line-height:1.65; color:var(--text-sec); }
+
+/* TAIWAN SPINE */
+.spine-row { display:grid; grid-template-columns:52px 1fr; gap:1.25rem; padding:1.35rem 0; border-bottom:1px solid rgba(255,255,255,0.1); }
+.spine-row:last-child { border-bottom:none; padding-bottom:0; }
+.spine-row:first-child { padding-top:0; }
+.spine-num { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--red); line-height:1.2; }
+.spine-title { font-weight:700; font-size:1.05rem; margin-bottom:0.35rem; }
+.spine-desc { font-size:0.9rem; line-height:1.7; opacity:0.78; }
+
 /* TRACK CARDS */
 .track-card { border-radius:14px; padding:2.5rem; }
 .track-a { background:var(--bg-dark); color:white; }
@@ -209,6 +226,9 @@ nav.scrolled { border-bottom-color:var(--border); }
 .pillar-2 { background:var(--blue); }
 .pillar-3 { background:var(--teal); }
 .pillar-4 { background:var(--amber); }
+/* On the dark home section, pillar-1 would be invisible against an identical
+   background — lift it so it still reads as a card. */
+.full-accent .pillar-1 { background:#252542; border:1px solid rgba(255,255,255,0.14); }
 
 /* FREE BANNER */
 .free-banner { background:linear-gradient(135deg, var(--red) 0%, #B91C1C 100%); color:white; border-radius:18px; padding:2.5rem 3rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
@@ -320,6 +340,7 @@ nav.scrolled { border-bottom-color:var(--border); }
   .g4 { grid-template-columns:repeat(2,1fr); }
   .mentor-grid { grid-template-columns:repeat(3,1fr) !important; }
   .week-item { grid-template-columns:60px 1fr; gap:1rem; }
+  .evening-row { grid-template-columns:60px 1fr; gap:1rem; }
   .counters { flex-wrap:wrap; gap:1.5rem 2.5rem; }
   .section,.section-sm { padding:3rem 1.25rem; }
   .hero-title { font-size:clamp(2.2rem,8vw,3.5rem); }
@@ -345,6 +366,15 @@ nav.scrolled { border-bottom-color:var(--border); }
   .card { padding:1.25rem; }
   .card-dark { padding:1.25rem; }
   .week-item { grid-template-columns:50px 1fr; gap:0.75rem; padding:1.25rem 0; }
+  .evening-row { grid-template-columns:52px 1fr; gap:0.75rem; padding:0.9rem 0; }
+  .spine-row { grid-template-columns:38px 1fr; gap:0.75rem; padding:1.1rem 0; }
+  .spine-num { font-size:1.25rem; }
+  .spine-title { font-size:0.98rem; }
+  .spine-desc { font-size:0.85rem; }
+  .evening-time { font-size:0.8rem; }
+  .evening-title { font-size:0.92rem; }
+  .evening-mins { display:block; margin-left:0; margin-top:0.15rem; }
+  .evening-desc { font-size:0.85rem; }
   .week-num { font-size:2rem; }
   .week-title { font-size:1.2rem; }
   .comp-table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
@@ -457,7 +487,7 @@ nav.scrolled { border-bottom-color:var(--border); }
       <p class="hero-meta">In person in Taipei · Built around your job · <b>~10 seats, invitation only</b> · Applications reviewed on a rolling basis</p>
       <div class="g4 reveal" style="margin-top:2.5rem;">
         <div class="stat-card"><h3>14</h3><p>Years in Taiwan's Ecosystem</p></div>
-        <div class="stat-card red"><h3>4</h3><p>Curriculum Pillars</p></div>
+        <div class="stat-card red"><h3>12</h3><p>Sessions in Four Acts</p></div>
         <div class="stat-card"><h3>10</h3><p>Founding-Cohort Seats</p></div>
         <div class="stat-card"><h3>2026</h3><p>Founding Cohort</p></div>
       </div>
@@ -510,29 +540,34 @@ nav.scrolled { border-bottom-color:var(--border); }
     </div>
   </div>
 
-  <!-- THREE PILLARS -->
+  <!-- THE FOUR ACTS -->
   <div class="full-accent">
     <div class="section">
       <div class="reveal">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;">The Curriculum</div>
-        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.15;letter-spacing:-0.01em;margin-bottom:1.5rem;">Three pillars of craft.<br>Plus the business of VC.</h2>
-        <p style="font-size:1.05rem;line-height:1.7;color:rgba(255,255,255,0.65);max-width:640px;">Built around what junior VCs are usually missing, and benchmarked against how the leading programs abroad teach it, then tailored for Taiwan. The full curriculum also covers fund economics, portfolio math, and exits.</p>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.15;letter-spacing:-0.01em;margin-bottom:1.5rem;">Four acts.<br>One full cycle of an investment firm.</h2>
+        <p style="font-size:1.05rem;line-height:1.7;color:rgba(255,255,255,0.65);max-width:640px;">Twelve sessions that run the annual cycle of an investment firm once, in order — from building your lens to defending a recommendation in front of a panel. Every act ends with something you own and can show.</p>
       </div>
-      <div class="g3 reveal" style="margin-top:2.5rem;">
+      <div class="g4 reveal" style="margin-top:2.5rem;">
         <div class="pillar-card pillar-1">
-          <div class="pillar-num">PILLAR 01</div>
-          <h3>The VC Ecosystem</h3>
-          <p>How venture capital really works — investor types, stages, ticket sizes, and technology focus. Silicon Valley as the anchor case, extended to Japan, Korea, and Europe. How founders and family offices get connected to early-stage VCs.</p>
+          <div class="pillar-num">ACT I · 1–3</div>
+          <h3>Build Your Lens</h3>
+          <p>What do I look for, and why me? You write and defend an investment thesis built on the domain you already know — and open the Deal Book you keep all the way through.</p>
         </div>
         <div class="pillar-card pillar-2">
-          <div class="pillar-num">PILLAR 02</div>
-          <h3>Roles &amp; Strategic Due Diligence</h3>
-          <p>Know your seat: lead, anchor, or co-investor. Run focused, thesis-driven due diligence instead of checking everything. Build the right questions, read the founder's answers, and pass early when a deal doesn't fit.</p>
+          <div class="pillar-num">ACT II · 4–6</div>
+          <h3>Learn to Say No</h3>
+          <p>How do I decide fast, and defend it? Reading a founder, building the diligence questions that could kill a deal, and reading a five-year forecast in ten minutes.</p>
         </div>
         <div class="pillar-card pillar-3">
-          <div class="pillar-num">PILLAR 03</div>
-          <h3>Term Sheets &amp; the Deal</h3>
-          <p>Decode the terminology that trips up junior VCs. Read and issue term sheets, know which comments and items to add, and master the tools — all taught as real, structured cases from live deals.</p>
+          <div class="pillar-num">ACT III · 7–9</div>
+          <h3>The Deal</h3>
+          <p>How do I do one without getting hurt? Term-sheet language and negotiation, cap-table maths, and the deal structures used in this region that no textbook covers.</p>
+        </div>
+        <div class="pillar-card pillar-4">
+          <div class="pillar-num">ACT IV · 10–12</div>
+          <h3>The Business</h3>
+          <p>How does the money work, and how does it come back? Fund economics, corporate money, Taiwan's exit reality — then a full IC memo you defend before a panel.</p>
         </div>
       </div>
       <div class="reveal" style="margin-top:2rem;">
@@ -894,7 +929,7 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal">
       <div class="section-label">The Curriculum</div>
       <h1 class="section-heading">From the ecosystem<br>to the exit.</h1>
-      <p class="section-sub">Four pillars, built around what junior VCs are usually missing and benchmarked against how the leading programs abroad teach it, then tailored for Taiwan. This is what the founding cohort works through, session by session.</p>
+      <p class="section-sub">Twelve sessions in four acts. The programme runs the annual cycle of an investment firm once, in order — from building your lens to defending a recommendation in front of an investment committee. Every act ends with something you own and can show. This is what the founding cohort works through, session by session.</p>
     </div>
 
     <!-- FREE SESSION -->
@@ -909,42 +944,86 @@ nav.scrolled { border-bottom-color:var(--border); }
       </div>
     </div>
 
-    <!-- PILLAR 1 -->
-    <div class="reveal" style="margin-top:4rem;">
-      <div class="pillar-card pillar-1" style="margin-bottom:0;border-radius:16px 16px 0 0;">
-        <div class="pillar-num">PILLAR 01</div>
-        <h3 style="margin-bottom:0.5rem;">The Venture Capital Ecosystem</h3>
-        <p>A working map of how venture capital actually operates — and how to find your way into it.</p>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="week-item">
-        <div><div class="week-num">1</div><div class="week-format">In-Person · Session</div></div>
-        <div>
-          <div class="week-title">How the Ecosystem Works</div>
-          <div class="week-desc">A brief but concrete introduction to the VC ecosystem, using Silicon Valley as the anchor case. What kinds of VCs exist, what stages they invest at, their typical ticket sizes, and the technologies they focus on. The mental model you need before anything else makes sense.</div>
-          <div class="week-who">→ FOUNDATION · Open to all cohort members</div>
+    <!-- THE SHAPE OF AN EVENING -->
+    <div class="reveal" style="margin-top:4.5rem;">
+      <div class="section-label">The Shape of an Evening</div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.2;margin-bottom:1rem;">Ninety minutes of teaching.<br>Ninety minutes of work.</h2>
+      <p style="font-size:0.95rem;line-height:1.7;color:var(--text-sec);max-width:660px;margin-bottom:2rem;">Every session runs to the same shape. The break sits inside the second half, because the room getting to know each other is a goal of this programme rather than an interruption to it. And nobody leaves an evening without having said a number out loud and had it written down — that is the mechanism the whole programme is built around.</p>
+      <div style="background:var(--bg-warm);border-radius:14px;padding:2rem;">
+        <div class="evening-row">
+          <div class="evening-time">18:45</div>
+          <div>
+            <div class="evening-title">Deal Desk <span class="evening-mins">15 min</span></div>
+            <div class="evening-desc">Three participants present a deal they sourced since the last session. Three minutes each, position stated out loud.</div>
+          </div>
         </div>
-      </div>
-      <div class="week-item">
-        <div><div class="week-num">2</div><div class="week-format">In-Person · Session</div></div>
-        <div>
-          <div class="week-title">Getting Connected</div>
-          <div class="week-desc">How founders, angels, and family offices actually get connected to early-stage VCs — and how a new investor builds the relationships and deal flow that make a career possible. The unwritten mechanics of the network.</div>
-          <div class="week-who">→ FOUNDATION · Sourcing &amp; relationships</div>
+        <div class="evening-row">
+          <div class="evening-time">19:00</div>
+          <div>
+            <div class="evening-title">The Lecture <span class="evening-mins">90 min</span></div>
+            <div class="evening-desc">The visiting investor on a topic they know cold — including their own war stories, and your questions.</div>
+          </div>
         </div>
-      </div>
-      <div class="week-item">
-        <div><div class="week-num">3</div><div class="week-format">In-Person · Session</div></div>
-        <div>
-          <div class="week-title">Taiwan, Asia &amp; Beyond Silicon Valley</div>
-          <div class="week-desc">The same ecosystem map, brought home to Taiwan and Greater China, then extended to Japan, Korea, and Europe. The local players you need to know — Taiwania Capital, the National Development Fund, AppWorks, CDIB — and how cross-border deals between Taipei, Silicon Valley, Berlin, and Tokyo actually get done. That bridge is what Mosaic does for a living.</div>
-          <div class="week-who">→ FOUNDATION · Taiwan in a global market</div>
+        <div class="evening-row">
+          <div class="evening-time">20:30</div>
+          <div>
+            <div class="evening-title">Break <span class="evening-mins">15 min</span></div>
+            <div class="evening-desc">Food, drinks, and deliberate introductions.</div>
+          </div>
+        </div>
+        <div class="evening-row">
+          <div class="evening-time">20:45</div>
+          <div>
+            <div class="evening-title">The Workshop <span class="evening-mins">60 min</span></div>
+            <div class="evening-desc">Structured role-play on the live deal the visiting investor brought with them. They play the hardest seat, and they can stop the clock to narrate what they are thinking.</div>
+          </div>
+        </div>
+        <div class="evening-row">
+          <div class="evening-time">21:45</div>
+          <div>
+            <div class="evening-title">Positions <span class="evening-mins">15 min</span></div>
+            <div class="evening-desc">Every participant states a position on the deal and logs it in their Deal Book. Homework is set.</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Pillar 1 chart: funding ladder -->
+    <!-- ACT I -->
+    <div class="reveal" style="margin-top:4rem;">
+      <div class="pillar-card pillar-1" style="margin-bottom:0;border-radius:16px 16px 0 0;">
+        <div class="pillar-num">ACT I · SESSIONS 1–3</div>
+        <h3 style="margin-bottom:0.5rem;">Build Your Lens</h3>
+        <p><em>What do I look for, and why me?</em> &nbsp;·&nbsp; You leave with a written investment thesis you have defended out loud.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="week-item">
+        <div><div class="week-num">1</div><div class="week-format">In-Person · House</div></div>
+        <div>
+          <div class="week-title">The Map and the Mirror</div>
+          <div class="week-desc">Two halves. First the map: how venture capital works as a system, why the power law forces the behaviour it does, and where Taiwan sits inside a global picture currently distorted by AI concentration. Then the mirror — what you actually bring. Nobody in this room will out-generalist a Taipei fund analyst; your edge is the domain you already know. Your Deal Book opens tonight.</div>
+          <div class="week-who">→ WORKSHOP · The Edge Audit</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">2</div><div class="week-format">In-Person · Visiting VC</div></div>
+        <div>
+          <div class="week-title">Where Deals Actually Come From</div>
+          <div class="week-desc">The funnel, from someone running it right now: roughly a thousand companies a year down to three or five cheques. Where the top of that funnel comes from in Taiwan specifically — the universities and ITRI, the semiconductor supply chain, corporate scouting mandates, the event circuit, returnees. And the FA layer: who they are, what they charge, and what it means when a deal reaches you through one.</div>
+          <div class="week-who">→ WORKSHOP · Source in the Room</div>
+        </div>
+      </div>
+      <div class="week-item">
+        <div><div class="week-num">3</div><div class="week-format">In-Person · House</div></div>
+        <div>
+          <div class="week-title">Thesis Night</div>
+          <div class="week-desc">What a thesis is actually for: not a marketing document, but the thing that lets you say no in four minutes without feeling bad about it. Every participant presents their own and then takes questions from the room. Three questions everyone answers — what would make you wrong, which deal would you hate to have to pass on, and who is already doing this better than you.</div>
+          <div class="week-who">→ WORKSHOP · The Defence</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Act I chart: funding ladder -->
     <div class="reveal" style="margin-top:2.5rem;">
       <div style="background:var(--bg-warm);border-radius:14px;padding:2rem;">
         <svg viewBox="0 0 520 300" style="width:100%;max-width:560px;margin:0 auto;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="Funding stages and check sizes">
@@ -960,46 +1039,46 @@ nav.scrolled { border-bottom-color:var(--border); }
             <text x="180" y="47">$100K–$1M</text><text x="230" y="99">$1–4M</text><text x="320" y="151">$8–20M</text><text x="410" y="203">$20–50M</text><text x="470" y="255" text-anchor="end" fill="#FFFFFF">$50M+</text>
           </g>
         </svg>
-        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Pillar 1: every investor lives on one rung of this ladder. Knowing which rung tells you almost everything about how they work.</p>
+        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Act I: every investor lives on one rung of this ladder. Knowing which rung tells you almost everything about how they work — and which rung you belong on.</p>
       </div>
     </div>
 
-    <!-- PILLAR 2 -->
+    <!-- ACT II -->
     <div class="reveal" style="margin-top:3rem;">
       <div class="pillar-card pillar-2" style="margin-bottom:0;border-radius:16px 16px 0 0;">
-        <div class="pillar-num">PILLAR 02</div>
-        <h3 style="margin-bottom:0.5rem;">Investor Roles &amp; Strategic Due Diligence</h3>
-        <p>Know your seat at the table — and how real investors decide what to dig into and what to walk away from.</p>
+        <div class="pillar-num">ACT II · SESSIONS 4–6</div>
+        <h3 style="margin-bottom:0.5rem;">Learn to Say No</h3>
+        <p><em>How do I decide, fast, and be able to defend it?</em> &nbsp;·&nbsp; You leave with a diligence method and a forecast you can read.</p>
       </div>
     </div>
     <div class="reveal">
       <div class="week-item">
-        <div><div class="week-num">4</div><div class="week-format">In-Person · Session</div></div>
+        <div><div class="week-num">4</div><div class="week-format">In-Person · Visiting VC</div></div>
         <div>
-          <div class="week-title">Lead, Anchor, or Co-Investor</div>
-          <div class="week-desc">When deal flow arrives, you need to understand your position in the round. What it means to play lead investor versus anchor versus co-investor — the different responsibilities, leverage, and expectations that come with each seat.</div>
-          <div class="week-who">→ DEAL MECHANICS · Your role in the round</div>
+          <div class="week-title">Reading the Founder</div>
+          <div class="week-desc">What an experienced investor is actually reading in a founder meeting — honesty about weakness, resilience when pushed hard, leadership over a team rather than one impressive individual. And the reverse: what a founder is reading in you, because reputation runs both ways and in a market this size it compounds fast.</div>
+          <div class="week-who">→ ROLE-PLAY · The Meeting</div>
         </div>
       </div>
       <div class="week-item">
-        <div><div class="week-num">5</div><div class="week-format">In-Person · Session</div></div>
+        <div><div class="week-num">5</div><div class="week-format">In-Person · Visiting VC</div></div>
         <div>
-          <div class="week-title">Strategic, Focused Diligence</div>
-          <div class="week-desc">A conceptual lecture on how to run strategic due diligence — not checking everything, but asking the questions that fit your thesis. How to build a strong, focused diligence question set instead of a generic checklist, and how to weight what you learn.</div>
-          <div class="week-who">→ DEAL MECHANICS · The art of the right questions</div>
+          <div class="week-title">Diligence That Fits Your Thesis</div>
+          <div class="week-desc">Real diligence is not a checklist. It is the four or five questions that could kill the deal, asked in the order that kills it fastest — how to build that set from your thesis, how to weight what comes back, and how to read a non-answer. Plus the Taiwan layer: what to verify with the supply chain, what a corporate customer reference here actually tells you, and what to check about the FA.</div>
+          <div class="week-who">→ WORKSHOP · The Kill List</div>
         </div>
       </div>
       <div class="week-item">
-        <div><div class="week-num">6</div><div class="week-format">In-Person · Session</div></div>
+        <div><div class="week-num">6</div><div class="week-format">In-Person · Visiting VC</div></div>
         <div>
-          <div class="week-title">Reading the Answers &amp; Passing Early</div>
-          <div class="week-desc">Some questions a founder won't be able to answer — and that's signal. How to read those moments, recognize when a case doesn't fit your needs, and pass early with conviction instead of burning weeks on diligence that was never going to convert.</div>
-          <div class="week-who">→ DEAL MECHANICS · Conviction &amp; the early no</div>
+          <div class="week-title">The Numbers</div>
+          <div class="week-desc">How to read a five-year projection in ten minutes: which line to look at first, which assumptions carry all the weight, how to benchmark against comparables, and what a bottom-up build looks like next to a top-down fantasy. Including where AI-generated models break — and how to check output you didn't build yourself.</div>
+          <div class="week-who">→ WORKSHOP · Ten Minutes to a Verdict</div>
         </div>
       </div>
     </div>
 
-    <!-- Pillar 2 chart: deal funnel -->
+    <!-- Act II chart: deal funnel -->
     <div class="reveal" style="margin-top:2.5rem;">
       <div style="background:var(--bg-warm);border-radius:14px;padding:2rem;">
         <svg viewBox="0 0 520 300" style="width:100%;max-width:560px;margin:0 auto;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="The deal funnel">
@@ -1015,54 +1094,46 @@ nav.scrolled { border-bottom-color:var(--border); }
             <text x="392" y="52">Deals seen</text><text x="392" y="104">First meeting</text><text x="392" y="156">Real diligence</text><text x="392" y="208">Term sheet</text><text x="392" y="260" font-weight="700" fill="#DC2626">Invested</text>
           </g>
         </svg>
-        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Pillar 2: hundreds of deals for every cheque. The skill is deciding fast what to dig into — and passing on the rest with a clear reason.</p>
+        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Act II: roughly a thousand companies a year for every three or five cheques. The skill is deciding fast what to dig into — and passing on the rest with a clear reason.</p>
       </div>
     </div>
 
-    <!-- PILLAR 3 -->
+    <!-- ACT III -->
     <div class="reveal" style="margin-top:3rem;">
       <div class="pillar-card pillar-3" style="margin-bottom:0;border-radius:16px 16px 0 0;">
-        <div class="pillar-num">PILLAR 03</div>
-        <h3 style="margin-bottom:0.5rem;">Term Sheets &amp; the Language of the Deal</h3>
-        <p>The detail work — the terminology, the documents, and the tools junior VCs are never taught.</p>
+        <div class="pillar-num">ACT III · SESSIONS 7–9</div>
+        <h3 style="margin-bottom:0.5rem;">The Deal</h3>
+        <p><em>How do I actually do one without getting hurt?</em> &nbsp;·&nbsp; You leave with a marked-up term sheet and a cap table you built.</p>
       </div>
     </div>
     <div class="reveal">
       <div class="week-item">
-        <div><div class="week-num">7</div><div class="week-format">In-Person · Case Study</div></div>
+        <div><div class="week-num">7</div><div class="week-format">In-Person · House</div></div>
         <div>
-          <div class="week-title">Decoding the Terminology</div>
-          <div class="week-desc">The terms and concepts junior VCs trip over, made concrete. What they mean, why they exist, and how they shape a deal — so you can read a document and a conversation without bluffing.</div>
-          <div class="week-who">→ THE DEAL · Speaking the language</div>
+          <div class="week-title">Term Sheets I — The Language</div>
+          <div class="week-desc">The terms taken apart one at a time: valuation and the pre/post distinction, liquidation preference, anti-dilution, participation, board composition, vesting, drag and tag, information rights, redemption. What each is for, who it protects, and what it costs the other side. Then the part available nowhere else — the structures used in this region that no textbook covers.</div>
+          <div class="week-who">→ WORKSHOP · Translate the Clause</div>
         </div>
       </div>
       <div class="week-item">
-        <div><div class="week-num">8</div><div class="week-format">In-Person · Case Study</div></div>
+        <div><div class="week-num">8</div><div class="week-format">In-Person · Visiting VC</div></div>
         <div>
-          <div class="week-title">Issuing &amp; Receiving a Term Sheet</div>
-          <div class="week-desc">Whether you're providing a term sheet to a startup or receiving one from other investors, what comments and items you need to add, what to negotiate, and what to protect. Taught as a real, structured case rather than a definition list.</div>
-          <div class="week-who">→ THE DEAL · The document itself</div>
+          <div class="week-title">Term Sheets II — The Negotiation</div>
+          <div class="week-desc">Issuing versus receiving, and what changes when you are leading, anchoring or following. What is worth fighting for and what is noise. How the conversation actually runs when a corporate in the round wants exclusivity, when the founder has another offer, and when the round is undersubscribed and everyone in it knows.</div>
+          <div class="week-who">→ ROLE-PLAY · The Negotiation</div>
         </div>
       </div>
       <div class="week-item">
-        <div><div class="week-num">9</div><div class="week-format">In-Person · Workshop</div></div>
+        <div><div class="week-num">9</div><div class="week-format">In-Person · Visiting VC</div></div>
         <div>
-          <div class="week-title">Cap Tables, Valuation &amp; Dilution</div>
-          <div class="week-desc">Hands-on with a real capitalization table. Pre- and post-money valuation, how ownership and dilution move across rounds, the option pool, and what a term sheet does to the numbers. The math every investor is expected to run, often in their head.</div>
-          <div class="week-who">→ THE DEAL · The numbers behind the deal</div>
-        </div>
-      </div>
-      <div class="week-item">
-        <div><div class="week-num">10</div><div class="week-format">In-Person · Case Study</div></div>
-        <div>
-          <div class="week-title">The Tools of the Trade</div>
-          <div class="week-desc">The platforms and tools investors actually use to manage diligence, deals, and documents — and how to use them well. You leave able to operate, not just describe.</div>
-          <div class="week-who">→ THE DEAL · Working like a professional</div>
+          <div class="week-title">Cap Tables, Valuation, Dilution</div>
+          <div class="week-desc">The maths every investor is expected to run in their head: pre- and post-money, the option pool shuffle, what each round does to everyone's ownership, and what a liquidation preference does to the waterfall when the exit is mediocre. Then the Taiwan version, which is the part that matters — modelling toward a local listing at a valuation that would be a seed round in Menlo Park, and what that means for the price you can pay going in.</div>
+          <div class="week-who">→ WORKSHOP · Build It</div>
         </div>
       </div>
     </div>
 
-    <!-- Pillar 3 chart: dilution -->
+    <!-- Act III chart: dilution -->
     <div class="reveal" style="margin-top:2.5rem;">
       <div style="background:var(--bg-warm);border-radius:14px;padding:2rem;">
         <svg viewBox="0 0 520 300" style="width:100%;max-width:560px;margin:0 auto;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="Founder dilution across rounds">
@@ -1089,46 +1160,46 @@ nav.scrolled { border-bottom-color:var(--border); }
             <rect x="322" y="252" width="12" height="12" rx="2" fill="#D97706"/><text x="340" y="262">Option pool</text>
           </g>
         </svg>
-        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Pillar 3: what a term sheet does to the cap table. Founders give up ownership round after round — you'll learn to read and run these numbers.</p>
+        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Act III: what a term sheet does to the cap table. Founders give up ownership round after round — you'll build this model yourself, live, and then stress it.</p>
       </div>
     </div>
 
-    <!-- PILLAR 4 -->
+    <!-- ACT IV -->
     <div class="reveal" style="margin-top:3rem;">
       <div class="pillar-card pillar-4" style="margin-bottom:0;border-radius:16px 16px 0 0;">
-        <div class="pillar-num">PILLAR 04</div>
-        <h3 style="margin-bottom:0.5rem;">The Business of VC: Funds, Economics &amp; Exits</h3>
-        <p>How the money actually works — the part most courses skip and most juniors learn the hard way.</p>
+        <div class="pillar-num">ACT IV · SESSIONS 10–12</div>
+        <h3 style="margin-bottom:0.5rem;">The Business</h3>
+        <p><em>How does the money work, and how does it come back?</em> &nbsp;·&nbsp; You leave with an IC memo you presented and defended.</p>
       </div>
     </div>
     <div class="reveal">
       <div class="week-item">
-        <div><div class="week-num">11</div><div class="week-format">In-Person · Session</div></div>
+        <div><div class="week-num">10</div><div class="week-format">In-Person · Two CVCs</div></div>
         <div>
-          <div class="week-title">How a Fund Makes Money</div>
-          <div class="week-desc">The structure behind every VC: limited partners and general partners, the management fee, carried interest, and the ten-year fund lifecycle. Why fund size quietly dictates what stage you invest at and how big your checks can be. Understand this and you understand why VCs behave the way they do.</div>
-          <div class="week-who">→ THE BUSINESS · Fund economics</div>
+          <div class="week-title">Corporate Money</div>
+          <div class="week-desc">The session Taiwan needs most, and one you will not find in a curriculum written for Delaware. A CVC optimises for strategic fit, a fund optimises for returns, a government vehicle optimises for industrial policy — all three are rational and all three want different things from the same company. How a corporate investment committee actually decides, how the business unit and the ventures arm disagree, what exclusivity is really for, and what happens to a portfolio company when the parent's strategy changes.</div>
+          <div class="week-who">→ ROLE-PLAY · Both Sides of the Table</div>
         </div>
       </div>
       <div class="week-item">
-        <div><div class="week-num">12</div><div class="week-format">In-Person · Session</div></div>
+        <div><div class="week-num">11</div><div class="week-format">In-Person · Visiting VC</div></div>
         <div>
-          <div class="week-title">Portfolio Construction &amp; the Power Law</div>
-          <div class="week-desc">Ownership targets, reserves and follow-on capital, how many bets a fund actually makes, and why a single outlier has to carry the whole portfolio. How that one piece of math shapes every decision a VC makes — including the ones that look irrational from the outside.</div>
-          <div class="week-who">→ THE BUSINESS · Building a portfolio</div>
+          <div class="week-title">Fund Economics and the Taiwan Exit</div>
+          <div class="week-desc">How the money works: LPs and GPs, the management fee, carried interest, the fund lifecycle, and why fund size dictates cheque size and therefore stage. Then Taiwan's exit reality — the listing ladder, why companies here go public early and small, the pre-IPO pull and what it does to Series A pricing, and who the Taiwanese LPs actually are. Every LP module in every other programme assumes a US endowment.</div>
+          <div class="week-who">→ WORKSHOP · Raise It</div>
         </div>
       </div>
       <div class="week-item">
-        <div><div class="week-num">13</div><div class="week-format">In-Person · Session</div></div>
+        <div><div class="week-num">12</div><div class="week-format">In-Person · All Faculty</div></div>
         <div>
-          <div class="week-title">Exits, Returns &amp; Life After the Check</div>
-          <div class="week-desc">How money comes back: trade sales, IPOs, and the secondary market. Why exits decide a fund's reputation and its next raise. Then the years in between — the board seat, governance, and the real job of supporting a founder once your money is in.</div>
-          <div class="week-who">→ THE BUSINESS · Returns &amp; post-investment</div>
+          <div class="week-title">Investment Committee Night</div>
+          <div class="week-desc">The graduation, and it is not a ceremony. Two teams present a full IC memo on a real deal the cohort sourced — thesis fit, diligence findings, the numbers, proposed terms, risks, recommendation — to a panel of the investors who taught the programme. The panel does what an IC does: they interrupt, they ask the question nobody prepared for, and then they vote and every one of them says why.</div>
+          <div class="week-who">→ THE FINAL REP · Your IC memo, defended</div>
         </div>
       </div>
     </div>
 
-    <!-- Pillar 4 chart: the J-curve -->
+    <!-- Act IV chart: the J-curve -->
     <div class="reveal" style="margin-top:2.5rem;">
       <div style="background:var(--bg-warm);border-radius:14px;padding:2rem;">
         <svg viewBox="0 0 520 300" style="width:100%;max-width:560px;margin:0 auto;height:auto;display:block;font-family:'Instrument Sans',sans-serif;" role="img" aria-label="The fund J-curve">
@@ -1145,11 +1216,55 @@ nav.scrolled { border-bottom-color:var(--border); }
             <text x="60" y="288">Year 0</text><text x="277" y="288" text-anchor="middle">Year 5</text><text x="498" y="288" text-anchor="end">Year 10</text>
           </g>
         </svg>
-        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Pillar 4: a fund loses money for years before exits pay out — the J-curve. It's why patience, management fees, and carry all work the way they do.</p>
+        <p style="font-size:0.82rem;color:var(--text-sec);line-height:1.6;margin-top:1rem;text-align:center;font-style:italic;">Act IV: a fund loses money for years before exits pay out — the J-curve. It's why patience, management fees, and carry all work the way they do.</p>
       </div>
     </div>
 
-    <p class="reveal" style="font-size:0.88rem;color:var(--text-sec);margin-top:2.5rem;line-height:1.7;">Four pillars, taught in person at our Taipei office, each one through real cases with mentor Q&amp;A. The structure draws on how the leading programs teach — VC University (Berkeley Law / NVCA), Kauffman Fellows, the Newton Program (London Business School), and Techstars' Venture Deals — adapted for Taiwan and for the people who actually invest here. Final session count and sequencing are set with each cohort.</p>
+    <!-- THE TAIWAN SPINE -->
+    <div class="reveal" style="margin-top:4rem;">
+      <div class="section-label">The Taiwan Spine</div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.2;margin-bottom:1rem;">Five things that run through<br>every single session.</h2>
+      <p style="font-size:0.95rem;line-height:1.7;color:var(--text-sec);max-width:660px;margin-bottom:2rem;">Almost every venture curriculum in the world quietly assumes Delaware — US SAFEs, NVCA model docs, US endowment LPs, a NASDAQ exit. For an investor operating in Taipei, the questions that actually decide outcomes are somewhere else entirely. These five run underneath the whole programme.</p>
+      <div class="card-dark">
+        <div class="spine-row">
+          <div class="spine-num">01</div>
+          <div>
+            <div class="spine-title">The listing ladder</div>
+            <div class="spine-desc">Emerging Board (興櫃) → TPEx → TWSE, plus the Innovation Board. A great many Taiwanese companies list at a size that could not go public in the US at all. That changes what a good outcome looks like here — and therefore what you should be willing to pay going in.</div>
+          </div>
+        </div>
+        <div class="spine-row">
+          <div class="spine-num">02</div>
+          <div>
+            <div class="spine-title">The FA layer</div>
+            <div class="spine-desc">A broker layer sitting between founders and capital, with no real Silicon Valley equivalent. If you don't know who is advising a company, you are reading half the deal.</div>
+          </div>
+        </div>
+        <div class="spine-row">
+          <div class="spine-num">03</div>
+          <div>
+            <div class="spine-title">Corporate money</div>
+            <div class="spine-desc">Corporate investors took part in roughly 72% of Taiwan deals by deal count, against about 22% for traditional VCs. The person across the table is more often a corporate than a fund — and they want something structurally different from the same company.</div>
+          </div>
+        </div>
+        <div class="spine-row">
+          <div class="spine-num">04</div>
+          <div>
+            <div class="spine-title">The Series A gap</div>
+            <div class="spine-desc">Angel money exists and pre-IPO money exists. The middle thins out exactly where a company needs capital to go international — which is where a well-positioned investor here has the most room.</div>
+          </div>
+        </div>
+        <div class="spine-row">
+          <div class="spine-num">05</div>
+          <div>
+            <div class="spine-title">Structures that don't appear in textbooks</div>
+            <div class="spine-desc">Redeemable convertible preferred shares, performance conditions, buyback terms, and the ownership levels that were normal in this region a decade ago and have not entirely gone. Read the paper and you understand the behaviour of a market.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal" style="font-size:0.88rem;color:var(--text-sec);margin-top:2.5rem;line-height:1.7;">Twelve sessions in four acts, taught in person at our Taipei office, each one worked through on a real deal with the investor who did it in the room. The structure draws on how the leading programs teach — VC University (Berkeley Law / NVCA), Kauffman Fellows, the Newton Program (London Business School), and Techstars' Venture Deals — adapted for Taiwan and for the people who actually invest here. Exact dates and sequencing are confirmed with the cohort once the room is set.</p>
   </div>
 </div>
 
@@ -1159,52 +1274,85 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal">
       <div class="section-label">Teaching Method</div>
       <h1 class="section-heading">How the sessions<br>actually run.</h1>
-      <p class="section-sub">A lot of VC teaching is either theory you can't use or war stories you can't learn from. We work off real deals, and the investors who've done them sit in and talk through the calls they made.</p>
+      <p class="section-sub">A lot of VC teaching is either theory you can't use or war stories you can't learn from. We work off real deals, and the investors who've done them sit in the room and talk through the calls they made. Every session splits down the middle: ninety minutes of teaching, ninety minutes of work.</p>
     </div>
     <div class="g4 reveal" style="margin-top:3rem;">
       <div class="card-dark" style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">20%</div>
-        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">Concept</div>
-        <div style="font-size:0.75rem;opacity:0.7;margin-top:0.3rem;">The framework. The mental model before the detail.</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">90<span style="font-size:1rem;">min</span></div>
+        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">The Lecture</div>
+        <div style="font-size:0.75rem;opacity:0.7;margin-top:0.3rem;">A working investor on a topic they know cold — war stories included.</div>
       </div>
       <div class="card-red" style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">45%</div>
-        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">Real Cases</div>
-        <div style="font-size:0.75rem;opacity:0.85;margin-top:0.3rem;">Actual deals, term sheets, and diligence sets.</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">60<span style="font-size:1rem;">min</span></div>
+        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">The Workshop</div>
+        <div style="font-size:0.75rem;opacity:0.85;margin-top:0.3rem;">Structured role-play on the live deal they brought with them.</div>
       </div>
       <div class="card-dark" style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">20%</div>
-        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">Mentor Debrief</div>
-        <div style="font-size:0.75rem;opacity:0.7;margin-top:0.3rem;">Working VCs on why they'd back it — or pass.</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">15<span style="font-size:1rem;">min</span></div>
+        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">Deal Desk</div>
+        <div style="font-size:0.75rem;opacity:0.7;margin-top:0.3rem;">Three participants present a deal they sourced themselves.</div>
       </div>
       <div class="card-dark" style="text-align:center;">
-        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">15%</div>
-        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">Your Reps</div>
-        <div style="font-size:0.75rem;opacity:0.7;margin-top:0.3rem;">You build the question set. You mark up the sheet.</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:2rem;">15<span style="font-size:1rem;">min</span></div>
+        <div style="font-size:0.82rem;font-weight:600;margin-top:0.5rem;">Positions</div>
+        <div style="font-size:0.75rem;opacity:0.7;margin-top:0.3rem;">Everyone states a number out loud, and logs it. Nobody sits it out.</div>
+      </div>
+    </div>
+
+    <!-- THREE MECHANISMS -->
+    <div class="reveal" style="margin-top:4rem;">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-heading">Three mechanisms<br>carry the whole programme.</h2>
+      <p class="section-sub">Most programmes teach venture capital and then hope a network forms in the chat group. This one is built the other way round — the room is the structure, and the teaching happens inside it.</p>
+    </div>
+    <div class="g3 reveal" style="margin-top:2rem;">
+      <div class="card">
+        <div style="font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--red);line-height:1;margin-bottom:0.6rem;">01</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">Every visiting investor brings a live deal</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">Not a case study and not a tidy one-pager — a real deal from their own current pipeline, anonymised to whatever degree they need. The room runs it through whichever stage of the investment cycle that session covers.</p>
+      </div>
+      <div class="card">
+        <div style="font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--red);line-height:1;margin-bottom:0.6rem;">02</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">The cohort writes back</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">After each session the cohort produces a short research memo for that investor, on a sector or company they care about, within a fortnight. It is the fee the room pays for access — and it is the best diligence practice in the programme.</p>
+      </div>
+      <div class="card">
+        <div style="font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--red);line-height:1;margin-bottom:0.5rem;">03</div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">The Deal Book runs from week one</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">Every deal you see, dated, with the position you took and why. By the end you hold roughly twenty dated positions you have defended out loud. That is a track record — and it is the asset that gets a person hired into venture.</p>
       </div>
     </div>
 
     <!-- KEY EXERCISES -->
     <div class="reveal" style="margin-top:4rem;">
       <div class="section-label">What Happens in the Room</div>
-      <h2 class="section-heading">You'll be doing the work.</h2>
+      <h2 class="section-heading">Six role-plays.<br>No observers.</h2>
+      <p class="section-sub">Every workshop runs to the same grammar: a brief, a clock, a position, the reveal, and a log. The visiting investor plays whichever seat is hardest, and can stop the clock to narrate what they are thinking. Everyone is cast — nobody watches.</p>
     </div>
     <div class="g2 reveal" style="margin-top:2rem;">
       <div class="card">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">The Diligence Build</h3>
-        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">Given a real deal and a thesis, build the focused set of questions that actually matter. A mentor plays the founder. Some questions land; some can't be answered — and you decide what that tells you.</p>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">The Meeting</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">The visiting investor plays a founder from a real deal they took. You run the meeting in rotation while the rest of the room scores against a rubric — then they reveal what actually happened, and which question would have surfaced it.</p>
       </div>
       <div class="card">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">The Term-Sheet Markup</h3>
-        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">Take a real term sheet and mark it up from the investor's side. Which clauses to add, which to push on, which to protect. A mentor who has negotiated the same terms walks the room through their reasoning.</p>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">The Kill List</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">A real deal from the investor's pipeline, and forty-five minutes to produce the five questions that would kill it — ranked by how fast each would resolve. They score your list against the diligence they actually ran, and name the question the room missed.</p>
       </div>
       <div class="card">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">The Early No</h3>
-        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">A stack of deals, limited time. Practice the skill real VCs live by: passing fast on what doesn't fit your thesis, with a clear reason — instead of running full diligence on every case that crosses your desk.</p>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">Ten Minutes to a Verdict</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">Three real forecast models, ten minutes each. Mark the three assumptions carrying the outcome and state a verdict. Then the investor walks their own markup — not a teardown, a demonstration of where a trained eye goes first.</p>
       </div>
       <div class="card">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">Know Your Seat</h3>
-        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">Run the same deal as lead, as anchor, and as co-investor. See how your leverage, responsibilities, and questions change with the seat you hold in the round.</p>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">The Negotiation</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">A three-way role-play, rotating: lead investor, founder, and a corporate co-investor with a strategic agenda. Your own marked-up term sheets are the working documents.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">Both Sides of the Table</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">One real deal with a corporate term sheet on it. Teams argue the CVC's position, the financial co-investor's, and the founder's — then swap and argue the opposite. The corporate investors judge which arguments would actually have moved them.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:0.5rem;">The Investment Committee</h3>
+        <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7;">The final rep. Your team presents a full IC memo on a deal the cohort sourced, to a panel of the investors who taught the programme. They interrupt, they ask the question nobody prepared for, and then they vote — and each of them says why.</p>
       </div>
     </div>
 
@@ -1221,41 +1369,41 @@ nav.scrolled { border-bottom-color:var(--border); }
   <div class="section section-top">
     <div class="reveal">
       <div class="section-label">What You Walk Away With</div>
-      <h1 class="section-heading">Skills you can use<br>on a real deal.</h1>
-      <p class="section-sub">Everything on this list is something you can use the first time a real deal lands on your desk.</p>
+      <h1 class="section-heading">Not a certificate.<br>A track record.</h1>
+      <p class="section-sub">Six things you built yourself, defended out loud, and can put in front of someone the week after the programme ends — plus the room that watched you do it.</p>
     </div>
     <div class="g2 reveal" style="margin-top:3rem;gap:2rem;">
       <div class="promise-item">
         <div class="promise-icon">✓</div>
-        <div class="promise-text"><h4>A working map of the ecosystem</h4><p>Investor types, stages, ticket sizes, and tech focus — across Silicon Valley, Japan, Korea, and Europe. You know who does what, and where you fit.</p></div>
+        <div class="promise-text"><h4>A written investment thesis</h4><p>What you will look at, what you will not, and why you specifically. Presented in six minutes and defended under six minutes of fire from the room — then rewritten.</p></div>
       </div>
       <div class="promise-item">
         <div class="promise-icon">✓</div>
-        <div class="promise-text"><h4>Clarity on the path in</h4><p>A straight answer to "how do I become a VC?" — the core requirements, the real career routes, and how the industry actually hires.</p></div>
+        <div class="promise-text"><h4>A Deal Book of ~20 dated positions</h4><p>Every deal you saw, dated, with the position you took and the reason you took it. It is the one asset that gets a person hired into venture, and it outlives the programme.</p></div>
       </div>
       <div class="promise-item">
         <div class="promise-icon">✓</div>
-        <div class="promise-text"><h4>A strategic diligence framework</h4><p>The ability to build a focused, thesis-driven diligence question set instead of a generic checklist — and to know what each answer means.</p></div>
+        <div class="promise-text"><h4>A diligence method that fits your thesis</h4><p>Not a generic checklist — the four or five questions that could kill a deal, asked in the order that kills it fastest, and the judgment to read a non-answer.</p></div>
       </div>
       <div class="promise-item">
         <div class="promise-icon">✓</div>
-        <div class="promise-text"><h4>The confidence to pass early</h4><p>How to recognize when a deal doesn't fit and walk away fast, with a clear reason — the discipline that separates real investors from collectors of meetings.</p></div>
+        <div class="promise-text"><h4>A marked-up term sheet</h4><p>A real document, marked up from the investor's side, negotiated in a three-way role-play against a founder and a corporate co-investor with their own agenda.</p></div>
       </div>
       <div class="promise-item">
         <div class="promise-icon">✓</div>
-        <div class="promise-text"><h4>Command of the terminology</h4><p>You can read a term sheet and a deal conversation without bluffing — you know what the language means and why it's there.</p></div>
+        <div class="promise-text"><h4>A cap table you built yourself</h4><p>Founding through Series B, built live in a spreadsheet, then stressed with a down round, a corporate taking a board seat, and an early listing at a modest valuation.</p></div>
       </div>
       <div class="promise-item">
         <div class="promise-icon">✓</div>
-        <div class="promise-text"><h4>Term-sheet fluency</h4><p>How to issue and receive a term sheet, which comments and items to add, and what to negotiate — practiced on a real document.</p></div>
+        <div class="promise-text"><h4>An IC memo you presented and defended</h4><p>A full memo on a real deal the cohort sourced — thesis fit, diligence, numbers, terms, risks, recommendation — taken to a panel of working investors who interrupt, vote, and say why.</p></div>
       </div>
       <div class="promise-item">
         <div class="promise-icon">✓</div>
-        <div class="promise-text"><h4>Role awareness</h4><p>A clear sense of how to operate as lead, anchor, or co-investor, and how your leverage and responsibilities shift with each seat.</p></div>
+        <div class="promise-text"><h4>The phone numbers</h4><p>A room of working investors who have watched you think under pressure for three hours at a time. Every fund here has a hiring problem at analyst level and no reliable way to assess judgment before hiring — this is that.</p></div>
       </div>
       <div class="promise-item">
         <div class="promise-icon">✓</div>
-        <div class="promise-text"><h4>A network of working investors</h4><p>Direct time with active VCs, operators, and corporate-venture scouts — the kind of relationships that open the first door.</p></div>
+        <div class="promise-text"><h4>A cohort that keeps sourcing</h4><p>Deal flow is what people entering this market say they lack, more than capital. You leave with nine other people who have seen every deal you have, and know how you think about them.</p></div>
       </div>
     </div>
 
