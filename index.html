@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VC Academy — Break into Venture Capital | Mosaic Venture Lab</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Analytics 4 (Tessera Design account) — send_page_view is off because
+     this is a single-page hash router; showPage() below fires page_view itself
+     on every section change, including the first one on load. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FPNDGXGQ3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-6FPNDGXGQ3', { send_page_view: false });
+</script>
+
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 :root {
@@ -1785,6 +1797,8 @@ function openApplyModal() {
   const modal = document.getElementById('applyModal');
   if (!form || !modal) return false;
 
+  if (typeof gtag === 'function') gtag('event', 'apply_modal_opened');
+
   resetApplyFormIfSubmitted();
 
   if (!applyFormAnchor) {
@@ -1943,6 +1957,15 @@ function closeApplyModal() {
 
     const fieldOf = el => el.closest('.field');
 
+    // GA4: fires once per page load, the first time someone actually
+    // types into the form rather than just landing on the page.
+    let formStarted = false;
+    function markFormStarted() {
+      if (formStarted || typeof gtag !== 'function') return;
+      formStarted = true;
+      gtag('event', 'form_start');
+    }
+
     function validate() {
       let ok = true;
       const required = [
@@ -1963,13 +1986,15 @@ function closeApplyModal() {
 
     form.querySelectorAll('[data-field]').forEach(function (el) {
       ['input', 'change'].forEach(function (evt) {
-        el.addEventListener(evt, function () { fieldOf(el).classList.remove('invalid'); });
+        el.addEventListener(evt, function () { fieldOf(el).classList.remove('invalid'); markFormStarted(); });
       });
     });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!validate() || !configured) return;
+
+      if (typeof gtag === 'function') gtag('event', 'form_submit_attempt');
 
       submit.disabled = true;
       submit.textContent = 'Sending…';
@@ -1987,12 +2012,14 @@ function closeApplyModal() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       }).then(function () {
+        if (typeof gtag === 'function') gtag('event', 'form_submit_success');
         form.style.display = 'none';
         success.style.display = 'block';
         // 在彈窗內送出時，捲回頂端讓使用者看到成功訊息
         const modal = document.getElementById('applyModal');
         if (modal && modal.classList.contains('open')) modal.scrollTop = 0;
       }).catch(function () {
+        if (typeof gtag === 'function') gtag('event', 'form_submit_error');
         submit.disabled = false;
         submit.textContent = 'Submit application →';
         notice.style.display = 'block';
@@ -2040,6 +2067,21 @@ function updateNavCta(id) {
 
 function showPage(id, fromHistory) {
   id = resolvePage(id);
+
+  // GA4: this SPA never does a real page load after the first one, so
+  // send_page_view is off in the config call above and every section
+  // change — including the very first, from the init call below — is
+  // reported here instead.
+  if (typeof gtag === 'function') {
+    const base = location.pathname + location.search;
+    const path = (id === 'home') ? base : base + '#' + slugFor(id);
+    gtag('event', 'page_view', {
+      page_title: 'VC Academy — ' + slugFor(id),
+      page_location: location.origin + path,
+      page_path: path
+    });
+    if (id === 'apply') gtag('event', 'apply_page_reached');
+  }
 
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
