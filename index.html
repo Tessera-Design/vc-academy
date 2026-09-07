@@ -19,6 +19,19 @@
   gtag('config', 'G-WR411D0XBC', { send_page_view: false });
 </script>
 
+<!-- Microsoft Clarity — dedicated "VC Academy" project, session recordings
+     and heatmaps. Official snippet, left as generated; the custom
+     clarity('event', ...) tags used elsewhere in this file are additions
+     so recordings can be filtered by whether someone reached Apply,
+     opened the mobile modal, or touched the form. -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yejxidjqp6");
+</script>
+
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 :root {
@@ -1800,6 +1813,7 @@ function openApplyModal() {
   if (!form || !modal) return false;
 
   if (typeof gtag === 'function') gtag('event', 'apply_modal_opened');
+  if (typeof clarity === 'function') clarity('event', 'apply_modal_opened');
 
   resetApplyFormIfSubmitted();
 
@@ -1959,13 +1973,14 @@ function closeApplyModal() {
 
     const fieldOf = el => el.closest('.field');
 
-    // GA4: fires once per page load, the first time someone actually
-    // types into the form rather than just landing on the page.
+    // GA4 + Clarity: fires once per page load, the first time someone
+    // actually types into the form rather than just landing on the page.
     let formStarted = false;
     function markFormStarted() {
-      if (formStarted || typeof gtag !== 'function') return;
+      if (formStarted) return;
       formStarted = true;
-      gtag('event', 'form_start');
+      if (typeof gtag === 'function') gtag('event', 'form_start');
+      if (typeof clarity === 'function') clarity('event', 'form_start');
     }
 
     function validate() {
@@ -1997,6 +2012,7 @@ function closeApplyModal() {
       if (!validate() || !configured) return;
 
       if (typeof gtag === 'function') gtag('event', 'form_submit_attempt');
+      if (typeof clarity === 'function') clarity('event', 'form_submit_attempt');
 
       submit.disabled = true;
       submit.textContent = 'Sending…';
@@ -2015,6 +2031,8 @@ function closeApplyModal() {
         body: JSON.stringify(payload)
       }).then(function () {
         if (typeof gtag === 'function') gtag('event', 'form_submit_success');
+        if (typeof clarity === 'function') clarity('event', 'form_submit_success');
+        if (typeof clarity === 'function') clarity('set', 'converted', 'true');
         form.style.display = 'none';
         success.style.display = 'block';
         // 在彈窗內送出時，捲回頂端讓使用者看到成功訊息
@@ -2022,6 +2040,7 @@ function closeApplyModal() {
         if (modal && modal.classList.contains('open')) modal.scrollTop = 0;
       }).catch(function () {
         if (typeof gtag === 'function') gtag('event', 'form_submit_error');
+        if (typeof clarity === 'function') clarity('event', 'form_submit_error');
         submit.disabled = false;
         submit.textContent = 'Submit application →';
         notice.style.display = 'block';
@@ -2084,6 +2103,7 @@ function showPage(id, fromHistory) {
     });
     if (id === 'apply') gtag('event', 'apply_page_reached');
   }
+  if (typeof clarity === 'function' && id === 'apply') clarity('event', 'apply_page_reached');
 
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
