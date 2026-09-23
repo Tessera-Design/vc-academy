@@ -466,6 +466,236 @@ nav.scrolled { border-bottom-color:var(--border); }
 @media(max-width:600px) {
   .nav-tabs { top:56px; height:auto !important; max-height:calc(100vh - 56px); }
 }
+
+/* Conversion-focused additions */
+.tbd { background:#FEF08A; color:#713F12; padding:0 0.3em; border-radius:3px; font-weight:600; font-style:normal; font-size:0.92em; }
+
+/* 首屏：成果三點 + Starter Kit */
+.hero-leave { margin-top:1.6rem; padding:1.1rem 1.3rem; background:var(--bg-card); border:1px solid var(--border); border-left:4px solid var(--red); border-radius:12px; max-width:620px; box-shadow:var(--sh-sm); }
+.hero-leave .hl-title { font-family:'DM Serif Display',serif; font-size:1.25rem; margin-bottom:0.5rem; }
+.hero-leave ul { list-style:none; margin:0; padding:0; display:grid; gap:0.35rem; }
+.hero-leave li { position:relative; padding-left:1.5rem; font-size:0.95rem; line-height:1.5; color:var(--text-sec); }
+.hero-leave li::before { content:'✓'; position:absolute; left:0; color:var(--red); font-weight:700; }
+.hero-kit { margin-top:1rem; font-size:0.88rem; color:var(--text-sec); }
+.hero-kit b { color:var(--text); }
+.kit-pill { display:inline-block; margin-right:0.4rem; padding:0.2rem 0.5rem; background:var(--teal); color:#fff; border-radius:4px; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; vertical-align:1px; }
+
+/* 四個 Act 卡片底部的「You leave with」 */
+.pillar-card p.pillar-out { margin-top:1rem; padding-top:0.9rem; border-top:1px solid rgba(255,255,255,0.22); font-size:0.84rem; line-height:1.55; opacity:1; }
+.pillar-out b { display:block; margin-bottom:0.25rem; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; opacity:0.7; }
+
+/* How it works 結果句、By the numbers 收斂句、比較表後的能力區塊 */
+.how-result { margin-top:0.9rem; padding-top:0.8rem; border-top:1px dashed var(--border); font-size:0.82rem; font-weight:600; line-height:1.5; color:var(--text); }
+.how-result::before { content:'→ '; color:var(--red); }
+.numbers-close { margin-top:1.75rem; max-width:720px; font-size:1rem; font-weight:500; line-height:1.7; color:var(--text); }
+.outcome-block { margin-top:2rem; max-width:760px; padding:1.5rem 1.75rem; background:var(--bg-warm); border-left:4px solid var(--red); border-radius:12px; }
+.ob-label { margin-bottom:0.5rem; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); }
+.outcome-block p { font-size:1rem; line-height:1.7; color:var(--text); }
+
+/* What you leave with */
+.lw-card { display:flex; flex-direction:column; }
+.lw-tag { margin-bottom:0.6rem; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); }
+.lw-card h3 { margin-bottom:1rem; font-family:'DM Serif Display',serif; font-size:1.45rem; line-height:1.2; }
+.lw-list { list-style:none; margin:0; padding:0; display:grid; gap:0.85rem; }
+.lw-list li { position:relative; padding-left:1.7rem; font-size:0.9rem; line-height:1.6; color:var(--text-sec); }
+.lw-list li b { color:var(--text); }
+.lw-list li::before { content:'✓'; position:absolute; left:0; top:0; color:var(--red); font-weight:700; }
+.lw-list a { color:var(--red); white-space:nowrap; }
+.lw-career { border-top:4px solid var(--teal); }
+.lw-career .lw-tag, .lw-career .lw-list li::before { color:var(--teal); }
+.lw-note { margin-top:1.1rem; font-size:0.78rem; font-style:italic; color:var(--text-muted); }
+
+/* 價格卡 */
+.price-card { display:grid; grid-template-columns:1.05fr 1fr; gap:2rem; margin-top:2rem; padding:2.5rem; background:var(--bg-dark); color:#fff; border-radius:20px; box-shadow:var(--sh-lg); }
+.price-card-sm { grid-template-columns:1fr; padding:1.75rem; margin-top:0; }
+.pc-tag { margin-bottom:0.8rem; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#FCA5A5; }
+.pc-price { font-family:'DM Serif Display',serif; font-size:clamp(3.2rem,7vw,4.8rem); line-height:1; letter-spacing:-0.02em; }
+.pc-cur { margin-right:0.15em; font-size:0.45em; opacity:0.8; vertical-align:0.55em; }
+.pc-sub { margin-top:0.6rem; font-size:0.92rem; opacity:0.85; }
+.pc-regular { margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.18); font-size:0.88rem; opacity:0.9; }
+.pc-installments { margin-top:1rem; padding:1rem 1.1rem; background:rgba(255,255,255,0.08); border-radius:12px; font-size:0.88rem; line-height:1.6; }
+.pc-inst-title { margin-bottom:0.3rem; font-family:'IBM Plex Mono',monospace; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.7; }
+.pc-includes { list-style:none; margin:0 0 1.5rem; padding:0; display:grid; gap:0.6rem; }
+.pc-includes li { position:relative; padding-left:1.6rem; font-size:0.9rem; line-height:1.5; opacity:0.92; }
+.pc-includes li::before { content:'✓'; position:absolute; left:0; color:#5EEAD4; font-weight:700; }
+.pc-includes a { color:#FCA5A5; }
+.pc-btn { width:100%; padding:1.1rem 2rem; font-size:1rem; text-align:center; }
+.pc-foot { margin-top:1rem; font-size:0.75rem; line-height:1.7; opacity:0.75; }
+.pc-foot a { color:#fff; }
+@media(max-width:900px){ .price-card { grid-template-columns:1fr; padding:1.75rem 1.25rem; } }
+
+/* On-page checkout */
+.pay-modal { display:none; position:fixed; inset:0; z-index:2100; padding:1.5rem; overflow-y:auto; background:rgba(26,26,46,0.6); }
+.pay-modal.open { display:block; }
+.pay-inner { position:relative; max-width:520px; margin:3rem auto; padding:2rem; background:var(--bg-card); border-radius:18px; box-shadow:0 24px 60px rgba(0,0,0,0.3); }
+.pay-close { position:absolute; top:0.75rem; right:0.9rem; width:36px; height:36px; border:none; background:none; font-size:1.8rem; line-height:1; color:var(--text-sec); cursor:pointer; }
+.pay-tag { margin-bottom:0.5rem; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); }
+.pay-head h3 { font-family:'DM Serif Display',serif; font-size:1.6rem; line-height:1.15; }
+.pay-head p { margin-top:0.3rem; font-size:0.85rem; color:var(--text-sec); }
+.pay-plans { display:grid; gap:0.75rem; margin:1.5rem 0 1rem; }
+.pay-plan { display:grid; grid-template-columns:auto 1fr; column-gap:0.75rem; padding:1rem 1.1rem; border:1.5px solid var(--border); border-radius:12px; cursor:pointer; }
+.pay-plan:has(input:checked) { border-color:var(--red); background:var(--red-light); }
+.pay-plan input { grid-row:1 / span 2; margin-top:0.25rem; accent-color:var(--red); }
+.pp-main { display:flex; justify-content:space-between; gap:1rem; font-size:0.95rem; }
+.pp-main i { font-style:normal; font-weight:700; }
+.pp-sub { margin-top:0.2rem; font-size:0.78rem; line-height:1.5; color:var(--text-sec); }
+.pay-incl { list-style:none; margin:0 0 1.25rem; padding:0; display:grid; gap:0.35rem; font-size:0.82rem; color:var(--text-sec); }
+.pay-incl li::before { content:'✓ '; color:var(--teal); font-weight:700; }
+/* 結帳視窗（姓名／Email 欄位、付款失敗提示） */
+.pay-fields { margin:0 0 1rem; }
+.pay-fields .form-row { gap:0.75rem; }
+.pay-fields .field { margin-bottom:0.6rem; }
+@media(max-width:520px){ .pay-fields .form-row { grid-template-columns:1fr; } }
+.pay-error { margin-top:1rem; padding:0.85rem 1rem; background:var(--red-light); border:1px solid rgba(220,38,38,0.25); border-radius:10px; font-size:0.85rem; line-height:1.6; color:var(--text); }
+.pay-error a { color:var(--red); font-weight:600; }
+/* 3 個付款方式：中文標籤（如「3 期分期」）不切字換行，塞不下就換到價格下一行，而不是字中間斷開 */
+.pp-main { flex-wrap:wrap; row-gap:0.2rem; }
+.pp-main b, .pp-main i { white-space:nowrap; }
+/* 維護中畫面：付款整合還沒接上時，取代下面的付款表單 */
+.pay-maintenance { text-align:center; padding:0.5rem 0 0.25rem; }
+.pay-maintenance .pay-maint-icon { font-size:2rem; margin-bottom:0.75rem; }
+.pay-maintenance p { font-size:0.92rem; line-height:1.6; color:var(--text-sec); }
+.pay-maintenance p + p { margin-top:0.75rem; }
+.pay-maintenance a { color:var(--red); font-weight:600; }
+
+/* ===================================================================
+   B2 — 字級放大一級 + 視覺化（照片、圖示、職涯路徑圖、價格階梯圖）
+   =================================================================== */
+html { font-size:112.5%; }
+@media(max-width:600px){ html { font-size:106.25%; } }
+.section, .section-sm { max-width:1240px; }
+@media(max-width:1320px){ .nav-tab { padding:0 0.6rem; font-size:0.7rem; } .nav-brand { margin-right:1rem; } }
+
+/* 首屏兩欄：文字 + 現場照片 */
+.hero-grid { display:grid; grid-template-columns:1.12fr 0.88fr; gap:3.5rem; align-items:start; }
+.hero-copy { min-width:0; }
+.hero-title { font-size:clamp(2.3rem,4.4vw,4rem); }
+.hero-visual { position:relative; height:640px; margin-top:2.5rem; }
+.hv-main { position:absolute; top:0; right:0; width:90%; height:84%; border-radius:22px; overflow:hidden; box-shadow:var(--sh-lg); }
+.hv-side { position:absolute; left:0; bottom:0; width:50%; height:40%; border-radius:18px; overflow:hidden; border:6px solid var(--bg); box-shadow:var(--sh-lg); }
+.hv-main img, .hv-side img { display:block; width:100%; height:100%; object-fit:cover; }
+.hv-main img { object-position:60% 40%; }
+.hv-badge { position:absolute; right:-6px; bottom:6%; display:flex; align-items:center; gap:0.75rem; padding:0.85rem 1.15rem; background:#fff; border-radius:16px; box-shadow:var(--sh-lg); }
+.hv-badge b { font-family:'DM Serif Display',serif; font-size:2.3rem; line-height:1; font-weight:400; color:var(--red); }
+.hv-badge p { max-width:9.5rem; font-size:0.74rem; line-height:1.35; color:var(--text-sec); }
+@media(max-width:1000px){ .hero-grid { grid-template-columns:1fr; gap:2.25rem; } .hero-visual { height:340px; } }
+
+/* 照片帶 */
+.pb-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2rem; }
+.pb-grid figure { margin:0; aspect-ratio:4/5; border-radius:16px; overflow:hidden; background:var(--bg-warm); }
+.pb-grid img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .6s; }
+.pb-grid figure:hover img { transform:scale(1.05); }
+.pb-cap { margin-top:1.25rem; font-size:1rem; color:var(--text-sec); }
+.pb-cap b, .pb-cap a { color:var(--red); }
+@media(max-width:800px){ .pb-grid { grid-template-columns:repeat(2,1fr); } }
+
+/* 結業收穫：圖示卡 + 職涯路徑圖 */
+.lw-tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1rem; margin-top:2.5rem; }
+.lw-tile { padding:1.5rem 1.25rem; background:var(--bg-card); border:1px solid var(--border); border-radius:16px; transition:transform .3s, box-shadow .3s; }
+.lw-tile:hover { transform:translateY(-3px); box-shadow:var(--sh-md); }
+.lw-ic { display:flex; align-items:center; justify-content:center; width:54px; height:54px; margin-bottom:1rem; font-size:1.6rem; background:var(--red-light); border-radius:14px; }
+.lw-tile:nth-child(2) .lw-ic { background:var(--blue-light); }
+.lw-tile:nth-child(3) .lw-ic { background:var(--teal-light); }
+.lw-tile:nth-child(4) .lw-ic { background:#FEF3C7; }
+.lw-tile:nth-child(5) .lw-ic { background:#F3E8FF; }
+.lw-tile h4 { margin-bottom:0.35rem; font-size:1.05rem; font-weight:700; }
+.lw-tile p { font-size:0.88rem; line-height:1.55; color:var(--text-sec); }
+.lw-tile p a { color:var(--red); }
+.path { margin-top:4rem; }
+.path-title { margin-bottom:2.25rem; font-family:'DM Serif Display',serif; font-size:clamp(1.5rem,2.6vw,2rem); font-weight:400; line-height:1.2; }
+.path-steps { position:relative; display:grid; grid-template-columns:repeat(5,1fr); margin:0; padding:0; list-style:none; }
+.path-steps li { position:relative; padding:0 0.7rem; text-align:center; }
+.path-steps li::before { content:''; position:absolute; top:31px; left:calc(50% + 36px); right:calc(-50% + 36px); height:0; border-top:2px dashed var(--teal); opacity:0.45; }
+.path-steps li:last-child::before { display:none; }
+.ps-ic { position:relative; z-index:1; display:flex; align-items:center; justify-content:center; width:62px; height:62px; margin:0 auto 1rem; font-size:1.7rem; background:#fff; border:2.5px solid var(--teal); border-radius:50%; box-shadow:0 6px 16px rgba(15,118,110,0.18); }
+.path-steps h4 { margin-bottom:0.3rem; font-size:1.02rem; font-weight:700; }
+.path-steps p { font-size:0.85rem; line-height:1.5; color:var(--text-sec); }
+@media(max-width:900px){
+  .path-steps { grid-template-columns:1fr; gap:1.4rem; }
+  .path-steps li { display:grid; grid-template-columns:62px 1fr; column-gap:1rem; padding:0; text-align:left; }
+  .path-steps li::before { display:none; }
+  .ps-ic { grid-row:1 / span 2; margin:0; }
+}
+
+/* 價格階梯圖（每一波調漲一點，對照定價） */
+.lad-plot { position:relative; height:250px; border-bottom:1px solid rgba(255,255,255,0.28); }
+.lad-ref { position:absolute; top:0; left:0; right:0; padding-top:0.45rem; border-top:2px dashed rgba(255,255,255,0.45); font-size:0.8rem; color:rgba(255,255,255,0.8); }
+.lad-bars { position:absolute; inset:0; display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; align-items:end; padding-top:2.4rem; }
+.lad-bar { position:relative; background:rgba(255,255,255,0.2); border-radius:10px 10px 0 0; }
+.lad-bar:nth-child(1) { height:40%; background:var(--red); }
+.lad-bar:nth-child(2) { height:42%; }
+.lad-bar:nth-child(3) { height:46%; }
+.lad-save { position:absolute; left:0; bottom:calc(100% + 10px); padding:0.25rem 0.65rem; font-size:0.74rem; font-weight:700; color:#fff; white-space:nowrap; background:var(--red); border-radius:999px; }
+.lad-labels { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1rem; }
+.lad-tag { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#FCA5A5; }
+.lad-off { margin-top:0.3rem; font-family:'DM Serif Display',serif; font-size:1.7rem; line-height:1.1; }
+.lad-price { margin-top:0.15rem; font-size:1.05rem; font-weight:700; }
+.lad-note { margin-top:0.3rem; font-size:0.74rem; line-height:1.4; color:rgba(255,255,255,0.7); }
+.lad-col.now .lad-price { color:#FCA5A5; }
+.pc-per { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:1.25rem; padding-bottom:1.25rem; border-bottom:1px solid rgba(255,255,255,0.18); }
+.pc-per b { font-family:'DM Serif Display',serif; font-size:2.3rem; line-height:1; font-weight:400; }
+.pc-per p { font-size:0.9rem; opacity:0.8; }
+
+/* Apply 頁：誰適合、課程重點（圖示卡） */
+.who-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; }
+.who { display:grid; grid-template-columns:auto 1fr; column-gap:0.85rem; align-items:start; padding:1rem 1.1rem; background:var(--bg-card); border:1px solid var(--border); border-radius:14px; }
+.who-ic { grid-row:1 / span 2; font-size:1.7rem; line-height:1.1; }
+.who h4 { font-size:0.98rem; font-weight:700; line-height:1.3; }
+.who p { margin-top:0.2rem; font-size:0.82rem; line-height:1.45; color:var(--text-sec); }
+.facts { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+.fact { padding:0.9rem 1rem; background:var(--bg-warm); border-radius:12px; }
+.fact small { display:block; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); }
+.fact p { margin-top:0.2rem; font-size:0.95rem; font-weight:600; line-height:1.4; color:var(--text); }
+@media(max-width:600px){ .who-grid, .facts { grid-template-columns:1fr; } }
+@media(max-width:700px){ .lw-tiles { grid-template-columns:repeat(2,1fr); gap:0.75rem; } .lw-tile { padding:1.1rem 0.95rem; } .lw-tile:last-child { grid-column:1 / -1; } .lad-off { font-size:1.35rem; } .lad-labels, .lad-bars { gap:0.6rem; } }
+/* 導師照片跑馬燈（首頁 logo 列上方）：圓形黑白照片＋姓名／職稱，橫向慢速輪轉；游標停上去就暫停。
+   4 組＝前後兩半完全相同，位移 -50% 剛好接回起點；間距用 margin（不用 gap），兩半寬度才會精確相等。 */
+.mentor-marquee { --mq-size:96px; --mq-w:216px; --mq-gap:24px; overflow:hidden; padding:6px 0 4px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent); mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent); }
+.mq-track { display:flex; width:max-content; animation:mq-scroll 130s linear infinite; will-change:transform; }
+.mentor-marquee:hover .mq-track { animation-play-state:paused; }
+.mq-item { flex:0 0 auto; width:var(--mq-w); margin-right:var(--mq-gap); text-align:center; }
+.mq-face { display:block; width:var(--mq-size); height:var(--mq-size); margin:0 auto 0.9rem; border-radius:50%; object-fit:cover; background:var(--bg-warm); filter:grayscale(1) contrast(1.06); box-shadow:0 0 0 1px rgba(0,0,0,0.08); }
+.mq-name { font-size:0.98rem; font-weight:700; line-height:1.3; color:var(--text); text-wrap:balance; }
+.mq-role { margin-top:0.3rem; font-size:0.8rem; line-height:1.5; color:var(--text-sec); text-wrap:balance; }
+.mentor-marquee + .logo-strip-label { margin-top:2.25rem; }
+@keyframes mq-scroll { to { transform:translateX(-50%); } }
+@media(max-width:600px){ .mentor-marquee { --mq-size:72px; --mq-w:168px; --mq-gap:16px; } .mq-name { font-size:0.92rem; } .mq-role { font-size:0.76rem; } }
+@media(prefers-reduced-motion:reduce){ .mq-track { animation:none; } .mentor-marquee { overflow-x:auto; -webkit-mask-image:none; mask-image:none; } .mq-clone { display:none; } }
+
+/* Language switch (EN / 中文) */
+.lang-switch { display:inline-flex; align-self:center; flex-shrink:0; margin-left:1rem; overflow:hidden; background:rgba(255,255,255,0.75); border:1px solid var(--border); border-radius:8px; }
+.lang-switch button { padding:0.4rem 0.75rem; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; line-height:1; color:var(--text-sec); background:none; border:0; cursor:pointer; }
+.lang-switch button + button { border-left:1px solid var(--border); }
+.lang-switch button[aria-pressed="true"] { color:#fff; background:var(--text); }
+.lang-switch button:not([aria-pressed="true"]):hover { color:var(--red); }
+.lang-switch button:focus-visible { outline:2px solid var(--red); outline-offset:-2px; }
+/* 加了語言切換之後，英文版導覽列在 1001–1200px 會擠不下，所以這個範圍也提早改用漢堡選單 */
+@media(max-width:1200px){
+  .nav-brand { order:0; }
+  .lang-switch { order:1; margin-left:auto; margin-right:0.5rem; }
+  .nav-apply, .nav-deck { order:2; }
+  .nav-hamburger { order:3; }
+  .nav-tabs { order:4; }
+  .nav-apply.is-shown, .nav-deck.is-shown { margin-left:0; }
+}
+@media(min-width:1001px) and (max-width:1200px){
+  .nav-apply.is-shown, .nav-deck.is-shown { display:inline-flex !important; }
+  .nav-hamburger { display:flex; margin-left:0.6rem; }
+  .nav-tabs { display:none !important; position:fixed; top:68px; left:0; right:0; height:auto !important; background:#FAF9F6; flex-direction:column; padding:0.5rem 0 1rem; border-bottom:2px solid var(--border); box-shadow:0 8px 30px rgba(0,0,0,0.12); z-index:9999; max-height:calc(100vh - 68px); overflow-y:auto; }
+  .nav-tabs.open { display:flex !important; }
+  .nav-tab { display:flex; height:auto; padding:0.85rem 2rem; justify-content:flex-start; font-size:0.9rem; border-bottom:1px solid var(--border); width:100%; text-align:left; }
+  .nav-tab:last-child { border-bottom:none; }
+  .nav-tab.active { background:var(--red-light); }
+  .nav-tab.active::after { display:none; }
+}
+@media(max-width:600px){
+  .lang-switch { margin-right:0.35rem; }
+  .lang-switch button { padding:0.4rem 0.5rem; }
+  .lang-switch .lz { display:none; }
+}
+html[lang="zh-Hant"] body { line-height:1.75; }
+html[lang="zh-Hant"] .section-label, html[lang="zh-Hant"] .hero-brand, html[lang="zh-Hant"] .fb-tag, html[lang="zh-Hant"] .pillar-num, html[lang="zh-Hant"] .logo-strip-label, html[lang="zh-Hant"] .pc-tag, html[lang="zh-Hant"] .lad-tag { letter-spacing:0.06em; }
+/* I18N-CSS:END */
 </style>
 </head>
 <body>
@@ -474,7 +704,7 @@ nav.scrolled { border-bottom-color:var(--border); }
 <nav id="navbar">
 <div class="nav-inner">
   <a class="nav-brand" href="#" onclick="return showPage('home')"><img src="assets/brand/mosaic-logo.png" style="height:28px;width:auto;vertical-align:middle;margin-right:8px;" alt="Mosaic Venture Lab">VC <em>Academy</em></a>
-  <button class="nav-apply" id="navApply" onclick="return openApplyModal();">Apply →</button>
+  <button class="nav-apply" id="navApply" onclick="return openCheckout();">Reserve →</button>
   <a class="nav-apply nav-deck" id="navDeck" href="#" download><span class="nd-label">Get deck</span>
     <svg class="dl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;" aria-hidden="true">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
@@ -491,7 +721,11 @@ nav.scrolled { border-bottom-color:var(--border); }
     <button class="nav-tab" onclick="return showPage('outcomes')">Outcomes</button>
     <button class="nav-tab" onclick="return showPage('track')">Track Record</button>
     <button class="nav-tab" onclick="return showPage('mentors')">Mentors</button>
-    <button class="nav-tab" onclick="return showPage('apply')">Apply</button>
+    <button class="nav-tab" onclick="return showPage('apply')">Reserve</button>
+  </div>
+  <div class="lang-switch" id="langSwitch" role="group" aria-label="Language / 語言">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="zh" aria-pressed="false">中<span class="lz">文</span></button>
   </div>
 </div>
 </nav>
@@ -502,16 +736,34 @@ nav.scrolled { border-bottom-color:var(--border); }
   <!-- HERO -->
   <div class="section section-hero">
     <div class="reveal">
+      <div class="hero-grid">
+      <div class="hero-copy">
       <div class="hero-brand">VC Academy · by Mosaic Venture Lab · Taipei</div>
-      <div class="hero-badge"><span class="dot"></span>Applications open · Founding cohort</div>
+      <div class="hero-badge"><span class="dot"></span>Early-bird open · Founding cohort</div>
       <h1 class="hero-title">How do you actually<br>become a <em>VC?</em></h1>
-      <p class="hero-lede">We launched VC Academy in Taipei on August 14. <strong>Applications for the founding cohort are now open</strong> — about 10 seats.</p>
-      <p class="hero-sub">It's the question we hear most — from students, analysts, and founders ready to cross to the other side of the table. VC Academy is a small, in-person program where working investors teach the real job: how the venture world runs, how to run due diligence without drowning in it, and how to handle a term sheet.</p>
+      <p class="hero-lede">We launched VC Academy in Taipei on August 14. <strong>Early-bird seats for the founding cohort are now open</strong> — about 10 seats.</p>
+      <p class="hero-sub">It's the question we hear most. VC Academy is a small, in-person program where working investors teach the real job: how the venture world runs, how to run due diligence, and how to handle a term sheet.</p>
+      <div class="hero-leave">
+        <div class="hl-title">Leave with proof, not just theory.</div>
+        <ul>
+          <li>A defensible investment thesis in your domain</li>
+          <li>A personal Deal Book and diligence framework</li>
+          <li>An IC memo you have defended before investors</li>
+        </ul>
+      </div>
       <div class="hero-actions">
-        <button class="cta-btn" onclick="return showPage('apply')">Apply for a seat →</button>
+        <button class="cta-btn" onclick="return openCheckout()">Reserve your seat →</button>
         <a href="#" class="btn-ghost" onclick="return showPage('free');">See the Aug 14 launch →</a>
       </div>
-      <p class="hero-meta">In person in Taipei · 12 sessions over six months · <b>USD$1,000</b> · ~10 seats, invitation only · Applications reviewed on a rolling basis</p>
+      <p class="hero-kit"><span class="kit-pill">Bonus</span> Enrol today and receive the <b>VC Starter Kit</b> by email before the first session</p>
+      <p class="hero-meta">In person in Taipei · 12 sessions over six months · <b>Wave 1: NT$30,000</b> (60% off the NT$75,000 list price) · 3 or 6 credit-card installments · ~10 seats · Wave 1 ends Sep 30</p>
+      </div>
+      <div class="hero-visual">
+        <div class="hv-main"><img src="assets/launch-2026-08-14/02-the-room.jpg" alt="The room at the VC Academy launch event in Taipei"></div>
+        <div class="hv-side"><img src="assets/launch-2026-08-14/05-networking.jpg" alt="Networking after the VC Academy launch session"></div>
+        <div class="hv-badge"><b>4.9</b><p>rated by attendees of the Aug 14 launch</p></div>
+      </div>
+    </div>
       <div class="g4 reveal" style="margin-top:2.5rem;">
         <div class="stat-card"><h3>14</h3><p>Years in Taiwan's Ecosystem</p></div>
         <div class="stat-card red"><h3>12</h3><p>Sessions in Four Acts</p></div>
@@ -521,6 +773,23 @@ nav.scrolled { border-bottom-color:var(--border); }
 
       <!-- MENTOR COMPANY LOGOS -->
       <div style="margin-top:2.5rem;">
+        <!-- 導師照片跑馬燈：姓名／職稱與導師頁同一份文字（中文沿用同一批譯文）；腳本把這 10 位複製成 4 組 -->
+        <div class="mentor-marquee">
+          <div class="mq-track">
+          <!-- CORE-FACULTY:BEGIN -->
+          <div class="mq-item"><img class="mq-face" src="assets/faculty/volker-heistermann.jpg" alt=""><div class="mq-name">Volker Heistermann</div><div class="mq-role">Founder, Mosaic Venture Lab<br>Managing Partner, Yushan Ventures<br>VW / Audi tech scouting</div></div>
+          <div class="mq-item"><img class="mq-face" src="assets/faculty/johnny-yu.jpg" alt=""><div class="mq-name">Johnny Yu</div><div class="mq-role">Managing Director, Mosaic Venture Lab<br>Curriculum lead<br>Term sheets &amp; due diligence</div></div>
+          <!-- CORE-FACULTY:END -->
+          <div class="mq-item"><img class="mq-face" src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/deborah.jpg" alt=""><div class="mq-name">Deborah Magid</div><div class="mq-role">MD, NextStar Ventures<br>Ex-IBM Ventures</div></div>
+          <div class="mq-item"><img class="mq-face" src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Chander%20Kant.png" alt=""><div class="mq-name">Chander Kant</div><div class="mq-role">CEO, K Ventures<br>Former CEO, Zmanda</div></div>
+          <div class="mq-item"><img class="mq-face" src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Todd%20Lin_0.png" alt=""><div class="mq-name">Todd Lin</div><div class="mq-role">Semiconductor &amp; M&amp;A<br>Ex-GE, Acer, Egis Tech</div></div>
+          <div class="mq-item"><img class="mq-face" src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Mark%20Birch.png" alt=""><div class="mq-name">Mark Birch</div><div class="mq-role">Founder, TribeROI<br>Ex-AWS Global Advocate</div></div>
+          <div class="mq-item"><img class="mq-face" src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Volker%20Kaese_0.jpg" alt=""><div class="mq-name">Dr. Volker Kaese</div><div class="mq-role">CEO, Ingenev Mobility<br>Ex-Audi/VW Innovation</div></div>
+          <div class="mq-item"><img class="mq-face" src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Shafeen.png" alt=""><div class="mq-name">Shafeen Charania</div><div class="mq-role">COO, fluency<br>Ex-DXC Enterprise IT</div></div>
+          <div class="mq-item"><img class="mq-face" src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Ashley.png" alt=""><div class="mq-name">Ashley Hsueh</div><div class="mq-role">Management Consultant<br>Bain &amp; Company</div></div>
+          <div class="mq-item"><img class="mq-face" src="https://raw.githubusercontent.com/sungmbh/Training_2026/main/Christian.png" alt=""><div class="mq-name">Christian Walter</div><div class="mq-role">CEO, RegionRise<br>Ex-Google Europe</div></div>
+          </div>
+        </div>
         <div class="logo-strip-label">Our mentors invest, operate, and scout across</div>
         <div class="logo-strip">
         <img src="data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'><path%20d='M12.48%2010.92v3.28h7.84c-.24%201.84-.853%203.187-1.787%204.133-1.147%201.147-2.933%202.4-6.053%202.4-4.827%200-8.6-3.893-8.6-8.72s3.773-8.72%208.6-8.72c2.6%200%204.507%201.027%205.907%202.347l2.307-2.307C18.747%201.44%2016.133%200%2012.48%200%205.867%200%20.307%205.387.307%2012s5.56%2012%2012.173%2012c3.573%200%206.267-1.173%208.373-3.36%202.16-2.16%202.84-5.213%202.84-7.667%200-.76-.053-1.467-.173-2.053H12.48z'%20fill='%23888888'/></svg>" alt="Google" class="corp-logo" style="height:28px;">
@@ -542,26 +811,26 @@ nav.scrolled { border-bottom-color:var(--border); }
       <div class="reveal">
         <div class="section-label">The Problem</div>
         <h2 class="section-heading">Wanting in is easy.<br>The job is the hard part.</h2>
-        <p class="section-sub">After 14 years in Taiwan's startup scene, taking the same calls from students and would-be investors, three gaps come up again and again.</p>
+        <p class="section-sub">After 14 years of the same calls from students and would-be investors, three gaps keep coming up.</p>
       </div>
       <div class="g3 reveal" style="margin-top:2.5rem;">
         <div class="card" style="border-top:4px solid var(--red);">
           <div class="pattern-icon" style="background:var(--red-light);color:var(--red);">🚪</div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;color:var(--red);margin-bottom:0.5rem;">GAP 1</div>
           <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;">No Path In</h3>
-          <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.6;">"How do I break into VC?" We get asked this more than anything else. Most people have never had it answered properly: what the job actually needs, how firms hire, and where to even start.</p>
+          <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.6;">"How do I break into VC?" We get asked this more than anything else — and few people ever get a straight answer.</p>
         </div>
         <div class="card" style="border-top:4px solid var(--blue);">
           <div class="pattern-icon" style="background:var(--blue-light);color:var(--blue);">📑</div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;color:var(--blue);margin-bottom:0.5rem;">GAP 2</div>
           <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;">The Terminology Wall</h3>
-          <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.6;">Junior VCs freeze on the language of the deal. They're handed a term sheet — or asked to issue one — and don't know which clauses matter, what to push back on, or which tools to use.</p>
+          <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.6;">Junior VCs freeze on the language of the deal: which clauses matter, what to push back on, which tools to use.</p>
         </div>
         <div class="card" style="border-top:4px solid var(--teal);">
           <div class="pattern-icon" style="background:var(--teal-light);color:var(--teal);">🔍</div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;color:var(--teal);margin-bottom:0.5rem;">GAP 3</div>
           <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;">Checklist Diligence</h3>
-          <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.6;">New investors try to check everything. Real VCs run strategic, focused due diligence — asking the few questions that fit their thesis and passing early when a deal doesn't fit, instead of drowning in a generic checklist.</p>
+          <p style="font-size:0.88rem;color:var(--text-sec);line-height:1.6;">New investors try to check everything. Real VCs ask the few questions that fit their thesis — and pass early.</p>
         </div>
       </div>
     </div>
@@ -579,22 +848,26 @@ nav.scrolled { border-bottom-color:var(--border); }
         <div class="pillar-card pillar-1">
           <div class="pillar-num">ACT I · 1–3</div>
           <h3>Build Your Lens</h3>
-          <p>What do I look for, and why me? You write and defend an investment thesis built on the domain you already know — and open the Deal Book you keep all the way through.</p>
+          <p>What do I look for, and why me? Write and defend your investment thesis, and open your Deal Book.</p>
+          <p class="pillar-out"><b>You leave with</b>A defended investment thesis, and your Deal Book already open.</p>
         </div>
         <div class="pillar-card pillar-2">
           <div class="pillar-num">ACT II · 4–6</div>
           <h3>Learn to Say No</h3>
-          <p>How do I decide fast, and defend it? Reading a founder, building the diligence questions that could kill a deal, and reading a five-year forecast in ten minutes.</p>
+          <p>How do I decide fast, and defend it? Read a founder, build the questions that kill a deal, read a forecast in ten minutes.</p>
+          <p class="pillar-out"><b>You leave with</b>A diligence method that fits your thesis, and a forecast you can read.</p>
         </div>
         <div class="pillar-card pillar-3">
           <div class="pillar-num">ACT III · 7–9</div>
           <h3>The Deal</h3>
-          <p>How do I do one without getting hurt? Term-sheet language and negotiation, cap-table maths, and the deal structures used in this region that no textbook covers.</p>
+          <p>How do I do one without getting hurt? Term sheets, negotiation, cap-table maths, and regional deal structures.</p>
+          <p class="pillar-out"><b>You leave with</b>A marked-up term sheet, and a cap table you built yourself.</p>
         </div>
         <div class="pillar-card pillar-4">
           <div class="pillar-num">ACT IV · 10–12</div>
           <h3>The Business</h3>
-          <p>How does the money work, and how does it come back? Fund economics, corporate money, Taiwan's exit reality — then a full IC memo you defend before a panel.</p>
+          <p>How does the money work, and how does it come back? Fund economics and exits — then defend a full IC memo.</p>
+          <p class="pillar-out"><b>You leave with</b>An IC memo, defended in front of working investors.</p>
         </div>
       </div>
       <div class="reveal" style="margin-top:2rem;">
@@ -603,15 +876,58 @@ nav.scrolled { border-bottom-color:var(--border); }
     </div>
   </div>
 
+  <!-- PHOTO BAND (B) — 用現場照片降低「都是字」的感覺 -->
+  <div class="section photo-band">
+    <div class="reveal">
+      <div class="section-label">The Aug 14 Launch</div>
+      <h2 class="section-heading">The room you'd be joining.</h2>
+    </div>
+    <div class="pb-grid reveal">
+      <figure><img src="assets/launch-2026-08-14/01-opening.jpg" alt="Opening the VC Academy launch event in Taipei" loading="lazy"></figure>
+      <figure><img src="assets/launch-2026-08-14/03-scouting-talk.jpg" alt="Session on scouting as a route into venture capital" loading="lazy"></figure>
+      <figure><img src="assets/launch-2026-08-14/04-audience.jpg" alt="Attendees during the VC Academy launch session" loading="lazy"></figure>
+      <figure><img src="assets/launch-2026-08-14/06-conversations.jpg" alt="Conversations at the VC Academy launch event in Taipei" loading="lazy"></figure>
+    </div>
+    <p class="pb-cap reveal"><b>4.9 / 5</b> — how attendees rated the afternoon. <a href="#" onclick="return showPage('free')">See the recap →</a></p>
+  </div>
+
+  <!-- WHAT YOU LEAVE WITH (B) — 圖示卡 + 職涯路徑圖 -->
+  <div class="section" id="leave-with">
+    <div class="reveal">
+      <div class="section-label">What You Leave With</div>
+      <h2 class="section-heading">Not just a certificate.<br>A track record — and a route in.</h2>
+      <p class="section-sub">Real work you can show — and people who saw you do it.</p>
+    </div>
+    <div class="lw-tiles reveal">
+      <div class="lw-tile"><div class="lw-ic">📂</div><h4>Six portfolio artifacts</h4><p>Thesis, Deal Book, diligence, term sheet, cap table, IC memo. <a href="#" onclick="return showPage('outcomes')">See all six →</a></p></div>
+      <div class="lw-tile"><div class="lw-ic">🎁</div><h4>VC Starter Kit</h4><p>Emailed to every participant before the first session.</p></div>
+      <div class="lw-tile"><div class="lw-ic">📘</div><h4>The VC Bible</h4><p>MVL's VC methodology, in a PDF.</p></div>
+      <div class="lw-tile"><div class="lw-ic">🏅</div><h4>MVL Badge &amp; Certificate</h4><p>Proof you completed the programme.</p></div>
+      <div class="lw-tile"><div class="lw-ic">👥</div><h4>VC Alumni Group</h4><p>A members-only Discord community for graduates.</p></div>
+    </div>
+    <div class="path reveal">
+      <div class="section-label">Your route into VC</div>
+      <h3 class="path-title">Concrete links to a VC career after graduation</h3>
+      <ol class="path-steps">
+        <li><div class="ps-ic">📬</div><h4>3 months of deal flow</h4><p>MVL sends deals to look at, discuss and be introduced on.</p></li>
+        <li><div class="ps-ic">🤝</div><h4>Deals and work, together</h4><p>Review live deals alongside the MVL team.</p></li>
+        <li><div class="ps-ic">📝</div><h4>Recommendation letter</h4><p>After the programme, subject to evaluation.</p></li>
+        <li><div class="ps-ic">💼</div><h4>MVL internship</h4><p>Selected graduates may be considered.</p></li>
+        <li><div class="ps-ic">🔍</div><h4>Sit in on MVL deal reviews</h4><p>Selected graduates may be invited.</p></li>
+      </ol>
+      <p class="lw-note">Career links are offered after evaluation and are not guaranteed.</p>
+    </div>
+  </div>
+
   <!-- FREE INTRO HOOK -->
   <div class="section">
     <div class="free-banner reveal">
       <div>
-        <div class="fb-tag">Applications Open · Founding Cohort · ~10 Seats</div>
-        <h3>Apply to the founding cohort.</h3>
-        <p>We launched VC Academy in Taipei on August 14. The founding cohort is now taking applications — about 10 seats, in person, scheduled around your working week. <a href="#" onclick="return showPage('free')" style="color:white;text-decoration:underline;">See what the launch was like →</a></p>
+        <div class="fb-tag">Early-bird Open · Founding Cohort · ~10 Seats</div>
+        <h3>Reserve a founding-cohort seat.</h3>
+        <p>We launched VC Academy in Taipei on August 14. Early-bird seats for the founding cohort are open — about 10 seats, in person, scheduled around your working week — and every participant receives the VC Starter Kit before the first session. <a href="#" onclick="return showPage('free')" style="color:white;text-decoration:underline;">See what the launch was like →</a></p>
       </div>
-      <a href="#" class="fb-btn" onclick="return showPage('apply')">Apply for a seat →</a>
+      <a href="#" class="fb-btn" onclick="return openCheckout()">Reserve your seat →</a>
     </div>
   </div>
 
@@ -667,17 +983,20 @@ nav.scrolled { border-bottom-color:var(--border); }
       <div class="how-card hc-red">
         <div style="font-size:2rem;margin-bottom:0.75rem;">🤝</div>
         <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem;">Face-to-Face, Not a Webinar</h3>
-        <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">The first cohort meets in person at our Taipei office. Small room, ~10 people, real conversation. Sessions are scheduled around working hours, so professionals and students can both attend.</p>
+        <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">Small room, ~10 people, real conversation — at our Taipei office, scheduled around your working week.</p>
+        <p class="how-result">Build relationships you can keep working with after the cohort.</p>
       </div>
       <div class="how-card hc-blue">
         <div style="font-size:2rem;margin-bottom:0.75rem;">📂</div>
         <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem;">Taught Through Real Cases</h3>
-        <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">No abstract lectures. Every module is structured around real deals — actual term sheets, real diligence questions, and the judgment calls investors make under uncertainty.</p>
+        <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">No abstract lectures. Every module runs on real deals — actual term sheets and real diligence questions.</p>
+        <p class="how-result">Learn to form an investment view before you meet a live deal at work.</p>
       </div>
       <div class="how-card hc-teal">
         <div style="font-size:2rem;margin-bottom:0.75rem;">🧭</div>
         <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.4rem;">Mentored by Active Investors</h3>
-        <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">Our mentors are working VCs, operators, and corporate-venture scouts. They've sourced, diligenced, and passed on hundreds of deals — and they'll tell you why.</p>
+        <p style="font-size:0.85rem;color:var(--text-sec);line-height:1.6;">Working VCs, operators and corporate-venture scouts who have sourced, diligenced and passed on hundreds of deals.</p>
+        <p class="how-result">Get direct feedback on your thesis and IC memo from people who make investment decisions.</p>
       </div>
     </div>
   </div>
@@ -785,6 +1104,7 @@ nav.scrolled { border-bottom-color:var(--border); }
         </div>
 
       </div>
+      <p class="numbers-close reveal">By the end, you will be able to explain these three charts — and use them to support a pass or an investment recommendation.</p>
     </div>
   </div>
 
@@ -804,19 +1124,62 @@ nav.scrolled { border-bottom-color:var(--border); }
         <tr><td>Taught By</td><td class="col-old">Professors and finance generalists.</td><td class="col-new">Working VCs, operators, and corporate-venture scouts who write and read term sheets.</td></tr>
         <tr><td>Method</td><td class="col-old">Lectures and theoretical case studies.</td><td class="col-new">Real deals, real diligence questions, mentor debriefs on actual judgment calls.</td></tr>
         <tr><td>The Question</td><td class="col-old">"What is venture capital?"</td><td class="col-new">"How do I become a VC — and what does the job actually require?"</td></tr>
-        <tr><td>Format</td><td class="col-old">Semester-long, lecture hall, graded.</td><td class="col-new">In-person cohort in Taipei, scheduled around your job. Invitation only, ~10 seats.</td></tr>
+        <tr><td>Format</td><td class="col-old">Semester-long, lecture hall, graded.</td><td class="col-new">In-person cohort in Taipei, scheduled around your job. Limited to ~10 seats.</td></tr>
         <tr><td>Best For</td><td class="col-old">Students wanting academic credit.</td><td class="col-new">Aspiring investors, analysts, founders, and family-office members who want in.</td></tr>
       </tbody>
     </table>
+    <div class="outcome-block reveal">
+      <div class="ob-label">After VC Academy, you should be able to</div>
+      <p>Form an investment point of view, screen a deal quickly, ask thesis-driven diligence questions, understand a term sheet and cap table, and defend an IC recommendation.</p>
+    </div>
     <p class="reveal" style="font-size:0.92rem;color:var(--text-sec);line-height:1.7;margin-top:1.75rem;max-width:760px;">To be clear: there are excellent programs out there — VC University, Kauffman Fellows, the Newton Program, Techstars' Venture Deals. Most run online, sit in the US or Europe, and are priced for people already inside the industry. We've borrowed the best of how they teach. VC Academy is the one built for here: in person, in Taipei, taught by investors working this market and the Silicon Valley, Berlin, and Tokyo corridors we operate in every day.</p>
+  </div>
+
+  <!-- PRICING (B) — 階梯式：每一波調漲一點，對照定價 -->
+  <div class="section" id="pricing">
+    <div class="reveal">
+      <div class="section-label">Founding-Cohort Price</div>
+      <h2 class="section-heading">Book early. Pay less.</h2>
+      <p class="section-sub">The price steps up with every wave. Wave 1 is open now.</p>
+    </div>
+    <div class="price-card reveal">
+      <div class="pc-left">
+        <div class="ladder">
+          <div class="lad-plot">
+            <div class="lad-ref">List price NT$75,000</div>
+            <div class="lad-bars">
+              <div class="lad-bar"><div class="lad-save">Save NT$45,000</div></div>
+              <div class="lad-bar"></div>
+              <div class="lad-bar"></div>
+            </div>
+          </div>
+          <div class="lad-labels">
+            <div class="lad-col now"><div class="lad-tag">Now · Wave 1</div><div class="lad-off">60% off</div><div class="lad-price">NT$30,000</div><div class="lad-note">Until Sep 30</div></div>
+            <div class="lad-col"><div class="lad-tag">Next · Wave 2</div><div class="lad-off">58% off</div><div class="lad-price">NT$31,500</div><div class="lad-note">From Oct 1</div></div>
+            <div class="lad-col"><div class="lad-tag">Later · Wave 3</div><div class="lad-off">54% off</div><div class="lad-price">NT$34,500</div><div class="lad-note">From Oct 8</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pc-right">
+        <div class="pc-per"><b>NT$2,500</b><p>per session · 12 sessions</p></div>
+        <ul class="pc-includes">
+          <li>All 12 in-person sessions in Taipei</li>
+          <li>Materials, live deals and time with visiting investors</li>
+          <li>VC Starter Kit — emailed before the first session</li>
+          <li>VC Bible, MVL Badge &amp; Certificate, VC Alumni Group</li>
+        </ul>
+        <button class="cta-btn pc-btn" onclick="return openCheckout()">Pay by card →</button>
+        <p class="pc-foot">3 or 6 credit-card installments available · Company invoice with tax ID (統編) available · full refund if we can't confirm your seat<br>Prefer to apply first? <a href="#" onclick="return showPage('apply')">Send a short application →</a></p>
+      </div>
+    </div>
   </div>
 
   <!-- CTA -->
   <div class="section-sm">
     <div class="cta-section reveal">
       <h2>The founding cohort is forming.</h2>
-      <p>We launched in Taipei on August 14. What comes next is the program itself — in person, built around your working week, about 10 seats. Applications are open now.</p>
-      <button class="cta-btn" onclick="return showPage('apply')">Apply for a seat →</button>
+      <p>We launched in Taipei on August 14. What comes next is the program itself — in person, built around your working week, about 10 seats. Wave 1 pricing is open now.</p>
+      <button class="cta-btn" onclick="return openCheckout()">Reserve your seat →</button>
     </div>
   </div>
 
@@ -940,11 +1303,11 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal" style="margin-top:2.5rem;">
       <div class="free-banner">
         <div>
-          <div class="fb-tag">Missed it? · Applications Open</div>
+          <div class="fb-tag">Missed it? · Early-bird Open</div>
           <h3>The program starts now.</h3>
-          <p>The launch is done — the founding cohort is what comes next. In person in Taipei, scheduled around your job, about 10 seats. If the afternoon sounded like your room, apply.</p>
+          <p>The launch is done — the founding cohort is what comes next. In person in Taipei, scheduled around your job, about 10 seats. If the afternoon sounded like your room, reserve your seat.</p>
         </div>
-        <a href="#" class="fb-btn" onclick="return showPage('apply')">Apply for a seat →</a>
+        <a href="#" class="fb-btn" onclick="return openCheckout()">Reserve your seat →</a>
       </div>
     </div>
   </div>
@@ -963,11 +1326,11 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal" style="margin-top:3rem;">
       <div class="free-banner">
         <div>
-          <div class="fb-tag">Applications Open · Founding Cohort</div>
+          <div class="fb-tag">Early-bird Open · Founding Cohort</div>
           <h3>Ready to sit in the room?</h3>
           <p>This is the curriculum the founding cohort works through — in person at our Taipei office, scheduled around your job, about 10 seats.</p>
         </div>
-        <a href="#" class="fb-btn" onclick="return showPage('apply')">Apply for a seat →</a>
+        <a href="#" class="fb-btn" onclick="return openCheckout()">Reserve your seat →</a>
       </div>
     </div>
 
@@ -1297,11 +1660,11 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal" style="margin-top:3.5rem;">
       <div class="free-banner">
         <div>
-          <div class="fb-tag">Founding Cohort · Applications Open</div>
-          <h3>USD$1,000 for all twelve sessions.</h3>
-          <p>Six months, in person in Taipei, about 10 seats. Government subsidy application in progress.</p>
+          <div class="fb-tag">Founding Cohort · Early-bird Open</div>
+          <h3>Wave 1: NT$30,000 for all twelve sessions.</h3>
+          <p>Six months, in person in Taipei, about 10 seats. The price steps up with each wave. Pay in full or in 3 or 6 credit-card installments. Government subsidy application in progress.</p>
         </div>
-        <a href="#" class="fb-btn" onclick="return showPage('apply')">Apply for a seat →</a>
+        <a href="#" class="fb-btn" onclick="return openCheckout()">Reserve your seat →</a>
       </div>
     </div>
   </div>
@@ -1405,11 +1768,11 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal" style="margin-top:3rem;">
       <div class="free-banner">
         <div>
-          <div class="fb-tag">Founding Cohort · Applications Open</div>
+          <div class="fb-tag">Founding Cohort · Early-bird Open</div>
           <h3>Come and do the reps.</h3>
-          <p>Twelve sessions over six months, in person in Taipei, about 10 seats. USD$1,000 for the full programme. Government subsidy application in progress.</p>
+          <p>Twelve sessions over six months, in person in Taipei, about 10 seats. Wave 1: NT$30,000, stepping up with each wave — with 3 or 6 credit-card installments. Government subsidy application in progress.</p>
         </div>
-        <a href="#" class="fb-btn" onclick="return showPage('apply')">Apply for a seat →</a>
+        <a href="#" class="fb-btn" onclick="return openCheckout()">Reserve your seat →</a>
       </div>
     </div>
   </div>
@@ -1420,7 +1783,7 @@ nav.scrolled { border-bottom-color:var(--border); }
   <div class="section section-top">
     <div class="reveal">
       <div class="section-label">What You Walk Away With</div>
-      <h1 class="section-heading">Not a certificate.<br>A track record.</h1>
+      <h1 class="section-heading">Not just a certificate.<br>A track record.</h1>
       <p class="section-sub">Six things you built yourself, defended out loud, and can put in front of someone the week after the programme ends — plus the room that watched you do it.</p>
     </div>
     <div class="g2 reveal" style="margin-top:3rem;gap:2rem;">
@@ -1458,6 +1821,59 @@ nav.scrolled { border-bottom-color:var(--border); }
       </div>
     </div>
 
+    <!-- YOURS TO KEEP (B) -->
+    <div class="reveal" style="margin-top:4rem;">
+      <div class="section-label">Yours to Keep</div>
+      <h2 class="section-heading">And the toolkit comes with you.</h2>
+    </div>
+    <div class="g2 reveal" style="margin-top:2rem;gap:2rem;">
+      <div class="promise-item">
+        <div class="promise-icon">★</div>
+        <div class="promise-text"><h4>The VC Starter Kit — before day one</h4><p>Emailed to every participant before the first session.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">★</div>
+        <div class="promise-text"><h4>The VC Bible (PDF)</h4><p>MVL's VC methodology, written down — the frame behind every session, to keep and come back to.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">★</div>
+        <div class="promise-text"><h4>MVL Badge &amp; Certificate</h4><p>Proof from Mosaic Venture Lab that you completed the programme. The track record above is what backs it up.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">★</div>
+        <div class="promise-text"><h4>The VC Alumni Group</h4><p>A members-only Discord community for graduates — where the cohort keeps working after the last session.</p></div>
+      </div>
+    </div>
+
+    <!-- YOUR ROUTE INTO VC (B) -->
+    <div class="reveal" style="margin-top:4rem;">
+      <div class="section-label">Your Route Into VC</div>
+      <h2 class="section-heading">Concrete links to a VC career<br>after graduation.</h2>
+      <p class="section-sub">Offered after evaluation. Not guaranteed — this is the route we open, not a promise of a job.</p>
+    </div>
+    <div class="g2 reveal" style="margin-top:2rem;gap:2rem;">
+      <div class="promise-item">
+        <div class="promise-icon">→</div>
+        <div class="promise-text"><h4>Three months of deal-flow sharing</h4><p>For three consecutive months after the programme, MVL sends over deals you can look at, discuss with us, and be introduced on.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">→</div>
+        <div class="promise-text"><h4>Look at deals — and work — together</h4><p>Review live deals alongside the MVL team, and explore working opportunities from there.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">→</div>
+        <div class="promise-text"><h4>A recommendation letter</h4><p>After the programme, subject to evaluation.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">→</div>
+        <div class="promise-text"><h4>A route into an MVL internship</h4><p>Selected graduates may be considered for an internship at Mosaic Venture Lab, subject to evaluation.</p></div>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">→</div>
+        <div class="promise-text"><h4>Look at deals alongside MVL</h4><p>Selected graduates may be invited to join MVL's deal reviews and look at deals together, subject to evaluation and eligibility.</p></div>
+      </div>
+    </div>
+
     <!-- QUOTE -->
     <div class="reveal" style="margin-top:4rem;">
       <div class="section-label">From the Faculty</div>
@@ -1484,11 +1900,11 @@ nav.scrolled { border-bottom-color:var(--border); }
     <div class="reveal" style="margin-top:3.5rem;">
       <div class="free-banner">
         <div>
-          <div class="fb-tag">Founding Cohort · Applications Open</div>
+          <div class="fb-tag">Founding Cohort · Early-bird Open</div>
           <h3>Start building the track record.</h3>
-          <p>Twelve sessions over six months, in person in Taipei, about 10 seats. USD$1,000 for the full programme. Government subsidy application in progress.</p>
+          <p>Twelve sessions over six months, in person in Taipei, about 10 seats. Wave 1: NT$30,000, stepping up with each wave — with 3 or 6 credit-card installments. Government subsidy application in progress.</p>
         </div>
-        <a href="#" class="fb-btn" onclick="return showPage('apply')">Apply for a seat →</a>
+        <a href="#" class="fb-btn" onclick="return openCheckout()">Reserve your seat →</a>
       </div>
     </div>
   </div>
@@ -1568,8 +1984,8 @@ nav.scrolled { border-bottom-color:var(--border); }
       <div class="section-label" style="color:var(--text-muted);">Core Faculty · Mosaic Venture Lab</div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem;" class="reveal mentor-grid">
-      <div class="mentor-card"><div class="mentor-photo initials">VH</div><div class="mentor-name">Volker Heistermann</div><div class="mentor-role">Founder, Mosaic Venture Lab<br>Managing Partner, Yushan Ventures<br>VW / Audi tech scouting</div></div>
-      <div class="mentor-card"><div class="mentor-photo initials">JY</div><div class="mentor-name">Johnny Yu</div><div class="mentor-role">Managing Director, Mosaic Venture Lab<br>Curriculum lead<br>Term sheets &amp; due diligence</div></div>
+      <div class="mentor-card"><div class="mentor-photo"><img src="assets/faculty/volker-heistermann.jpg" alt="Volker Heistermann" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="mentor-name">Volker Heistermann</div><div class="mentor-role">Founder, Mosaic Venture Lab<br>Managing Partner, Yushan Ventures<br>VW / Audi tech scouting</div></div>
+      <div class="mentor-card"><div class="mentor-photo"><img src="assets/faculty/johnny-yu.jpg" alt="Johnny Yu" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div><div class="mentor-name">Johnny Yu</div><div class="mentor-role">Managing Director, Mosaic Venture Lab<br>Curriculum lead<br>Term sheets &amp; due diligence</div></div>
       <div class="mentor-card"><div class="mentor-photo initials">KH</div><div class="mentor-name">Ken Huang</div><div class="mentor-role">Partner, Mosaic Venture Lab<br>Lecturer, NCU<br>Sourcing &amp; ecosystem</div></div>
     </div>
 
@@ -1597,36 +2013,47 @@ nav.scrolled { border-bottom-color:var(--border); }
   <div class="section section-top">
     <div class="reveal">
       <div class="section-label">Join the Founding Cohort</div>
-      <h1 class="section-heading">Applications are open.<br>About 10 seats.</h1>
-      <p class="section-sub">We launched VC Academy in Taipei on August 14 — attendees rated the afternoon <strong style="color:var(--red);">4.9 out of 5</strong>. What comes next is the program itself: in person, built around your working week, taught by working investors. Tell us a little about yourself below and we'll be in touch.</p>
+      <h1 class="section-heading">Reserve your seat.<br>About 10 seats.</h1>
+      <p class="section-sub">We launched VC Academy in Taipei on August 14 — attendees rated the afternoon <strong style="color:var(--red);">4.9 out of 5</strong>. What comes next is the program itself: in person, built around your working week, taught by working investors. Reserve your seat below — or, if you'd rather apply first, tell us a little about yourself and we'll be in touch.</p>
       <div style="margin-top:1.75rem;">
-        <button class="cta-btn" onclick="return goToApplyForm();">Submit application →</button>
+        <button class="cta-btn" onclick="return openCheckout()">Reserve your seat →</button>
       </div>
     </div>
 
     <div class="g2 reveal" style="margin-top:3rem;">
       <div>
         <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:1.25rem;">Who should apply.</h3>
-        <div style="font-size:0.92rem;color:var(--text-sec);line-height:1.8;">
-          <p style="margin-bottom:0.75rem;"><strong>Students and recent graduates</strong> who keep asking how to break into venture capital and want a straight answer. <strong>Founders and operators</strong> who've raised — or will — and want to read the table from the investor's side. <strong>Aspiring angels</strong> who have the appetite but not the deal flow. <strong>Analysts, corporates, and family offices</strong> moving into early-stage investing.</p>
-          <p style="margin-bottom:0.75rem;">That's roughly the room we had on August 14 — and the questions they asked are what the cohort is built around.</p>
-          <p>The founding cohort is small and invitation-only — we keep the room to about 10 people so every participant gets real time with the mentors.</p>
+        <div class="who-grid">
+          <div class="who"><div class="who-ic">🎓</div><h4>Students &amp; recent graduates</h4><p>who want a straight answer on breaking into VC</p></div>
+          <div class="who"><div class="who-ic">🚀</div><h4>Founders &amp; operators</h4><p>who want to read the table from the investor's side</p></div>
+          <div class="who"><div class="who-ic">💡</div><h4>Aspiring angels</h4><p>with the appetite, but not the deal flow</p></div>
+          <div class="who"><div class="who-ic">🏢</div><h4>Analysts, corporates &amp; family offices</h4><p>moving into early-stage investing</p></div>
         </div>
+        <p style="font-size:0.95rem;color:var(--text-sec);line-height:1.7;margin-top:1rem;">That's roughly the room we had on August 14. The founding cohort is small — about 10 people — so every participant gets real time with the mentors.</p>
         <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin:2rem 0 1rem;">Program details.</h3>
-        <div style="font-size:0.88rem;color:var(--text-sec);line-height:2;">
-          <p><strong>Format:</strong> 12 in-person sessions over six months at the Mosaic Venture Lab office, Taipei, scheduled around working commitments.</p>
-          <p><strong>First cohort:</strong> Founding cohort, starting Oct 2026.</p>
-          <p><strong>Cohort size:</strong> ~10 participants. Invitation only.</p>
-          <p><strong>Focus:</strong> Deal evaluation, term sheets, and valuation.</p>
-          <p><strong>Launched:</strong> Opened to the public in Taipei on August 14, 2026.</p>
-          <p><strong>Investment:</strong> USD$1,000 for the full programme — all 12 sessions.</p>
-          <p><strong>Government subsidy:</strong> Application in progress.</p>
+        <div class="facts">
+          <div class="fact"><small>Format</small><p>12 in-person sessions over six months, Taipei</p></div>
+          <div class="fact"><small>Starts</small><p>Nov 11, 2026 · founding cohort</p></div>
+          <div class="fact"><small>Cohort</small><p>~10 people · every seat confirmed by our team</p></div>
+          <div class="fact"><small>Focus</small><p>Deal evaluation, term sheets, valuation</p></div>
+          <div class="fact"><small>Investment</small><p>Wave 1: NT$30,000 · steps up each wave · 3 or 6 credit-card installments</p></div>
+          <div class="fact"><small>Government subsidy</small><p>Application in progress</p></div>
         </div>
       </div>
       <div>
+        <!-- RESERVE CARD (B) -->
+        <div class="price-card price-card-sm" style="margin-bottom:1.5rem;">
+          <div class="pc-tag">Wave 1 · ends Sep 30</div>
+          <div class="pc-price"><span class="pc-cur">NT$</span>30,000</div>
+          <div class="pc-sub">60% off the NT$75,000 list price · NT$2,500 per session · next wave NT$31,500</div>
+          <button class="cta-btn pc-btn" style="margin-top:1.25rem;" onclick="return openCheckout()">Pay by card →</button>
+          <p class="pc-foot">Every participant receives the VC Starter Kit before the first session.</p>
+        </div>
+
         <!-- APPLICATION FORM -->
         <div class="apply-form" id="applyForm">
-          <h3 class="form-title">Application</h3>
+          <h3 class="form-title">Prefer to apply first?</h3>
+          <p style="font-size:0.85rem;color:var(--text-sec);margin:-0.25rem 0 1.25rem;">No payment needed — tell us about yourself and we'll be in touch.</p>
           <div id="formNotice" class="form-notice" style="display:none;"></div>
           <form id="cohortForm" novalidate>
             <div class="form-row">
@@ -1702,7 +2129,7 @@ nav.scrolled { border-bottom-color:var(--border); }
     <!-- FAQ -->
     <div class="reveal" style="margin-top:4rem;">
       <div class="section-label">Common Questions</div>
-      <h2 class="section-heading">Before you apply.</h2>
+      <h2 class="section-heading">Before you reserve.</h2>
       <div style="margin-top:1.5rem;">
         <div class="faq-item">
           <h4>Do I need finance or investing experience?</h4>
@@ -1718,15 +2145,47 @@ nav.scrolled { border-bottom-color:var(--border); }
         </div>
         <div class="faq-item">
           <h4>How big is the cohort?</h4>
-          <p>Small by design — about 10 participants for the founding cohort, invitation only, so everyone gets direct time with working investors.</p>
+          <p>Small by design — about 10 participants for the founding cohort, so everyone gets direct time with working investors.</p>
         </div>
         <div class="faq-item">
           <h4>What does it cost?</h4>
-          <p><strong>USD$1,000 for the full programme</strong> — all 12 sessions across six months, in person. There is nothing further to pay: materials, the live deals, and the time with visiting investors are all included. A government subsidy application is in progress.</p>
+          <p><strong>Wave 1: NT$30,000 for the full programme</strong> — 60% off the NT$75,000 list price. Later waves step up to NT$31,500 and NT$34,500. All 12 sessions across six months, in person; materials, live deals and time with visiting investors are included. A government subsidy application is in progress.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Is my seat confirmed when I pay?</h4>
+          <p>Your seat is held the moment you pay. The organizer reserves the right to review eligibility — if we can't confirm your seat after review, you'll receive a full refund.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I pay in installments, or have my company pay?</h4>
+          <p>Yes — 3 or 6 credit-card installments, same total either way. We can also issue a company invoice with a tax ID (統編).</p>
+        </div>
+        <div class="faq-item">
+          <h4>What do I get after the programme?</h4>
+          <p>The six things you built — thesis, Deal Book, diligence method, marked-up term sheet, cap table, IC memo — plus the VC Bible, an MVL Badge &amp; Certificate and a place in the VC Alumni Group. Selected graduates are also considered for deal-flow sharing, a recommendation letter, an MVL internship and sitting in on MVL's deal reviews — subject to evaluation, and not guaranteed.</p>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<!-- ==================== THANKS（付款完成後回到這裡） ==================== -->
+<div class="page" id="page-thanks">
+<div class="section section-top">
+<div class="reveal">
+<div class="section-label">Payment received</div>
+<h1 class="section-heading">Thank you.<br>Your seat is held.</h1>
+<p class="section-sub">We've received your payment — a receipt from our payment provider is on its way to your inbox. Here is what happens next.</p>
+</div>
+<div class="lw-tiles reveal" style="margin-top:2.5rem;">
+<div class="lw-tile"><div class="lw-ic">✅</div><h4>Eligibility check</h4><p>The organizer reserves the right to review eligibility. We'll confirm your seat by email — and if we can't, you'll receive a full refund.</p></div>
+<div class="lw-tile"><div class="lw-ic">🎁</div><h4>VC Starter Kit</h4><p>Emailed to every participant before the first session.</p></div>
+<div class="lw-tile"><div class="lw-ic">📅</div><h4>First session</h4><p>Wednesday, November 11, 2026 — in person in Taipei. We'll send the details by email.</p></div>
+</div>
+<div class="reveal" style="margin-top:2.5rem;">
+<p style="font-size:0.95rem;color:var(--text-sec);line-height:1.7;">Questions? Email us at <a href="mailto:vh@mvl.biz" style="color:var(--red);">vh@mvl.biz</a>.</p>
+<div style="margin-top:1.5rem;"><a href="#" class="btn-ghost" onclick="return showPage('home')">Back to home →</a></div>
+</div>
+</div>
 </div>
 
 <!-- MOBILE APPLY MODAL — 表單本體會被搬進這裡，全站只有一份表單 -->
@@ -1734,6 +2193,70 @@ nav.scrolled { border-bottom-color:var(--border); }
   <div class="apply-modal-inner">
     <button class="apply-modal-close" id="applyModalClose" aria-label="Close">&times;</button>
     <div id="applyModalSlot"></div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="pay-modal" id="payModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Reserve your seat">
+  <div class="pay-inner">
+    <button class="pay-close" id="payClose" aria-label="Close">&times;</button>
+    <div class="pay-head">
+      <div class="pay-tag">Reserve your seat</div>
+      <h3>VC Academy · Founding cohort</h3>
+      <p>12 in-person sessions · Taipei · starts Nov 11, 2026 · ~10 seats</p>
+    </div>
+    <!-- 維護中：付款整合還沒接上（VCA_PAY_CONFIG.endpoint 是空的）就顯示這塊，藏起下面的付款表單。
+         接上網址後這個視窗會自動變回正常的付款表單，不用重新發布或改任何按鈕。 -->
+    <div class="pay-maintenance" id="payMaintenance" hidden>
+      <div class="pay-maint-icon">🛠️</div>
+      <p>Card payment is being set up right now — please check back soon.</p>
+      <p>Want to lock in this wave's price in the meantime? <a href="#" onclick="return payApplyInstead()">Send a short application →</a></p>
+    </div>
+    <div id="payForm">
+    <div class="pay-plans" role="radiogroup" aria-label="Payment plan">
+      <label class="pay-plan">
+        <input type="radio" name="payplan" value="full" data-amount="30000" data-inst="0" checked>
+        <span class="pp-main"><b>Pay in full</b><i>NT$30,000</i></span>
+        <span class="pp-sub">Wave 1 · 60% off the NT$75,000 list price · next wave NT$31,500</span>
+      </label>
+      <label class="pay-plan">
+        <input type="radio" name="payplan" value="inst3" data-amount="30000" data-inst="3">
+        <span class="pp-main"><b>3 credit-card installments</b><i>3 × NT$10,000</i></span>
+        <span class="pp-sub">Same total, split across 3 payments</span>
+      </label>
+      <label class="pay-plan">
+        <input type="radio" name="payplan" value="inst6" data-amount="30000" data-inst="6">
+        <span class="pp-main"><b>6 credit-card installments</b><i>6 × NT$5,000</i></span>
+        <span class="pp-sub">Same total, split across 6 payments</span>
+      </label>
+    </div>
+    <div class="pay-fields">
+      <div class="form-row">
+        <div class="field" id="pf-name">
+          <label for="pay-name">Full name <span class="req">*</span></label>
+          <input type="text" id="pay-name" autocomplete="name" placeholder="Jane Chen">
+          <div class="err">Please enter your name.</div>
+        </div>
+        <div class="field" id="pf-email">
+          <label for="pay-email">Email <span class="req">*</span></label>
+          <input type="email" id="pay-email" autocomplete="email" placeholder="jane@company.com">
+          <div class="err">Please enter a valid email.</div>
+        </div>
+      </div>
+    </div>
+    <ul class="pay-incl">
+      <li>All 12 sessions, materials and live deals</li>
+      <li>VC Starter Kit — emailed before the first session</li>
+      <li>VC Bible (PDF), MVL Badge &amp; Certificate, VC Alumni Group</li>
+    </ul>
+    <button class="form-submit" id="payGo" type="button">Continue to payment →</button>
+    <div class="pay-error" id="payError" role="alert" hidden>
+      <p data-code="default" hidden>Payment couldn't start. Please try again in a moment — or <a href="#" onclick="return payApplyInstead()">apply first and we'll send you a payment link →</a></p>
+      <p data-code="sold_out" hidden>All seats are taken. Please email us at vh@mvl.biz.</p>
+      <p data-code="wave_changed" hidden>The price has just moved to the next wave. Please reload the page to see the current price.</p>
+    </div>
+    <p class="form-foot">The organizer reserves the right to review eligibility. If we can't confirm your seat after review, you'll receive a full refund.</p>
+    </div>
   </div>
 </div>
 
@@ -1804,7 +2327,7 @@ function resetApplyFormIfSubmitted() {
   inner.style.display = '';
   success.style.display = 'none';
   if (notice) notice.style.display = 'none';
-  if (submit) { submit.disabled = false; submit.textContent = 'Submit application →'; }
+  if (submit) { submit.disabled = false; submit.textContent = (window.__t || String)('Submit application →'); }
 }
 
 function openApplyModal() {
@@ -1939,7 +2462,7 @@ function closeApplyModal() {
         const original = label.textContent;
 
         el.classList.add('is-loading');
-        label.textContent = 'Preparing…';
+        label.textContent = (window.__t || String)('Preparing…');
 
         setTimeout(function () {
           el.classList.remove('is-loading');
@@ -2015,7 +2538,7 @@ function closeApplyModal() {
       if (typeof clarity === 'function') clarity('event', 'form_submit_attempt');
 
       submit.disabled = true;
-      submit.textContent = 'Sending…';
+      submit.textContent = (window.__t || String)('Sending…');
       notice.style.display = 'none';
 
       const payload = { timestamp: new Date().toISOString() };
@@ -2042,9 +2565,9 @@ function closeApplyModal() {
         if (typeof gtag === 'function') gtag('event', 'form_submit_error');
         if (typeof clarity === 'function') clarity('event', 'form_submit_error');
         submit.disabled = false;
-        submit.textContent = 'Submit application →';
+        submit.textContent = (window.__t || String)('Submit application →');
         notice.style.display = 'block';
-        notice.textContent = 'Something went wrong. Please try again, or email us directly at vh@mvl.biz.';
+        notice.textContent = (window.__t || String)('Something went wrong. Please try again, or email us directly at vh@mvl.biz.');
       });
     });
   });
@@ -2059,13 +2582,13 @@ function closeApplyModal() {
    另有乾淨路徑（由 /apply/ 等資料夾轉址過來）：
      https://training-vc.mvl.biz/apply
    =================================================================== */
-const PAGES = ['home','free','curriculum','method','outcomes','track','mentors','apply'];
+const PAGES = ['home','free','curriculum','method','outcomes','track','mentors','apply','thanks'];
 
 /* 對外用的好記別名 → 內部 id */
 const PAGE_ALIASES = { recap: 'free', 'launch-event-recap': 'free', 'track-record': 'track' };
 
 function resolvePage(raw) {
-  const key = String(raw || '').replace(/^#\/?/, '').trim().toLowerCase();
+  const key = String(raw || '').replace(/^#\/?/, '').split('?')[0].trim().toLowerCase();
   if (PAGE_ALIASES[key]) return PAGE_ALIASES[key];
   return PAGES.indexOf(key) > -1 ? key : 'home';
 }
@@ -2102,8 +2625,10 @@ function showPage(id, fromHistory) {
       page_path: path
     });
     if (id === 'apply') gtag('event', 'apply_page_reached');
+    if (id === 'thanks') gtag('event', 'thanks_page_reached');
   }
   if (typeof clarity === 'function' && id === 'apply') clarity('event', 'apply_page_reached');
+  if (typeof clarity === 'function' && id === 'thanks') clarity('event', 'thanks_page_reached');
 
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
@@ -2152,6 +2677,249 @@ document.addEventListener('DOMContentLoaded', function () {
   showPage(location.hash, true);
   initReveals();
 });
+
+/* ===================================================================
+   結帳（頁面內）：收姓名、Email、付款方式，交給付款整合建立訂單並跳轉到藍新金流。
+   頁面不經手金額與金鑰：金額一律由後端依波次決定，這裡送出的 amount 只供後端對照。
+   付款整合提供 VCA_PAY.start(order)；也可以只填 VCA_PAY_CONFIG.endpoint，由下面的預設實作去呼叫。
+   =================================================================== */
+window.VCA_PAY_CONFIG = window.VCA_PAY_CONFIG || {
+  endpoint: '',                      // 後端「建立訂單」的網址；空字串 = 還沒接上
+  wave: 1,                           // 這一版頁面寫的是第幾波（後端核對，不一致就回 wave_changed）
+  allowedHosts: ['newebpay.com']     // 只允許跳轉到這些網域（含子網域）
+};
+window.VCA_PAY = window.VCA_PAY || {};
+
+function payHostOk(u) {
+  try {
+    const x = new URL(u, location.href);
+    return x.protocol === 'https:' && VCA_PAY_CONFIG.allowedHosts.some(function (h) { return x.hostname === h || x.hostname.endsWith('.' + h); });
+  } catch (e) { return false; }
+}
+function payPostForm(action, fields) {
+  const f = document.createElement('form');
+  f.method = 'POST'; f.action = action; f.style.display = 'none';
+  Object.keys(fields).forEach(function (k) {
+    const i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = String(fields[k]); f.appendChild(i);
+  });
+  document.body.appendChild(f); f.submit();
+}
+// 預設實作：POST 訂單給後端 → 回 { url } 就前往；回 { action, fields } 就用表單 POST 到藍新；回 { error } 就丟出錯誤碼
+if (typeof VCA_PAY.start !== 'function') {
+  VCA_PAY.start = async function (order) {
+    if (!VCA_PAY_CONFIG.endpoint) throw new Error('not_configured');
+    const res = await fetch(VCA_PAY_CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(order) });
+    let data = {};
+    try { data = await res.json(); } catch (e) {}
+    if (data && data.error) throw new Error(data.error);
+    if (!res.ok) throw new Error('http_' + res.status);
+    if (data.url && payHostOk(data.url)) { location.assign(data.url); return; }
+    if (data.action && data.fields && payHostOk(data.action)) { payPostForm(data.action, data.fields); return; }
+    throw new Error('bad_response');
+  };
+}
+
+function payShowError(code) {
+  const box = document.getElementById('payError');
+  box.hidden = !code;
+  box.querySelectorAll('p').forEach(function (p) { p.hidden = p.getAttribute('data-code') !== code; });
+}
+function payValidate() {
+  const name = document.getElementById('pay-name'), email = document.getElementById('pay-email');
+  const okName = name.value.trim().length > 0;
+  const okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim());
+  document.getElementById('pf-name').classList.toggle('invalid', !okName);
+  document.getElementById('pf-email').classList.toggle('invalid', !okEmail);
+  if (!okName) name.focus(); else if (!okEmail) email.focus();
+  return okName && okEmail;
+}
+function openCheckout() {
+  const modal = document.getElementById('payModal');
+  if (!modal) return false;
+  // 付款整合還沒接上（VCA_PAY_CONFIG.endpoint 是空的）就顯示「維護中」，藏起付款表單；
+  // 之後填上網址，同一個視窗會自動變回正常的付款表單，不用改任何按鈕或重新發布。
+  const maintenance = !VCA_PAY_CONFIG.endpoint;
+  document.getElementById('payForm').hidden = maintenance;
+  document.getElementById('payMaintenance').hidden = !maintenance;
+  if (maintenance) {
+    if (typeof gtag === 'function') gtag('event', 'checkout_maintenance_shown');
+    if (typeof clarity === 'function') clarity('event', 'checkout_maintenance_shown');
+  } else {
+    const picked = modal.querySelector('input[name="payplan"]:checked');
+    if (typeof gtag === 'function') gtag('event', 'begin_checkout', { currency: 'TWD', value: Number(picked.getAttribute('data-amount')) });
+    if (typeof clarity === 'function') clarity('event', 'checkout_opened');
+    payShowError(null);
+  }
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  document.querySelector('.nav-tabs').classList.remove('open');
+  (maintenance ? document.getElementById('payClose') : (window.innerWidth > 700 ? document.getElementById('pay-name') : document.getElementById('payClose'))).focus();
+  return false;
+}
+function closeCheckout() {
+  const modal = document.getElementById('payModal');
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+function payApplyInstead() { closeCheckout(); return showPage('apply'); }
+async function payContinue() {
+  if (!payValidate()) return;
+  const btn = document.getElementById('payGo');
+  const plan = document.querySelector('#payModal input[name="payplan"]:checked');
+  const installments = Number(plan.getAttribute('data-inst')) || 0;
+  const order = {
+    plan: installments > 0 ? 'inst' : 'full',                             // 'full' | 'inst'
+    installments: installments,                                          // 0（一次付清）｜3｜6
+    amount: Number(plan.getAttribute('data-amount')),                     // 只供後端對照，實際金額由後端決定
+    currency: 'TWD',
+    wave: VCA_PAY_CONFIG.wave,
+    name: document.getElementById('pay-name').value.trim(),
+    email: document.getElementById('pay-email').value.trim(),
+    lang: document.documentElement.lang === 'zh-Hant' ? 'zh' : 'en',
+    source: 'vc-academy-site',
+    ts: new Date().toISOString()
+  };
+  const label = btn.innerHTML;
+  btn.disabled = true;
+  btn.textContent = (window.__t || String)('Redirecting to payment…');
+  payShowError(null);
+  if (typeof gtag === 'function') gtag('event', 'add_payment_info', { currency: 'TWD', value: order.amount, payment_type: order.plan });
+  if (typeof clarity === 'function') clarity('event', 'payment_redirect');
+  try {
+    await VCA_PAY.start(order);
+    setTimeout(function () { btn.disabled = false; btn.innerHTML = label; }, 8000);   // 正常會已經跳轉；還停在這頁就放開按鈕，避免卡死
+  } catch (e) {
+    btn.disabled = false; btn.innerHTML = label;
+    const code = e && (e.message === 'sold_out' || e.message === 'wave_changed') ? e.message : 'default';
+    payShowError(code);
+    if (typeof gtag === 'function') gtag('event', 'payment_error', { reason: String((e && e.message) || 'unknown').slice(0, 40) });
+  }
+}
+(function () {
+  const modal = document.getElementById('payModal');
+  document.getElementById('payClose').addEventListener('click', closeCheckout);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeCheckout(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeCheckout(); });
+  document.getElementById('payGo').addEventListener('click', payContinue);
+  ['pay-name', 'pay-email'].forEach(function (id) {
+    document.getElementById(id).addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); payContinue(); } });
+  });
+})();
+/* 導師照片跑馬燈：整組複製成 4 組（複製的標成 aria-hidden，讀屏只唸一次），CSS 位移 -50% 就能無縫接回 */
+(function () {
+  const track = document.querySelector('.mq-track');
+  if (!track) return;
+  const set = Array.from(track.children);
+  for (let n = 0; n < 3; n++) {
+    set.forEach(function (el) {
+      const c = el.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true'); c.classList.add('mq-clone');
+      track.appendChild(c);
+    });
+  }
+  // 每格 6.5 秒：桌機約 37px/秒，讀得到職稱；增減人數時速度不變。
+  // 負的 delay 讓動畫一開始就位移到「第 2 組第 1 格」離左緣半格的位置，第一位不會被左側淡出遮住。
+  const SEC = 6.5, LEAD = 0.5;
+  track.style.animationDuration = (set.length * 2 * SEC) + 's';
+  track.style.animationDelay = '-' + ((set.length * 2 - LEAD) * SEC) + 's';
+})();
 </script>
+<!-- I18N:BEGIN -->
+<script>
+/* ===================================================================
+   中英切換（EN / 中文）— 由 translations/apply.py 產生，請勿直接手改
+   原理：英文原文不動。切到中文時，把每個「文字區塊」換成 translations/zh-TW.json 的譯文；
+   切回英文就還原。找不到譯文的區塊維持英文（在瀏覽器 console 執行 __i18nMissing() 可列出）。
+   =================================================================== */
+(function () {
+  var DICT = {"Get deck": "下載簡報", "Home": "首頁", "Launch Event Recap": "發表會回顧", "Curriculum": "課程", "Method": "教學方法", "Outcomes": "學習成果", "Track Record": "實績", "Mentors": "導師", "VC Academy · by Mosaic Venture Lab · Taipei": "VC Academy · Mosaic Venture Lab 主辦 · 台北", "How do you actually<br>become a <em>VC?<\/em>": "如何真正成為<br>一位 <em>VC？<\/em>", "See the Aug 14 launch →": "看看 8/14 發表會 →", "Years in Taiwan's Ecosystem": "年台灣創投生態經驗", "Sessions in Four Acts": "堂課，分四幕", "Founding-Cohort Seats": "創始班席次", "Founding Cohort": "創始班", "Our mentors invest, operate, and scout across": "我們的導師橫跨投資、營運與企業創投的第一線", "The Problem": "問題所在", "Wanting in is easy.<br>The job is the hard part.": "想進來不難。<br>難的是這份工作。", "GAP 1": "缺口 1", "No Path In": "沒有入口", "GAP 2": "缺口 2", "The Terminology Wall": "術語高牆", "GAP 3": "缺口 3", "Checklist Diligence": "檢查表式盡調", "Four acts.<br>One full cycle of an investment firm.": "四幕。<br>完整走一遍投資公司的一年。", "Twelve sessions that run the annual cycle of an investment firm once, in order — from building your lens to defending a recommendation in front of a panel. Every act ends with something you own and can show.": "十二堂課，依序跑完一家投資公司一整年的運作循環——從建立你的視角，到在評審團面前為一項建議答辯。每一幕結束，你都會擁有一份能拿出來展示的成果。", "ACT I · 1–3": "第一幕 · 第 1–3 堂", "ACT II · 4–6": "第二幕 · 第 4–6 堂", "ACT III · 7–9": "第三幕 · 第 7–9 堂", "ACT IV · 10–12": "第四幕 · 第 10–12 堂", "See the full curriculum →": "看完整課程 →", "14 Years in Taiwan": "在台灣的 14 年", "Built by people who actually<br>do this for a living.": "由真正以此為業的人<br>打造。", "Co-founded in Taipei. Introduced Startup Weekend to Taiwan with events at Google, Microsoft, and top universities — first contact with thousands of founders.": "在台北共同創辦。將 Startup Weekend 引進台灣，活動遍及 Google、Microsoft 與各大學——第一次接觸上千位創業者。", "Built the APEC Accelerator Network with Taiwan's MoEA. Pitch events and cross-border deal flow across APEC economies for 6 consecutive years.": "與台灣經濟部合作打造 APEC Accelerator Network。連續 6 年辦理 APEC 各經濟體間的新創路演與跨境案源交流。", "2015-PRESENT": "2015 至今", "VW Group / Audi Scouting": "VW 集團 / Audi 技術搜尋", "Technology scouting and diligence for Volkswagen Group and Audi. A 25+ country deal-sourcing network across 5 continents.": "為 Volkswagen 集團與 Audi 進行技術搜尋與盡職調查。橫跨五大洲、25 個以上國家的案源網絡。", "Deep-tech accelerator partnered with Audi AG and Continental AG. Evaluating, backing, and connecting East Asian innovation to global capital.": "與 Audi AG、Continental AG 合作的深科技加速器。評估、扶持東亞創新，並連結全球資本。", "180+ Startups Trained": "培訓 180+ 家新創", "Trained 180+ startups for CES and VivaTech, and professors for ITRI — from the investor's side of the table, evaluating what makes a company fundable.": "為 CES 與 VivaTech 培訓 180 多家新創，並為工研院（ITRI）培訓教授——站在投資人的角度，評估什麼樣的公司值得投資。", "What we've learned doing the job, turned into a proper in-person program for people in Taiwan who want to invest.": "把我們在第一線做這份工作學到的一切，化為一門給台灣想投資的人的實體課程。", "How It Works": "運作方式", "In person. Around your job.<br>In a room with working VCs.": "面對面。配合你的工作。<br>和現役創投人同在一間教室。", "Face-to-Face, Not a Webinar": "面對面，不是網路研討會", "Taught Through Real Cases": "用真實案例教學", "Mentored by Active Investors": "現役投資人帶你", "By the Numbers": "用數字看創投", "The skills you'll learn<br>to read on sight.": "一眼就能讀懂的<br>關鍵能力。", "A few of the things every investor handles without thinking. You'll work through them on real deals in the program. Figures are illustrative.": "每位投資人都不假思索就能處理的幾件事。你會在課程中用真實案子逐一演練。圖表數字僅供示意。", "The funding ladder": "募資階梯", "Every stage has its own check size. Read an investor's stage and you've read their strategy — and where you'd fit.": "每個階段都有自己的投資金額級距。看懂一位投資人的階段，就看懂他的策略——以及你適合站在哪裡。", "The funnel": "案源漏斗", "Hundreds of companies for every cheque written. Most of the job is a fast, well-reasoned no.": "每投出一張支票，背後是數百家公司。這份工作大半是快速、且有理由的「不」。", "Dilution over time": "股權稀釋", "Founders give up ownership round after round. The cap table is where a deal's economics actually live.": "創辦人的持股一輪一輪被稀釋。股權結構表，才是一筆交易經濟條件真正所在。", "How This Is Different": "有何不同", "A finance degree teaches you<br>to value a company.<br>We teach you to back one.": "財金學位教你<br>為一家公司估值。<br>我們教你怎麼投資它。", "Typical Finance / VC Course": "一般財金／創投課程", "DCF models, market theory, case write-ups, fund structures in the abstract.": "DCF 模型、市場理論、個案報告，以及抽象的基金結構。", "Ecosystem mapping, deal sourcing, strategic due diligence, term-sheet navigation.": "生態系地圖、案源開發、策略性盡職調查、投資條件書實戰。", "Taught By": "授課者", "Professors and finance generalists.": "教授與財金通才。", "Working VCs, operators, and corporate-venture scouts who write and read term sheets.": "每天都在寫、讀投資條件書的現役創投人、創業營運者與企業創投技術搜尋人員。", "Lectures and theoretical case studies.": "講授與理論個案研究。", "Real deals, real diligence questions, mentor debriefs on actual judgment calls.": "真實案子、真實的盡調問題，以及導師針對實際判斷的覆盤。", "The Question": "核心問題", "\"What is venture capital?\"": "「什麼是創業投資？」", "\"How do I become a VC — and what does the job actually require?\"": "「我要怎麼成為一位創投人——這份工作實際需要什麼？」", "Format": "形式", "Semester-long, lecture hall, graded.": "整學期、大教室、要打分數。", "Best For": "適合誰", "Students wanting academic credit.": "想拿學分的學生。", "Aspiring investors, analysts, founders, and family-office members who want in.": "想進入這個行業的準投資人、分析師、創業者與家族辦公室成員。", "To be clear: there are excellent programs out there — VC University, Kauffman Fellows, the Newton Program, Techstars' Venture Deals. Most run online, sit in the US or Europe, and are priced for people already inside the industry. We've borrowed the best of how they teach. VC Academy is the one built for here: in person, in Taipei, taught by investors working this market and the Silicon Valley, Berlin, and Tokyo corridors we operate in every day.": "說清楚：市面上有很好的課程——VC University、Kauffman Fellows、Newton Program、Techstars 的 Venture Deals。它們多半在線上、位於美國或歐洲，定價也是為已經在業界的人設計。我們借鏡了他們最好的教法。VC Academy 是為這裡打造的那一個：實體授課、在台北，由深耕這個市場、並每天穿梭矽谷、柏林與東京之間的投資人親自教。", "The founding cohort is forming.": "創始班正在成形。", "Reserve →": "保留席次 →", "Reserve": "保留席次", "<span#1><\/span>Early-bird open · Founding cohort": "<span#1><\/span>早鳥開跑・創始班", "We launched VC Academy in Taipei on August 14. <strong>Early-bird seats for the founding cohort are now open<\/strong> — about 10 seats.": "8 月 14 日，VC Academy 在台北正式啟動。<strong>創始班早鳥席次現在開放<\/strong>——名額約 10 位。", "It's the question we hear most. VC Academy is a small, in-person program where working investors teach the real job: how the venture world runs, how to run due diligence, and how to handle a term sheet.": "這是我們最常被問的問題。VC Academy 是一門小班制實體課程，由現役投資人傳授這份工作的真實樣貌：創投世界如何運作、如何做盡職調查、如何處理投資條件書。", "Leave with proof, not just theory.": "帶走的是實績，不只是理論。", "A defensible investment thesis in your domain": "一份能在你的領域站得住腳的投資論點", "A personal Deal Book and diligence framework": "屬於你的 Deal Book 與盡調框架", "An IC memo you have defended before investors": "一份在投資人面前答辯過的投委會備忘錄", "rated by attendees of the Aug 14 launch": "8/14 發表會與會者評分", "After 14 years of the same calls from students and would-be investors, three gaps keep coming up.": "14 年來，我們一再接到學生與潛在投資人打來的同樣電話，三個缺口反覆出現。", "\"How do I break into VC?\" We get asked this more than anything else — and few people ever get a straight answer.": "「我要怎麼進入創投？」這是我們被問得最多的問題——而很少有人得到過直接的答案。", "Junior VCs freeze on the language of the deal: which clauses matter, what to push back on, which tools to use.": "新手創投人一碰到交易的語言就卡住：哪些條款重要、哪些該反擊、該用什麼工具。", "New investors try to check everything. Real VCs ask the few questions that fit their thesis — and pass early.": "新手投資人想把每件事都查一遍。真正的創投人只問符合自己投資論點的少數問題——並及早放手。", "What do I look for, and why me? Write and defend your investment thesis, and open your Deal Book.": "我該看什麼？為什麼是我？寫下並答辯你的投資論點，並開啟你的 Deal Book。", "<b>You leave with<\/b>A defended investment thesis, and your Deal Book already open.": "<b>本幕產出<\/b>一份答辯過的投資論點，以及一本已經開啟的 Deal Book。", "How do I decide fast, and defend it? Read a founder, build the questions that kill a deal, read a forecast in ten minutes.": "如何快速做出決定，並為它辯護？讀懂創辦人、建立能讓案子喊停的問題、十分鐘讀懂一份財務預測。", "<b>You leave with<\/b>A diligence method that fits your thesis, and a forecast you can read.": "<b>本幕產出<\/b>一套符合你投資論點的盡調方法，以及讀得懂的財務預測。", "How do I do one without getting hurt? Term sheets, negotiation, cap-table maths, and regional deal structures.": "如何完成一筆交易，而不受傷？投資條件書、談判、股權結構表的數學，以及區域特有的交易結構。", "<b>You leave with<\/b>A marked-up term sheet, and a cap table you built yourself.": "<b>本幕產出<\/b>一份批註過的投資條件書，以及一張親手建立的股權結構表。", "How does the money work, and how does it come back? Fund economics and exits — then defend a full IC memo.": "錢如何運作，又如何回來？基金經濟學與退場——最後答辯一份完整的投委會備忘錄。", "<b>You leave with<\/b>An IC memo, defended in front of working investors.": "<b>本幕產出<\/b>一份在現役投資人面前答辯過的投委會備忘錄。", "The Aug 14 Launch": "8/14 發表會", "The room you'd be joining.": "你將加入的這間教室。", "<b>4.9 / 5<\/b> — how attendees rated the afternoon. <a#1>See the recap →<\/a>": "<b>4.9 / 5<\/b>——與會者對這個下午的評分。<a#1>看回顧 →<\/a>", "What You Leave With": "你將帶走什麼", "Not just a certificate.<br>A track record — and a route in.": "不只是一張證書。<br>而是一份實績——和一條入場的路。", "Real work you can show — and people who saw you do it.": "能拿出來展示的真實作品，以及親眼看過你做這些事的人。", "Six portfolio artifacts": "六份作品集成果", "Thesis, Deal Book, diligence, term sheet, cap table, IC memo. <a#1>See all six →<\/a>": "投資論點、Deal Book、盡調、投資條件書、股權結構表、投委會備忘錄。<a#1>看全部六項 →<\/a>", "The VC Bible": "VC Bible", "MVL's VC methodology, in a PDF.": "MVL 的創投方法論，一份 PDF。", "MVL Badge &amp; Certificate": "MVL 徽章與證書", "Proof you completed the programme.": "證明你完成了這門課程。", "VC Alumni Group": "VC 校友群組", "Your route into VC": "你進入創投的路", "Concrete links to a VC career after graduation": "畢業後與創投職涯的具體連結", "3 months of deal flow": "3 個月案源分享", "Deals and work, together": "一起看案、一起工作", "Review live deals alongside the MVL team.": "與 MVL 團隊一起檢視進行中的案子。", "Recommendation letter": "推薦信", "After the programme, subject to evaluation.": "課程結束後，經評估後提供。", "MVL internship": "MVL 實習", "Selected graduates may be considered.": "經遴選的結業學員有機會被考慮。", "Career links are offered after evaluation and are not guaranteed.": "職涯連結須經評估後提供，並不保證。", "Early-bird Open · Founding Cohort · ~10 Seats": "早鳥開跑 · 創始班 · 約 10 個席次", "Reserve a founding-cohort seat.": "保留一個創始班席次。", "Small room, ~10 people, real conversation — at our Taipei office, scheduled around your working week.": "小班約 10 人，真正的對話——在我們台北辦公室，時間配合你的工作週。", "Build relationships you can keep working with after the cohort.": "建立結業後仍能持續合作的人脈。", "No abstract lectures. Every module runs on real deals — actual term sheets and real diligence questions.": "沒有抽象的講課。每個單元都靠真實案子——實際的投資條件書與真實的盡調問題。", "Learn to form an investment view before you meet a live deal at work.": "在工作中遇到真實案子之前，先學會形成自己的投資判斷。", "Working VCs, operators and corporate-venture scouts who have sourced, diligenced and passed on hundreds of deals.": "現役創投人、創業營運者與企業創投技術搜尋人員，看過、盡調過、也放掉過上百個案子。", "Get direct feedback on your thesis and IC memo from people who make investment decisions.": "投資論點與投委會備忘錄，直接獲得真正做投資決策的人的回饋。", "By the end, you will be able to explain these three charts — and use them to support a pass or an investment recommendation.": "結業時，你能解釋這三張圖——並用它們支持一項放棄或投資的建議。", "In-person cohort in Taipei, scheduled around your job. Limited to ~10 seats.": "台北實體班，時間配合你的工作。名額限約 10 位。", "After VC Academy, you should be able to": "完成 VC Academy 後，你應該能夠", "Form an investment point of view, screen a deal quickly, ask thesis-driven diligence questions, understand a term sheet and cap table, and defend an IC recommendation.": "形成自己的投資觀點、快速篩案、提出以論點為導向的盡調問題、看懂投資條件書與股權結構表，並為一項投委會建議答辯。", "Founding-Cohort Price": "創始班價格", "Book early. Pay less.": "早報名，少花錢。", "The price steps up with every wave. Wave 1 is open now.": "每一波價格都會調漲。第一波現在開放。", "Save NT$45,000": "省 NT$45,000", "Now · Wave 1": "現在・第一波", "60% off": "4折", "Next · Wave 2": "下一波・第二波", "58% off": "4.2折", "Later · Wave 3": "之後・第三波", "54% off": "4.6折", "per session · 12 sessions": "每堂 · 共 12 堂", "All 12 in-person sessions in Taipei": "台北 12 堂實體課程", "Materials, live deals and time with visiting investors": "教材、真實案子，以及與訪問投資人相處的時間", "VC Bible, MVL Badge &amp; Certificate, VC Alumni Group": "VC Bible、MVL 徽章與證書、VC 校友群組", "We launched in Taipei on August 14. What comes next is the program itself — in person, built around your working week, about 10 seats. Wave 1 pricing is open now.": "8 月 14 日我們在台北啟動。接下來就是課程本身——實體授課、配合你的工作週，約 10 個席次。第一波價格現在開放。", "Reserve your seat": "保留席次", "VC Academy · Founding cohort": "VC Academy · 創始班", "<b>Pay in full<\/b><i>NT$30,000<\/i>": "<b>一次付清<\/b><i>NT$30,000<\/i>", "Wave 1 · 60% off the NT$75,000 list price · next wave NT$31,500": "第一波・定價 NT$75,000 的 4 折・下一波 NT$31,500", "All 12 sessions, materials and live deals": "12 堂課、教材與真實案子", "VC Bible (PDF), MVL Badge &amp; Certificate, VC Alumni Group": "VC Bible（PDF）、MVL 徽章與證書、VC 校友群組", "Continue to payment →": "前往付款 →", "Recap · Launch Event · Fri, Aug 14 2026": "回顧・發表會・2026 年 8 月 14 日（五）", "We opened VC Academy.<br>One afternoon in Taipei.": "我們啟動了 VC Academy。<br>台北的一個下午。", "On Friday, August 14, we opened VC Academy with a free afternoon at the Mosaic Venture Lab office in Taipei. Working VCs talked about how they actually invest, the floor opened up for questions, and we walked the room through the full program — over whisky highballs and a lot of good conversation. Here's what the afternoon covered.": "8 月 14 日（週五），我們在台北的 Mosaic Venture Lab 辦公室，用一個免費的下午正式啟動 VC Academy。現役創投人談他們實際怎麼投資，現場開放提問，我們也帶大家走過完整課程——配著威士忌 Highball 和許多好聊的對話。以下是這個下午的內容。", "What we covered": "當天內容", "An afternoon with<br>working VCs.": "和現役創投人<br>共度的下午。", "Guest VCs, unfiltered": "來賓創投人，毫不保留", "Working investors talked through how they actually pick deals and where the returns really come from — then opened the floor to the room's questions.": "現役投資人談他們實際如何挑案子、報酬真正從哪裡來——然後把時間留給現場提問。", "Scouting: the door nobody guards": "Scouting：沒人看守的那扇門", "The real routes into venture, and why the most reliable one is unguarded: what a scout actually does, what a fund gives back, and what it costs you — nothing but judgment, in public, on the record.": "進入創投的真實路徑，以及為什麼最可靠的一條無人把守：scout 實際做什麼、基金回饋什麼、你要付出什麼——只有公開、留下紀錄的判斷。", "How Silicon Valley invests": "矽谷怎麼投資", "The Valley as an open system — founder-friendly risk capital, visible networks, limited founder liability, and multiple exit paths. Then the harder question: how much of that survives the trip to Taipei.": "把矽谷看成一個開放系統——對創辦人友善的風險資本、看得見的人脈、有限的創辦人責任，以及多元的退場途徑。接著是更難的問題：這些在台北還剩下多少。", "The gravity of capital": "資本的引力", "Why what works in Palo Alto gets you ignored in Taipei — how risk, sourcing, and exits change completely with your coordinates. Plus a first look at the full VC Academy curriculum.": "為什麼在 Palo Alto 行得通的做法，到了台北會被忽略——風險、找案、退場，會隨著你的座標完全改變。並首度預覽完整的 VC Academy 課程。", "From the deck": "簡報精選", "Two ideas from the afternoon.": "這個下午的兩個觀點。", "Why the Valley works the way it does: founder-friendly risk capital, networks you can actually reach, limited personal liability, and more than one way out.": "矽谷為什麼這樣運作：對創辦人友善的風險資本、你真的搆得到的人脈、有限的個人責任，以及不只一條的出場路。", "And why none of it transfers cleanly. Risk, sourcing, and exits work differently in Palo Alto, Beijing, and Taipei — knowing which rules you're playing by is most of the job.": "以及為什麼這一切無法原封不動搬過來。風險、找案與退場，在 Palo Alto、北京與台北各不相同——知道自己在玩哪一套規則，就是這份工作的大半。", "Want the full deck?": "想要完整簡報嗎？", "The complete slides from the August 14 launch — the ecosystem map, the scouting routes in, and the walk-through of the program.": "8 月 14 日發表會的完整投影片——生態系地圖、進入創投的 scouting 路徑，以及課程導覽。", "Download the deck": "下載簡報", "The room": "現場", "A full house in Taipei.": "台北座無虛席。", "Opening the afternoon": "下午開場", "“How do you actually become a VC?”": "「如何真正成為一位創投人？」", "Students, founders, operators, investors": "學生、創業者、營運者、投資人", "The door nobody guards": "沒人看守的那扇門", "Straight answers": "直接的答案", "The floor stayed open all afternoon": "整個下午都開放提問", "After the talks": "講座之後", "Highballs and introductions": "Highball 與彼此介紹", "The part that lasts": "最持久的部分", "Who you meet matters as much as what you hear": "你遇見誰，和你聽到什麼一樣重要", "Fri, Aug 14": "8/14（五）", "3:00–5:00 PM · Mosaic office, Taipei": "下午 3:00–5:00 · 台北 Mosaic 辦公室", "Free entry": "免費入場", "Live VC guests + highballs": "現役創投人來賓 + Highball", "Now open": "現正開放", "Founding-cohort applications": "創始班申請", "The program starts now.": "課程現在開始。", "Missed it? · Early-bird Open": "錯過了？· 早鳥開跑", "The launch is done — the founding cohort is what comes next. In person in Taipei, scheduled around your job, about 10 seats. If the afternoon sounded like your room, reserve your seat.": "發表會結束了——接下來是創始班。台北實體授課，時間配合你的工作，約 10 個席次。如果這個下午聽起來像你會待的那間教室，就保留你的席次。", "Join the Founding Cohort": "加入創始班", "Submit application →": "送出申請 →", "Who should apply.": "適合誰申請。", "Program details.": "課程資訊。", "Application": "申請表", "Full name <span#1>*<\/span>": "姓名 <span#1>*<\/span>", "Please enter your name.": "請填寫姓名。", "Email <span#1>*<\/span>": "電子郵件 <span#1>*<\/span>", "Please enter a valid email.": "請填寫有效的電子郵件。", "Current role &amp; company": "目前職稱與公司", "Which best describes you? <span#1>*<\/span>": "哪個最符合你的身分？ <span#1>*<\/span>", "Please choose one.": "請選擇一項。", "Why do you want to join the founding cohort? <span#1>*<\/span>": "你為什麼想加入創始班？ <span#1>*<\/span>", "A few sentences is enough. We read every one.": "幾句話就夠了。每一份我們都會讀。", "Please tell us a little about why.": "請簡單告訴我們原因。", "How did you hear about VC Academy?": "你是怎麼知道 VC Academy 的？", "Applications reviewed on a rolling basis.<br>Founding cohort limited to ~10 seats.": "滾動審核申請。<br>創始班名額限約 10 位。", "Application received.": "已收到申請。", "Thanks — we've got it. We review applications on a rolling basis and will be in touch by email.": "謝謝——我們收到了。我們會滾動審核申請，並以電子郵件與你聯繫。", "Questions?": "有問題嗎？", "Contact the VC Academy team at Mosaic Venture Lab.<br>Email: vh@mvl.biz · kh@mvl.biz · jy@mvl.biz<br>Location: Taipei, Taiwan": "請聯絡 Mosaic Venture Lab 的 VC Academy 團隊。<br>Email：vh@mvl.biz · kh@mvl.biz · jy@mvl.biz<br>地點：台灣・台北", "Common Questions": "常見問題", "Do I need finance or investing experience?": "我需要有財務或投資經驗嗎？", "No. The program is built for people trying to break in — business students, aspiring analysts, operators, and founders. We start from how the ecosystem works and build up to the deal mechanics.": "不需要。這門課是為想入行的人設計的——商科學生、有志成為分析師的人、營運者與創業者。我們從生態系如何運作開始，一路帶到交易的實務細節。", "I missed the launch event — can I still apply?": "我錯過了發表會——還能申請嗎？", "Yes. The free launch event on August 14 was an introduction to the program, not a requirement. Applications for the founding cohort are open to everyone — you can read the <a#1>recap of that afternoon<\/a> to see what it covered.": "可以。8 月 14 日的免費發表會只是課程的介紹，不是必要條件。創始班的申請對所有人開放——你可以讀讀那個下午的<a#1>回顧<\/a>，了解當天內容。", "When and where does it run?": "什麼時候、在哪裡上課？", "In person, at the Mosaic Venture Lab office in Taipei. Sessions are scheduled around participants' working commitments — exact dates and times are confirmed with applicants once the room is set.": "實體授課，在台北的 Mosaic Venture Lab 辦公室。課程時間會配合學員的工作安排——確切日期與時段，會在教室確定後與申請者確認。", "How big is the cohort?": "班級有多大？", "What does it cost?": "費用是多少？", "Reserve your seat →": "保留我的席次 →", "Pay by card →": "刷卡付款 →", "Reserve your seat.<br>About 10 seats.": "保留你的席次。<br>約 10 個席次。", "We launched VC Academy in Taipei on August 14 — attendees rated the afternoon <strong#1>4.9 out of 5<\/strong>. What comes next is the program itself: in person, built around your working week, taught by working investors. Reserve your seat below — or, if you'd rather apply first, tell us a little about yourself and we'll be in touch.": "8 月 14 日我們在台北啟動 VC Academy——與會者給這個下午 <strong#1>4.9 分（滿分 5）<\/strong>。接下來就是課程本身：實體授課、配合你的工作週，由現役投資人親自教學。請在下方保留你的席次——或者如果你想先申請，簡單介紹自己，我們會與你聯繫。", "Students &amp; recent graduates": "學生與應屆畢業生", "who want a straight answer on breaking into VC": "想要一個「怎麼進入創投」的直接答案", "Founders &amp; operators": "創業者與營運者", "who want to read the table from the investor's side": "想從投資人的角度看這張桌子", "Aspiring angels": "準天使投資人", "with the appetite, but not the deal flow": "有胃口，但沒有案源", "Analysts, corporates &amp; family offices": "分析師、企業與家族辦公室", "moving into early-stage investing": "正轉向早期投資", "That's roughly the room we had on August 14. The founding cohort is small — about 10 people — so every participant gets real time with the mentors.": "這大致就是 8 月 14 日現場的那間教室。創始班規模很小——約 10 人——讓每位學員都有足夠時間與導師相處。", "12 in-person sessions over six months, Taipei": "六個月、12 堂實體課，台北", "Starts": "開課", "Cohort": "班級", "~10 people · every seat confirmed by our team": "約 10 人 · 每個席次皆由團隊確認", "Focus": "重點", "Deal evaluation, term sheets, valuation": "案件評估、投資條件書、估值", "Investment": "投資", "Government subsidy": "政府補助", "Application in progress": "申請中", "60% off the NT$75,000 list price · NT$2,500 per session · next wave NT$31,500": "定價 NT$75,000 的 4 折 · 每堂 NT$2,500 · 下一波 NT$31,500", "Prefer to apply first?": "想先申請？", "No payment needed — tell us about yourself and we'll be in touch.": "不需付款——簡單介紹你自己，我們會與你聯繫。", "Before you reserve.": "保留席次之前。", "Small by design — about 10 participants for the founding cohort, so everyone gets direct time with working investors.": "刻意設計得很小——創始班約 10 位學員，讓每個人都能直接與現役投資人相處。", "Is my seat confirmed when I pay?": "付款後，我的席次就確定了嗎？", "Can I pay in installments, or have my company pay?": "可以分期付款，或由公司付款嗎？", "What do I get after the programme?": "課程結束後我會得到什麼？", "The Curriculum": "課程架構", "Build Your Lens": "建立你的投資視角", "Learn to Say No": "學會說不", "The Deal": "完成一筆交易", "The Business": "創投這門生意", "From the ecosystem<br>to the exit.": "從生態系<br>到退場。", "Twelve sessions in four acts. The programme runs the annual cycle of an investment firm once, in order — from building your lens to defending a recommendation in front of an investment committee. Every act ends with something you own and can show. This is what the founding cohort works through, session by session.": "十二堂課，分四幕。整套課程依序把一家投資公司一整年的循環完整跑一遍——從建立你的視角，到在投資委員會面前為一項建議答辯。每一幕結束，你都會擁有一份能拿出來展示的成果。這就是創始班要一堂一堂走過的內容。", "Ready to sit in the room?": "準備好坐進這間教室了嗎？", "This is the curriculum the founding cohort works through — in person at our Taipei office, scheduled around your job, about 10 seats.": "這就是創始班要走過的課程——在我們台北的辦公室實體授課，時間配合你的工作，約 10 個席次。", "The Shape of an Evening": "一個晚上的節奏", "Ninety minutes of teaching.<br>Ninety minutes of work.": "九十分鐘講授。<br>九十分鐘實作。", "Every session runs to the same shape. The break sits inside the second half, because the room getting to know each other is a goal of this programme rather than an interruption to it. And nobody leaves an evening without having said a number out loud and had it written down — that is the mechanism the whole programme is built around.": "每一堂都是同一個節奏。休息安排在下半場之中，因為讓大家彼此認識是這門課的目標，而不是對課程的打斷。而且沒有人可以不當場說出一個數字、並讓它被寫下來就離開——這正是整門課圍繞的機制。", "Deal Desk <span#1>15 min<\/span>": "Deal Desk <span#1>15 分鐘<\/span>", "Three participants present a deal they sourced since the last session. Three minutes each, position stated out loud.": "三位學員各報告一個自上次課後自己找到的案子。每人三分鐘，並當場表態。", "The Lecture <span#1>90 min<\/span>": "講授 <span#1>90 分鐘<\/span>", "The visiting investor on a topic they know cold — including their own war stories, and your questions.": "訪問投資人就他們最熟悉的主題授課——包含他們自己的實戰故事，以及你的提問。", "Break <span#1>15 min<\/span>": "休息 <span#1>15 分鐘<\/span>", "Food, drinks, and deliberate introductions.": "餐點、飲料，以及刻意安排的彼此介紹。", "The Workshop <span#1>60 min<\/span>": "工作坊 <span#1>60 分鐘<\/span>", "Structured role-play on the live deal the visiting investor brought with them. They play the hardest seat, and they can stop the clock to narrate what they are thinking.": "圍繞訪問投資人帶來的真實案子進行結構化角色演練。他們扮演最難的位置，並可隨時暫停計時，說出自己正在想什麼。", "Positions <span#1>15 min<\/span>": "表態 <span#1>15 分鐘<\/span>", "Every participant states a position on the deal and logs it in their Deal Book. Homework is set.": "每位學員對該案子表態，並記入自己的 Deal Book。並指派作業。", "ACT I · SESSIONS 1–3": "第一幕 · 第 1–3 堂", "<em>What do I look for, and why me?<\/em> &nbsp;·&nbsp; You leave with a written investment thesis you have defended out loud.": "<em>我該看什麼？為什麼是我？<\/em> &nbsp;·&nbsp; 本幕產出：一份寫下來、並經過公開答辯的投資論點。", "In-Person · House": "實體授課 · 團隊主講", "The Map and the Mirror": "地圖與鏡子", "Two halves. First the map: how venture capital works as a system, why the power law forces the behaviour it does, and where Taiwan sits inside a global picture currently distorted by AI concentration. Then the mirror — what you actually bring. Nobody in this room will out-generalist a Taipei fund analyst; your edge is the domain you already know. Your Deal Book opens tonight.": "分成兩半。先是地圖：創投作為一個系統如何運作、冪次法則為何逼出那樣的行為，以及台灣在被 AI 資金集中所扭曲的全球版圖中站在哪裡。接著是鏡子——你實際帶來了什麼。在這間教室裡，沒有人能在通才上勝過一位台北的基金分析師；你的優勢，是你本來就懂的領域。你的 Deal Book 今晚開啟。", "→ WORKSHOP · The Edge Audit": "→ 工作坊 · 優勢盤點", "In-Person · Visiting VC": "實體授課 · 訪問創投人", "Where Deals Actually Come From": "案子真正從哪裡來", "The funnel, from someone running it right now: roughly a thousand companies a year down to three or five cheques. Where the top of that funnel comes from in Taiwan specifically — the universities and ITRI, the semiconductor supply chain, corporate scouting mandates, the event circuit, returnees. And the FA layer: who they are, what they charge, and what it means when a deal reaches you through one.": "漏斗，由此刻正在操作它的人來講：一年約一千家公司，最後只剩三到五張支票。這個漏斗的頂端在台灣具體從哪裡來——大學與工研院、半導體供應鏈、企業技術搜尋需求、活動圈、海歸。以及 FA 這一層：他們是誰、收多少費用，以及當一個案子經由他們到你手上時，代表什麼。", "→ WORKSHOP · Source in the Room": "→ 工作坊 · 現場找案", "Thesis Night": "論點之夜", "What a thesis is actually for: not a marketing document, but the thing that lets you say no in four minutes without feeling bad about it. Every participant presents their own and then takes questions from the room. Three questions everyone answers — what would make you wrong, which deal would you hate to have to pass on, and who is already doing this better than you.": "投資論點真正的用途：不是行銷文件，而是讓你在四分鐘內說「不」、而且不會不安的東西。每位學員發表自己的論點，然後接受全場提問。每個人都要回答三個問題——什麼會讓你錯、哪個案子你最不想放掉，以及誰已經比你做得更好。", "→ WORKSHOP · The Defence": "→ 工作坊 · 論點答辯", "Act I: every investor lives on one rung of this ladder. Knowing which rung tells you almost everything about how they work — and which rung you belong on.": "第一幕：每位投資人都活在這座階梯的某一階。知道是哪一階，幾乎就知道他怎麼工作——也知道你自己該站哪一階。", "ACT II · SESSIONS 4–6": "第二幕 · 第 4–6 堂", "<em>How do I decide, fast, and be able to defend it?<\/em> &nbsp;·&nbsp; You leave with a diligence method and a forecast you can read.": "<em>如何快速做出決定，並為它辯護？<\/em> &nbsp;·&nbsp; 本幕產出：一套盡調方法，以及讀得懂的財務預測。", "Reading the Founder": "讀懂創辦人", "What an experienced investor is actually reading in a founder meeting — honesty about weakness, resilience when pushed hard, leadership over a team rather than one impressive individual. And the reverse: what a founder is reading in you, because reputation runs both ways and in a market this size it compounds fast.": "資深投資人在創辦人會議中真正讀的是什麼——對弱點的誠實、被逼問時的韌性、帶領團隊而非只靠一位亮眼的個人。反過來也一樣：創辦人正在讀你什麼，因為聲譽是雙向的，在這麼小的市場裡，它會快速複利。", "→ ROLE-PLAY · The Meeting": "→ 角色演練 · 創辦人會議", "Diligence That Fits Your Thesis": "符合你論點的盡調", "Real diligence is not a checklist. It is the four or five questions that could kill the deal, asked in the order that kills it fastest — how to build that set from your thesis, how to weight what comes back, and how to read a non-answer. Plus the Taiwan layer: what to verify with the supply chain, what a corporate customer reference here actually tells you, and what to check about the FA.": "真正的盡調不是檢查表，而是那四、五個能讓案子喊停的問題，並依「最快讓案子出局」的順序來問——如何從你的論點建立這組問題、如何權衡得到的答案、以及如何讀出一個「非答案」。再加上台灣這一層：該向供應鏈查證什麼、企業客戶的推薦在這裡實際代表什麼、以及該查核 FA 的哪些事。", "→ WORKSHOP · The Kill List": "→ 工作坊 · 致命問題清單", "The Numbers": "數字", "How to read a five-year projection in ten minutes: which line to look at first, which assumptions carry all the weight, how to benchmark against comparables, and what a bottom-up build looks like next to a top-down fantasy. Including where AI-generated models break — and how to check output you didn't build yourself.": "如何在十分鐘內讀懂五年財務預測：先看哪一行、哪些假設扛起全部結果、如何對照可比公司，以及由下而上的模型與由上而下的幻想有何不同。包含 AI 生成的模型在哪裡會出錯——以及如何檢查不是你自己建的輸出。", "→ WORKSHOP · Ten Minutes to a Verdict": "→ 工作坊 · 十分鐘定論", "Act II: roughly a thousand companies a year for every three or five cheques. The skill is deciding fast what to dig into — and passing on the rest with a clear reason.": "第二幕：每投出三到五張支票，背後是約一千家公司。關鍵能力，是快速決定該深入哪些案子——並以清楚的理由放掉其餘。", "ACT III · SESSIONS 7–9": "第三幕 · 第 7–9 堂", "<em>How do I actually do one without getting hurt?<\/em> &nbsp;·&nbsp; You leave with a marked-up term sheet and a cap table you built.": "<em>如何真正完成一筆交易，而不受傷？<\/em> &nbsp;·&nbsp; 本幕產出：一份批註過的投資條件書，以及一張親手建立的股權結構表。", "Term Sheets I — The Language": "投資條件書 I — 條款的語言", "The terms taken apart one at a time: valuation and the pre/post distinction, liquidation preference, anti-dilution, participation, board composition, vesting, drag and tag, information rights, redemption. What each is for, who it protects, and what it costs the other side. Then the part available nowhere else — the structures used in this region that no textbook covers.": "把條款一條一條拆開：估值與投前／投後的區別、清算優先權、反稀釋、參與分配、董事會組成、vesting、drag 與 tag、資訊權、贖回。每一條是為了什麼、保護誰、又讓另一方付出什麼代價。最後是別處學不到的部分——這個區域使用、教科書不會寫的交易結構。", "→ WORKSHOP · Translate the Clause": "→ 工作坊 · 還原條款", "Term Sheets II — The Negotiation": "投資條件書 II — 談判", "Issuing versus receiving, and what changes when you are leading, anchoring or following. What is worth fighting for and what is noise. How the conversation actually runs when a corporate in the round wants exclusivity, when the founder has another offer, and when the round is undersubscribed and everyone in it knows.": "發出與收到的差別，以及當你是領投、設定錨點或跟投時有何不同。什麼值得爭、什麼只是雜音。當企業要在這輪要求排他、當創辦人手上有另一份報價、當這一輪認購不足而所有人都心知肚明時，對話實際上怎麼進行。", "→ ROLE-PLAY · The Negotiation": "→ 角色演練 · 三方談判", "Cap Tables, Valuation, Dilution": "股權結構表、估值與稀釋", "The maths every investor is expected to run in their head: pre- and post-money, the option pool shuffle, what each round does to everyone's ownership, and what a liquidation preference does to the waterfall when the exit is mediocre. Then the Taiwan version, which is the part that matters — modelling toward a local listing at a valuation that would be a seed round in Menlo Park, and what that means for the price you can pay going in.": "每位投資人都該在腦中算得出的數學：投前與投後估值、認股權池的挪動、每一輪對所有人持股的影響，以及當退場表現平庸時，清算優先權對分配順序（waterfall）的影響。然後是台灣版本，這才是關鍵——以一個在 Menlo Park 只算種子輪的估值為目標建模走向本地上市，以及這對你進場可付的價格代表什麼。", "→ WORKSHOP · Build It": "→ 工作坊 · 現場建表", "Act III: what a term sheet does to the cap table. Founders give up ownership round after round — you'll build this model yourself, live, and then stress it.": "第三幕：投資條件書對股權結構表做了什麼。創辦人的持股一輪一輪被稀釋——你會親手現場建立這個模型，並對它做壓力測試。", "ACT IV · SESSIONS 10–12": "第四幕 · 第 10–12 堂", "<em>How does the money work, and how does it come back?<\/em> &nbsp;·&nbsp; You leave with an IC memo you presented and defended.": "<em>錢如何運作，又如何回來？<\/em> &nbsp;·&nbsp; 本幕產出：一份親自簡報並答辯的投委會備忘錄。", "In-Person · Two CVCs": "實體授課 · 兩位企業創投", "Corporate Money": "企業資金", "The session Taiwan needs most, and one you will not find in a curriculum written for Delaware. A CVC optimises for strategic fit, a fund optimises for returns, a government vehicle optimises for industrial policy — all three are rational and all three want different things from the same company. How a corporate investment committee actually decides, how the business unit and the ventures arm disagree, what exclusivity is really for, and what happens to a portfolio company when the parent's strategy changes.": "這是台灣最需要、卻不會出現在為 Delaware 寫的課程裡的一堂。企業創投（CVC）追求策略契合，基金追求報酬，政府基金追求產業政策——三者都理性，也都對同一家公司想要不同的東西。企業的投資委員會實際上怎麼做決定、事業單位與創投部門如何意見不一、排他權究竟是為了什麼，以及當母公司的策略改變時，被投公司會發生什麼事。", "→ ROLE-PLAY · Both Sides of the Table": "→ 角色演練 · 桌子兩端", "Fund Economics and the Taiwan Exit": "基金經濟學與台灣的退場", "How the money works: LPs and GPs, the management fee, carried interest, the fund lifecycle, and why fund size dictates cheque size and therefore stage. Then Taiwan's exit reality — the listing ladder, why companies here go public early and small, the pre-IPO pull and what it does to Series A pricing, and who the Taiwanese LPs actually are. Every LP module in every other programme assumes a US endowment.": "錢如何運作：LP 與 GP、管理費、績效分潤（carry）、基金生命週期，以及為什麼基金規模決定支票大小、進而決定投資階段。接著是台灣的退場現實——上市階梯、為什麼這裡的公司提早且以小規模上市、pre-IPO 的拉力及其對 A 輪定價的影響，以及台灣的 LP 究竟是誰。別的課程每一個 LP 單元，都預設對象是美國的大學基金會。", "→ WORKSHOP · Raise It": "→ 工作坊 · 募資演練", "In-Person · All Faculty": "實體授課 · 全體師資", "Investment Committee Night": "投資委員會之夜", "The graduation, and it is not a ceremony. Two teams present a full IC memo on a real deal the cohort sourced — thesis fit, diligence findings, the numbers, proposed terms, risks, recommendation — to a panel of the investors who taught the programme. The panel does what an IC does: they interrupt, they ask the question nobody prepared for, and then they vote and every one of them says why.": "結業，而它不是一場典禮。兩組團隊針對班上找到的一個真實案子，向教過這門課的投資人組成的評審團，簡報一份完整的投委會備忘錄——論點契合度、盡調發現、數字、擬議條款、風險、建議。評審做的就是投委會會做的事：打斷你、問那個沒人準備過的問題，然後投票，而且每一位都會說明理由。", "→ THE FINAL REP · Your IC memo, defended": "→ 最後一次實戰 · 答辯你的投委會備忘錄", "Act IV: a fund loses money for years before exits pay out — the J-curve. It's why patience, management fees, and carry all work the way they do.": "第四幕：基金要虧損好幾年，之後退場才會回收——這就是 J 曲線。這也是為什麼耐心、管理費與 carry 都是那樣運作。", "The Taiwan Spine": "台灣主軸", "Five things that run through<br>every single session.": "貫穿每一堂課的<br>五件事。", "Almost every venture curriculum in the world quietly assumes Delaware — US SAFEs, NVCA model docs, US endowment LPs, a NASDAQ exit. For an investor operating in Taipei, the questions that actually decide outcomes are somewhere else entirely. These five run underneath the whole programme.": "世界上幾乎每一套創投課程，都默默預設 Delaware——美國 SAFE、NVCA 範本文件、美國大學基金會 LP、NASDAQ 退場。對在台北做投資的人來說，真正決定結果的問題，完全在別處。這五件事，貫穿整套課程。", "The listing ladder": "上市階梯", "Emerging Board (興櫃) → TPEx → TWSE, plus the Innovation Board. A great many Taiwanese companies list at a size that could not go public in the US at all. That changes what a good outcome looks like here — and therefore what you should be willing to pay going in.": "興櫃 → 櫃買（TPEx）→ 證交所（TWSE），再加上創新板。許多台灣公司上市時的規模，在美國根本無法上市。這改變了「好的結果」在這裡長什麼樣——也因此改變了你進場時該願意付多少。", "The FA layer": "FA 這一層", "A broker layer sitting between founders and capital, with no real Silicon Valley equivalent. If you don't know who is advising a company, you are reading half the deal.": "介於創辦人與資本之間的一層仲介，在矽谷沒有真正的對應。如果你不知道誰在為一家公司出主意，你讀到的只是半個交易。", "Corporate money": "企業資金", "Corporate investors took part in roughly 72% of Taiwan deals by deal count, against about 22% for traditional VCs. The person across the table is more often a corporate than a fund — and they want something structurally different from the same company.": "以案件數計，企業投資人參與了約 72% 的台灣交易，傳統創投約 22%。對面坐的人，多半是企業而不是基金——而他們想從同一家公司得到的，結構上完全不同。", "The Series A gap": "A 輪缺口", "Angel money exists and pre-IPO money exists. The middle thins out exactly where a company needs capital to go international — which is where a well-positioned investor here has the most room.": "天使資金存在，pre-IPO 資金也存在。中間這一段，恰好在公司需要資金走向國際時變得稀薄——這正是定位得當的在地投資人最有空間的地方。", "Structures that don't appear in textbooks": "教科書不會寫的交易結構", "Redeemable convertible preferred shares, performance conditions, buyback terms, and the ownership levels that were normal in this region a decade ago and have not entirely gone. Read the paper and you understand the behaviour of a market.": "可贖回可轉換特別股、績效條件、買回條款，以及十年前在這個區域很正常、至今未完全消失的持股比例。讀懂這些文件，你就讀懂了一個市場的行為。", "Twelve sessions in four acts, taught in person at our Taipei office, each one worked through on a real deal with the investor who did it in the room. The structure draws on how the leading programs teach — VC University (Berkeley Law / NVCA), Kauffman Fellows, the Newton Program (London Business School), and Techstars' Venture Deals — adapted for Taiwan and for the people who actually invest here. Exact dates and sequencing are confirmed with the cohort once the room is set.": "十二堂課，分四幕，在我們台北的辦公室實體授課，每一堂都與親身做過這筆交易的投資人，一起在現場走一個真實案子。這個架構借鏡了領先課程的教法——VC University（Berkeley Law／NVCA）、Kauffman Fellows、Newton Program（London Business School），以及 Techstars 的 Venture Deals——並為台灣，以及真正在這裡投資的人做了調整。確切日期與順序，會在教室確定後與這一班確認。", "Early-bird Open · Founding Cohort": "早鳥開跑 · 創始班", "Founding Cohort · Early-bird Open": "創始班 · 早鳥開跑", "Wave 1: NT$30,000 for all twelve sessions.": "第一波：十二堂課 NT$30,000。", "Teaching Method": "教學方法", "How the sessions<br>actually run.": "課堂實際<br>怎麼進行。", "A lot of VC teaching is either theory you can't use or war stories you can't learn from. We work off real deals, and the investors who've done them sit in the room and talk through the calls they made. Every session splits down the middle: ninety minutes of teaching, ninety minutes of work.": "許多創投教學，不是用不上的理論，就是學不到東西的戰爭故事。我們用真實案子來教，做過這些案子的投資人就坐在教室裡，談他們當時的判斷。每一堂都對半分：九十分鐘講授，九十分鐘實作。", "90<span#1>min<\/span>": "90<span#1>分鐘<\/span>", "The Lecture": "講授", "A working investor on a topic they know cold — war stories included.": "現役投資人談他們最熟悉的主題——包含實戰故事。", "60<span#1>min<\/span>": "60<span#1>分鐘<\/span>", "The Workshop": "工作坊", "Structured role-play on the live deal they brought with them.": "圍繞他們帶來的真實案子，進行結構化的角色演練。", "15<span#1>min<\/span>": "15<span#1>分鐘<\/span>", "Three participants present a deal they sourced themselves.": "三位學員各報告一個自己找到的案子。", "Positions": "表態", "Everyone states a number out loud, and logs it. Nobody sits it out.": "每個人都當場說出一個數字並記下來。沒有人可以旁觀。", "Three mechanisms<br>carry the whole programme.": "三個機制<br>撐起整套課程。", "Most programmes teach venture capital and then hope a network forms in the chat group. This one is built the other way round — the room is the structure, and the teaching happens inside it.": "多數課程先教創投，再期待人脈自己在群組裡長出來。這門課反過來設計——教室本身就是結構，教學發生在其中。", "Every visiting investor brings a live deal": "每位訪問投資人都帶來一個真實案子", "Not a case study and not a tidy one-pager — a real deal from their own current pipeline, anonymised to whatever degree they need. The room runs it through whichever stage of the investment cycle that session covers.": "不是案例研究，也不是整理好的一頁式簡介——而是他們目前 pipeline 裡的真實案子，依需要匿名化。全班依當堂涵蓋的投資循環階段，把它走一遍。", "The cohort writes back": "全班回饋一份備忘錄", "After each session the cohort produces a short research memo for that investor, on a sector or company they care about, within a fortnight. It is the fee the room pays for access — and it is the best diligence practice in the programme.": "每堂課後，全班要在兩週內，針對該投資人關心的產業或公司，寫一份簡短的研究備忘錄給他。這是全班為了接觸機會所付的「費用」——也是整門課最好的盡調練習。", "The Deal Book runs from week one": "Deal Book 從第一週就開始", "Every deal you see, dated, with the position you took and why. By the end you hold roughly twenty dated positions you have defended out loud. That is a track record — and it is the asset that gets a person hired into venture.": "你看過的每個案子，註明日期、你採取的立場與理由。到結業時，你手上大約有二十筆公開答辯過的立場。那就是一份實績——也是讓一個人被創投業錄用的資產。", "What Happens in the Room": "教室裡發生什麼", "Six role-plays.<br>No observers.": "六場角色演練。<br>沒有旁觀者。", "Every workshop runs to the same grammar: a brief, a clock, a position, the reveal, and a log. The visiting investor plays whichever seat is hardest, and can stop the clock to narrate what they are thinking. Everyone is cast — nobody watches.": "每個工作坊都是同一套文法：一份簡報、一個計時器、一個表態、揭曉，以及一份紀錄。訪問投資人扮演最難的位置，並可隨時暫停計時，說出自己正在想什麼。每個人都有角色——沒有人只是看。", "The Meeting": "創辦人會議", "The visiting investor plays a founder from a real deal they took. You run the meeting in rotation while the rest of the room scores against a rubric — then they reveal what actually happened, and which question would have surfaced it.": "訪問投資人扮演他們經手案子裡的創辦人。你輪流主持會議，其餘同學依評分表打分——然後他們揭曉實際發生了什麼，以及哪個問題本來能讓真相浮現。", "The Kill List": "致命問題清單", "A real deal from the investor's pipeline, and forty-five minutes to produce the five questions that would kill it — ranked by how fast each would resolve. They score your list against the diligence they actually ran, and name the question the room missed.": "來自投資人 pipeline 的真實案子，四十五分鐘內，寫出能讓它喊停的五個問題——依「多快能得到答案」排序。他們會用自己實際做過的盡調來評你的清單，並點出全班漏掉的那個問題。", "Ten Minutes to a Verdict": "十分鐘定論", "Three real forecast models, ten minutes each. Mark the three assumptions carrying the outcome and state a verdict. Then the investor walks their own markup — not a teardown, a demonstration of where a trained eye goes first.": "三份真實的財務預測模型，各十分鐘。標出扛起結果的三個假設，並給出結論。然後投資人走一遍自己的批註——不是拆解，而是示範訓練有素的眼睛會先看哪裡。", "The Negotiation": "三方談判", "A three-way role-play, rotating: lead investor, founder, and a corporate co-investor with a strategic agenda. Your own marked-up term sheets are the working documents.": "三方輪替的角色演練：領投人、創辦人，以及帶著策略目的的企業共同投資人。你自己批註過的投資條件書，就是工作文件。", "Both Sides of the Table": "桌子兩端", "One real deal with a corporate term sheet on it. Teams argue the CVC's position, the financial co-investor's, and the founder's — then swap and argue the opposite. The corporate investors judge which arguments would actually have moved them.": "一個真實案子，附上一份企業版的投資條件書。各組分別為企業創投、財務型共同投資人與創辦人的立場辯護——然後對調，論證相反的立場。企業投資人會評判，哪些論點真的能說動他們。", "The Investment Committee": "投資委員會", "The final rep. Your team presents a full IC memo on a deal the cohort sourced, to a panel of the investors who taught the programme. They interrupt, they ask the question nobody prepared for, and then they vote — and each of them says why.": "最後一次實戰。你的團隊針對班上找到的一個案子，向教過這門課的投資人組成的評審團，簡報一份完整的投委會備忘錄。他們打斷你、問沒人準備過的問題，然後投票——而且每一位都會說明理由。", "Why this method.": "為什麼是這個方法。", "Junior VCs don't fail because they lack frameworks — they fail because they've never seen a real term sheet, never built a diligence set under time pressure, and never had a working investor tell them why a deal was a pass. We've spent 14 years on the investor's side of the table, scouting for Volkswagen and Audi and evaluating hundreds of startups for CES and VivaTech. VC Academy is that experience, structured into reps you can actually practice.": "新手創投人不是因為缺乏框架而失敗——而是因為從沒看過真正的投資條件書、從沒在時間壓力下建立一組盡調問題、也從沒有現役投資人告訴他們，一個案子為什麼該放掉。我們站在投資人這一側 14 年，為 Volkswagen 與 Audi 做技術搜尋，也為 CES 與 VivaTech 評估過數百家新創。VC Academy 就是那份經驗，整理成你能實際練習的一次次實戰。", "Come and do the reps.": "來把這些實戰練起來。", "What You Walk Away With": "你將帶走什麼", "Six things you built yourself, defended out loud, and can put in front of someone the week after the programme ends — plus the room that watched you do it.": "六件你親手做出來、公開答辯過、結業後一週就能拿給別人看的成果——外加親眼看你做這些事的那間教室。", "A written investment thesis": "一份書面的投資論點", "What you will look at, what you will not, and why you specifically. Presented in six minutes and defended under six minutes of fire from the room — then rewritten.": "你會看什麼、不看什麼，以及為什麼是你。六分鐘發表，再承受六分鐘全場火力——然後改寫。", "A Deal Book of ~20 dated positions": "一本約 20 筆有日期立場的 Deal Book", "Every deal you saw, dated, with the position you took and the reason you took it. It is the one asset that gets a person hired into venture, and it outlives the programme.": "你看過的每個案子，註明日期、你採取的立場與理由。它是讓一個人被創投業錄用的那項資產，而且在課程結束後依然有效。", "A diligence method that fits your thesis": "符合你論點的盡調方法", "Not a generic checklist — the four or five questions that could kill a deal, asked in the order that kills it fastest, and the judgment to read a non-answer.": "不是通用檢查表——而是那四、五個能讓案子喊停的問題，依最快出局的順序來問，以及讀出「非答案」的判斷力。", "A marked-up term sheet": "一份批註過的投資條件書", "A real document, marked up from the investor's side, negotiated in a three-way role-play against a founder and a corporate co-investor with their own agenda.": "一份真實的文件，從投資人的角度批註，並在三方角色演練中，對上創辦人與有自己策略考量的企業共同投資人談判。", "A cap table you built yourself": "一張你親手建立的股權結構表", "Founding through Series B, built live in a spreadsheet, then stressed with a down round, a corporate taking a board seat, and an early listing at a modest valuation.": "從創立一路建到 B 輪，在試算表中現場完成，再用一次 down round、一家企業取得董事席次、以及一次低估值提早上市來做壓力測試。", "An IC memo you presented and defended": "一份你簡報並答辯過的投委會備忘錄", "A full memo on a real deal the cohort sourced — thesis fit, diligence, numbers, terms, risks, recommendation — taken to a panel of working investors who interrupt, vote, and say why.": "針對班上找到的真實案子的一份完整備忘錄——論點契合度、盡調、數字、條款、風險、建議——在一群會打斷、投票、並說明理由的現役投資人面前簡報。", "The phone numbers": "那些電話號碼", "A room of working investors who have watched you think under pressure for three hours at a time. Every fund here has a hiring problem at analyst level and no reliable way to assess judgment before hiring — this is that.": "一屋子現役投資人，在連續三小時的壓力下看著你思考。這裡每一檔基金，在分析師階層都有招募難題，也沒有可靠的方法在錄用前評估判斷力——這，就是那個方法。", "A cohort that keeps sourcing": "一群持續找案的同學", "Deal flow is what people entering this market say they lack, more than capital. You leave with nine other people who have seen every deal you have, and know how you think about them.": "案源，才是進入這個市場的人說自己最缺的東西，勝過資金。你離開時，身邊有九位同學看過你看過的每個案子，也知道你怎麼想這些案子。", "From the Faculty": "師資的話", "Why we built this.": "我們為什麼做這門課。", "How can I become a VC? I can't count how many calls I've had with a business student asking exactly that. They don't need another lecture on what venture capital is — they need someone to show them the craft.": "我要怎麼成為一位創投人？我已經數不清接過多少通商學院學生問這個問題的電話。他們不需要再上一堂「什麼是創業投資」的課——他們需要有人把這門手藝示範給他們看。", "— Volker Heistermann · Founder, Mosaic Venture Lab": "— Volker Heistermann · Mosaic Venture Lab 創辦人", "A junior VC's hardest moments are the small ones — the term they don't recognize, the diligence question they don't know to ask. We teach those through real cases, the way you actually learn them on the job.": "新手創投人最難的時刻，都是些小事——不認得的一條條款、不知道該問的那個盡調問題。我們用真實案例教這些，就像你在工作中真正學會它們的方式。", "— Johnny Yu · Managing Director, Mosaic Venture Lab": "— Johnny Yu · Mosaic Venture Lab 董事總經理", "The best investors don't check everything. They ask the few questions that matter, read the answers, and move. That judgment is learnable — and it's what this program is for.": "最好的投資人不會什麼都查。他們只問那幾個關鍵的問題，讀懂答案，然後行動。這種判斷力是學得會的——這就是這門課的用意。", "— Ken Huang · Partner, Mosaic Venture Lab": "— Ken Huang · Mosaic Venture Lab 合夥人", "Start building the track record.": "開始累積你的實績。", "Not just a certificate.<br>A track record.": "不只是一張證書。<br>而是一份實績。", "Yours to Keep": "帶得走的", "And the toolkit comes with you.": "工具包也一起帶走。", "The VC Bible (PDF)": "VC Bible（PDF）", "MVL's VC methodology, written down — the frame behind every session, to keep and come back to.": "MVL 的創投方法論，白紙黑字寫下來——每一堂課背後的框架，讓你保存、隨時回頭看。", "Proof from Mosaic Venture Lab that you completed the programme. The track record above is what backs it up.": "來自 Mosaic Venture Lab、證明你完成課程的憑證。上面那份實績，就是它的背書。", "The VC Alumni Group": "VC 校友群組", "Your Route Into VC": "你進入創投的路", "Concrete links to a VC career<br>after graduation.": "畢業後與創投職涯的<br>具體連結。", "Offered after evaluation. Not guaranteed — this is the route we open, not a promise of a job.": "經評估後提供。並不保證——這是我們為你打開的一條路，而不是對工作的承諾。", "Three months of deal-flow sharing": "三個月的案源分享", "Look at deals — and work — together": "一起看案子，一起工作", "Review live deals alongside the MVL team, and explore working opportunities from there.": "與 MVL 團隊一起檢視進行中的案子，並從中探索合作的機會。", "A recommendation letter": "一封推薦信", "A route into an MVL internship": "通往 MVL 實習的一條路", "Selected graduates may be considered for an internship at Mosaic Venture Lab, subject to evaluation.": "經遴選的結業學員，經評估後有機會被考慮至 Mosaic Venture Lab 實習。", "Who We Are": "我們是誰", "14 years on the investor's<br>side of the table.": "14 年站在<br>投資人這一側。", "Mosaic Venture Lab has been in Taiwan's venture ecosystem since 2011, originally as Yushan Ventures. We don't teach venture capital from a textbook — we've been sourcing, scouting, and evaluating deals the whole time.": "Mosaic Venture Lab 自 2011 年起就在台灣的創投生態系中，前身是 Yushan Ventures。我們不是從教科書教創投——我們一路都在找案、搜尋、評估案子。", "Yushan Ventures &amp; Startup Weekend Taiwan": "Yushan Ventures 與 Startup Weekend Taiwan", "Co-founded Yushan Ventures in Taipei. Introduced Startup Weekend to Taiwan — events at Google Taiwan, Microsoft Taiwan, and top universities in Hsinchu, Tainan, Kaohsiung, and Taipei. First contact with thousands of founders.": "在台北共同創辦 Yushan Ventures。將 Startup Weekend 引進台灣——活動遍及 Google Taiwan、Microsoft Taiwan，以及新竹、台南、高雄、台北的各大學。第一次接觸上千位創業者。", "Conceptualized and co-managed the APEC Accelerator Network with Taiwan's Ministry of Economic Affairs (MoEA/SMEA). Cross-border pitch events and deal flow across APEC economies for 6 years.": "與台灣經濟部（MoEA/SMEA）共同發想並共同執行 APEC Accelerator Network。6 年間辦理 APEC 各經濟體間的跨境路演與案源交流。", "Volkswagen Group / Audi Scouting": "Volkswagen 集團 / Audi 技術搜尋", "Technology scouting and diligence partner for Volkswagen Group, with Audi as innovation partner. Active deal-sourcing network across 25+ countries and 5 continents.": "Volkswagen 集團的技術搜尋與盡職調查夥伴，Audi 為創新合作夥伴。橫跨 25 個以上國家、五大洲的活躍案源網絡。", "Established as a deep-tech accelerator and scouting partner for Audi AG and Continental AG. Focused on connecting East Asian innovation to European automotive and industrial capital.": "成立為 Audi AG 與 Continental AG 的深科技加速器與技術搜尋夥伴。專注於把東亞的創新，連結到歐洲的汽車與工業資本。", "CES, VivaTech &amp; ITRI": "CES、VivaTech 與工研院（ITRI）", "Trained 180+ startups for CES 2026 and VivaTech 2025, and professors for ITRI on patent commercialization — evaluating, from the investor's seat, what actually makes a company fundable.": "為 CES 2026 與 VivaTech 2025 培訓 180 多家新創，並為工研院教授培訓專利商業化——從投資人的位子，評估什麼真正讓一家公司值得投資。", "The first structured, in-person program in Taiwan dedicated to training the next generation of venture capitalists — built from everything we've learned doing the job.": "台灣第一個專為培養下一代創投人而設計的結構化實體課程——建立在我們做這份工作所學到的一切之上。", "Programs &amp; Partners": "課程與夥伴", "Faculty &amp; Mentors": "師資與導師", "People who do this<br>for a living.": "以此為業的<br>人。", "The program is led by Mosaic Venture Lab's partners and taught with a volunteer network of VCs, operators, and corporate-venture scouts — people who source, diligence, and negotiate deals as their day job.": "本課程由 Mosaic Venture Lab 的合夥人主持，並由一群志願的創投人、創業營運者與企業創投技術搜尋人員共同授課——他們的日常工作，就是找案、盡調與談判。", "Core Faculty · Mosaic Venture Lab": "核心師資 · Mosaic Venture Lab", "Founder, Mosaic Venture Lab<br>Managing Partner, Yushan Ventures<br>VW / Audi tech scouting": "Mosaic Venture Lab 創辦人<br>Yushan Ventures 管理合夥人<br>VW / Audi 技術搜尋", "Managing Director, Mosaic Venture Lab<br>Curriculum lead<br>Term sheets &amp; due diligence": "Mosaic Venture Lab 董事總經理<br>課程負責人<br>投資條件書與盡職調查", "Partner, Mosaic Venture Lab<br>Lecturer, NCU<br>Sourcing &amp; ecosystem": "Mosaic Venture Lab 合夥人<br>中央大學講師<br>找案與生態系", "Volunteer VC &amp; Investor Network": "志願創投與投資人網絡", "MD, NextStar Ventures<br>Ex-IBM Ventures": "NextStar Ventures 董事總經理<br>前 IBM Ventures", "CEO, K Ventures<br>Former CEO, Zmanda": "K Ventures 執行長<br>前 Zmanda 執行長", "Semiconductor &amp; M&amp;A<br>Ex-GE, Acer, Egis Tech": "半導體與併購<br>前 GE、宏碁、Egis Tech", "Founder, TribeROI<br>Ex-AWS Global Advocate": "TribeROI 創辦人<br>前 AWS 全球倡導者", "CEO, Ingenev Mobility<br>Ex-Audi/VW Innovation": "Ingenev Mobility 執行長<br>前 Audi/VW 創新部門", "COO, fluency<br>Ex-DXC Enterprise IT": "fluency 營運長<br>前 DXC Enterprise IT", "Management Consultant<br>Bain &amp; Company": "管理顧問<br>Bain &amp; Company", "CEO, RegionRise<br>Ex-Google Europe": "RegionRise 執行長<br>前 Google Europe", "Guest Investors": "客座投資人", "A rotating circle of VC friends<br>joining each cohort": "一群輪替的創投朋友，<br>每一班都會加入", "Mentors participate on a volunteer basis. The lineup is confirmed with each cohort and may vary by session.": "導師以志願方式參與。名單會與每一班確認，且各堂可能不同。", "Christian Walter": "Christian Walter", "Shafeen Charania": "Shafeen Charania", "Scouting": "Scouting", "Chander Kant": "Chander Kant", "Ashley Hsueh": "Ashley Hsueh", "APEC Accelerator Network O2O": "APEC Accelerator Network O2O", "Mark Birch": "Mark Birch", "KH": "KH", "LinkedIn": "LinkedIn", "Volker Heistermann": "Volker Heistermann", "APEC Accelerator Network": "APEC Accelerator Network", "VC Starter Kit": "VC Starter Kit", "VC Academy": "VC Academy", "Ken Huang": "Ken Huang", "Deal Desk": "Deal Desk", "Mosaic Venture Lab": "Mosaic Venture Lab", "Johnny Yu": "Johnny Yu", "Todd Lin": "Todd Lin", "Yushan Ventures": "Yushan Ventures", "Dr. Volker Kaese": "Dr. Volker Kaese", "×": "×", "Deborah Magid": "Deborah Magid", "Wave 1: NT$30,000 · steps up each wave": "第一波：NT$30,000 · 每一波調漲", "A members-only Discord community for graduates.": "結業學員專屬的 Discord 社群。", "MVL sends deals to look at, discuss and be introduced on.": "MVL 寄送案子給你看、一起討論，並可牽線引介。", "Sit in on MVL deal reviews": "列席 MVL 的看案會議", "Selected graduates may be invited.": "經遴選的結業學員有機會受邀。", "List price NT$75,000": "定價 NT$75,000", "Until Sep 30": "至 9 月 30 日", "From Oct 1": "10 月 1 日起", "From Oct 8": "10 月 8 日起", "VC Starter Kit — emailed before the first session": "VC Starter Kit——開課前寄到你的信箱", "The VC Starter Kit — before day one": "VC Starter Kit——開課前到手", "A members-only Discord community for graduates — where the cohort keeps working after the last session.": "結業學員專屬的 Discord 社群——最後一堂課之後，全班繼續一起做事的地方。", "For three consecutive months after the programme, MVL sends over deals you can look at, discuss with us, and be introduced on.": "課程結束後連續三個月，MVL 會寄案子給你看、與我們討論，並可為你牽線引介。", "Look at deals alongside MVL": "與 MVL 一起看案子", "Selected graduates may be invited to join MVL's deal reviews and look at deals together, subject to evaluation and eligibility.": "經遴選的結業學員，經評估並符合資格者，有機會受邀列席 MVL 的看案會議，一起看案子。", "Nov 11, 2026 · founding cohort": "2026 年 11 月 11 日 · 創始班", "Wave 1 · ends Sep 30": "第一波・9 月 30 日截止", "<strong>Wave 1: NT$30,000 for the full programme<\/strong> — 60% off the NT$75,000 list price. Later waves step up to NT$31,500 and NT$34,500. All 12 sessions across six months, in person; materials, live deals and time with visiting investors are included. A government subsidy application is in progress.": "<strong>第一波：整套課程 NT$30,000<\/strong>——定價 NT$75,000 的 4 折。之後每一波依序調漲為 NT$31,500、NT$34,500。六個月共 12 堂實體課；教材、真實案子與訪問投資人相處的時間都已包含。政府補助申請中。", "The six things you built — thesis, Deal Book, diligence method, marked-up term sheet, cap table, IC memo — plus the VC Bible, an MVL Badge &amp; Certificate and a place in the VC Alumni Group. Selected graduates are also considered for deal-flow sharing, a recommendation letter, an MVL internship and sitting in on MVL's deal reviews — subject to evaluation, and not guaranteed.": "你親手完成的六項成果——投資論點、Deal Book、盡調方法、批註過的投資條件書、股權結構表、投委會備忘錄——加上 VC Bible、MVL 徽章與證書，以及 VC 校友群組的一席之地。經遴選的結業學員，還有機會獲得案源分享、推薦信、MVL 實習，以及列席 MVL 看案會議的機會——皆須經評估，並不保證。", "<span#1>Bonus<\/span> Enrol today and receive the <b>VC Starter Kit<\/b> by email before the first session": "<span#1>加碼<\/span>今天報名，開課前以 Email 收到 <b>VC Starter Kit<\/b>", "Emailed to every participant before the first session.": "開課前以 Email 寄給每位學員。", "We launched VC Academy in Taipei on August 14. Early-bird seats for the founding cohort are open — about 10 seats, in person, scheduled around your working week — and every participant receives the VC Starter Kit before the first session. <a#1>See what the launch was like →<\/a>": "8 月 14 日，VC Academy 在台北啟動。創始班早鳥席次開放中——約 10 個席次，實體授課，時間配合你的工作週——每位學員都會在開課前收到 VC Starter Kit。<a#1>看看發表會現場 →<\/a>", "Every participant receives the VC Starter Kit before the first session.": "每位學員都會在開課前收到 VC Starter Kit。", "Your seat is held the moment you pay. The organizer reserves the right to review eligibility — if we can't confirm your seat after review, you'll receive a full refund.": "付款當下，你的席次就先保留。主辦單位保留資格審核之權利——若經審核未能確認你的席次，你將收到全額退費。", "Payment received": "已收到付款", "Thank you.<br>Your seat is held.": "謝謝你。<br>你的席次已為你保留。", "We've received your payment — a receipt from our payment provider is on its way to your inbox. Here is what happens next.": "我們已收到你的付款——金流平台開立的收據正在寄往你的信箱。接下來會這樣進行。", "Eligibility check": "資格審核", "The organizer reserves the right to review eligibility. We'll confirm your seat by email — and if we can't, you'll receive a full refund.": "主辦單位保留資格審核之權利。我們會以 Email 確認你的席次——若無法確認，你將收到全額退費。", "First session": "首堂課", "Wednesday, November 11, 2026 — in person in Taipei. We'll send the details by email.": "2026 年 11 月 11 日（週三）——台北實體授課。詳細資訊會以 Email 寄給你。", "Questions? Email us at <a#1>vh@mvl.biz<\/a>.": "有問題嗎？請來信 <a#1>vh@mvl.biz<\/a>。", "<a#1>Back to home →<\/a>": "<a#1>回到首頁 →<\/a>", "12 in-person sessions · Taipei · starts Nov 11, 2026 · ~10 seats": "12 堂實體課程 · 台北 · 2026 年 11 月 11 日開課 · 約 10 個席次", "Payment couldn't start. Please try again in a moment — or <a#1>apply first and we'll send you a payment link →<\/a>": "付款頁無法開啟。請稍後再試——或<a#1>先提出申請，我們會寄付款連結給你 →<\/a>", "All seats are taken. Please email us at vh@mvl.biz.": "席次已全數額滿。請來信 vh@mvl.biz。", "The price has just moved to the next wave. Please reload the page to see the current price.": "價格剛調整到下一波。請重新整理頁面，查看目前的價格。", "The organizer reserves the right to review eligibility. If we can't confirm your seat after review, you'll receive a full refund.": "主辦單位保留資格審核之權利。若經審核未能確認你的席次，你將收到全額退費。", "In person in Taipei · 12 sessions over six months · <b>Wave 1: NT$30,000<\/b> (60% off the NT$75,000 list price) · 3 or 6 credit-card installments · ~10 seats · Wave 1 ends Sep 30": "台北實體授課 · 六個月共 12 堂 · <b>第一波：NT$30,000<\/b>（定價 NT$75,000 的 4 折）· 可分期 3 或 6 期 · 約 10 個席次 · 第一波 9 月 30 日截止", "3 or 6 credit-card installments available · Company invoice with tax ID (統編) available · full refund if we can't confirm your seat<br>Prefer to apply first? <a#1>Send a short application →<\/a>": "可分期 3 或 6 期 · 可開立含統編的公司發票 · 若無法確認你的席次，全額退費<br>想先申請？<a#1>送出簡短申請 →<\/a>", "Six months, in person in Taipei, about 10 seats. The price steps up with each wave. Pay in full or in 3 or 6 credit-card installments. Government subsidy application in progress.": "六個月，台北實體授課，約 10 個席次。價格每一波調漲。可一次付清，或分 3 期、6 期。政府補助申請中。", "Twelve sessions over six months, in person in Taipei, about 10 seats. Wave 1: NT$30,000, stepping up with each wave — with 3 or 6 credit-card installments. Government subsidy application in progress.": "六個月共十二堂，台北實體授課，約 10 個席次。第一波：NT$30,000，每一波調漲——可分 3 期或 6 期。政府補助申請中。", "Wave 1: NT$30,000 · steps up each wave · 3 or 6 credit-card installments": "第一波：NT$30,000 · 每一波調漲 · 可分期 3 或 6 期", "Yes — 3 or 6 credit-card installments, same total either way. We can also issue a company invoice with a tax ID (統編).": "可以——分 3 期或 6 期，總額相同。也可以開立含統編的公司發票。", "<b>3 credit-card installments<\/b><i>3 × NT$10,000<\/i>": "<b>3 期分期<\/b><i>3 期 × NT$10,000<\/i>", "Same total, split across 3 payments": "總額相同，分 3 期付款", "<b>6 credit-card installments<\/b><i>6 × NT$5,000<\/i>": "<b>6 期分期<\/b><i>6 期 × NT$5,000<\/i>", "Same total, split across 6 payments": "總額相同，分 6 期付款", "Card payment is being set up right now — please check back soon.": "刷卡付款系統維護中，請稍後再試。", "Want to lock in this wave's price in the meantime? <a#1>Send a short application →<\/a>": "想先把這一波的價格保留下來？<a#1>送出簡短申請 →<\/a>"}, ATTR = {"A few sentences is plenty — what you're hoping to get out of it, and where you are today.": "幾句話就夠了——你希望從中得到什麼，以及你目前的狀況。", "Analyst, Acme Capital": "分析師，Acme Capital", "Jane Chen": "陳怡君", "jane@company.com": "jane@company.com", "linkedin.com/in/…": "linkedin.com/in/…"}, OPT = {"A friend or colleague": "朋友或同事", "Analyst or associate": "分析師或投資經理", "Angel / family office": "天使投資人／家族辦公室", "Founder": "創業者", "Operator moving into investing": "轉向投資的營運者", "Other": "其他", "Select one…": "請選擇…", "Student / recent graduate": "學生／應屆畢業生", "The Aug 14 launch event": "8/14 發表會", "Working investor": "現役投資人", "LinkedIn": "LinkedIn", "Luma": "Luma", "Mosaic Venture Lab": "Mosaic Venture Lab"}, DYN = {"Submit application →": "送出申請 →", "Sending…": "送出中…", "Preparing…": "準備中…", "Something went wrong. Please try again, or email us directly at vh@mvl.biz.": "發生錯誤，請再試一次，或直接來信 vh@mvl.biz。", "Redirecting to payment…": "前往付款頁中…"}, TITLE = "VC Academy — 進入創投的第一步｜Mosaic Venture Lab";
+
+  /* ---- 共用核心：掃描文字區塊、產生 key、還原標籤屬性 ---- */
+  var I18N_SKIP = { SCRIPT:1, STYLE:1, NOSCRIPT:1, SVG:1, TEXTAREA:1, INPUT:1, SELECT:1, OPTION:1, IMG:1, IFRAME:1, CANVAS:1 };
+  var I18N_INLINE = { A:1, B:1, STRONG:1, EM:1, I:1, U:1, SPAN:1, MARK:1, BR:1, SMALL:1, SUP:1, SUB:1, CODE:1, ABBR:1, WBR:1 };
+  function i18nLetters(s) { return /[A-Za-zÀ-ɏ]/.test(s.replace(/NT\$|USD\$?/g, '')); }
+  function i18nIsUnit(el) {
+    var k = el.getElementsByTagName('*');
+    for (var i = 0; i < k.length; i++) if (!I18N_INLINE[k[i].tagName.toUpperCase()]) return false;
+    return true;
+  }
+  function i18nCollect(root) {
+    var units = [], mixed = [];
+    (function walk(el) {
+      var tag = el.tagName.toUpperCase();
+      if (I18N_SKIP[tag] || el.hasAttribute('data-no-i18n') || el.classList.contains('nav-brand') || el.classList.contains('lang-switch')) return;
+      if (!i18nLetters(el.textContent)) return;
+      if (i18nIsUnit(el)) { units.push(el); return; }
+      for (var n = el.firstChild; n; n = n.nextSibling) {
+        if (n.nodeType === 3 && i18nLetters(n.nodeValue)) { mixed.push(el); break; }
+      }
+      for (var c = el.firstElementChild; c; c = c.nextElementSibling) walk(c);
+    })(root);
+    return { units: units, mixed: mixed };
+  }
+  function i18nKey(el) {
+    var idx = 0, tokens = [];
+    var html = el.innerHTML.replace(/<([a-zA-Z][a-zA-Z0-9]*)(\s[^>]*)>/g, function (m, tag) { idx++; tokens.push(m); return '<' + tag.toLowerCase() + '#' + idx + '>'; });
+    return { key: html.replace(/\s+/g, ' ').trim(), tokens: tokens };
+  }
+  function i18nRestore(zh, tokens) {
+    return zh.replace(/<([a-zA-Z][a-zA-Z0-9]*)#(\d+)>/g, function (m, tag, n) { return tokens[n - 1] || ('<' + tag + '>'); });
+  }
+
+  /* ---- 引擎 ---- */
+  var units = null, opts = [], phs = [], missing = [], lang = 'en', origTitle = document.title;
+
+  function init() {
+    if (units) return;
+    units = [];
+    var c = i18nCollect(document.body);
+    c.units.forEach(function (el) {
+      var k = i18nKey(el), zh = DICT[k.key];
+      if (zh) units.push({ el: el, en: el.innerHTML, zh: i18nRestore(zh, k.tokens) });
+      else missing.push(k.key);
+    });
+    opts = [].slice.call(document.querySelectorAll('option')).map(function (o) { return { el: o, en: o.textContent }; });
+    phs = [].slice.call(document.querySelectorAll('[placeholder]')).map(function (e) { return { el: e, en: e.getAttribute('placeholder') }; });
+  }
+
+  function apply(l) {
+    init();
+    units.forEach(function (u) { u.el.innerHTML = l === 'zh' ? u.zh : u.en; });
+    opts.forEach(function (o) { o.el.textContent = (l === 'zh' && OPT[o.en]) ? OPT[o.en] : o.en; });
+    phs.forEach(function (p) { p.el.setAttribute('placeholder', (l === 'zh' && ATTR[p.en]) ? ATTR[p.en] : p.en); });
+    document.title = (l === 'zh' && TITLE) ? TITLE : origTitle;
+    document.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en';
+    lang = l; window.__lang = l;
+    var btns = document.querySelectorAll('#langSwitch button');
+    for (var i = 0; i < btns.length; i++) btns[i].setAttribute('aria-pressed', String(btns[i].getAttribute('data-lang') === l));
+  }
+
+  window.setSiteLang = function (l) {
+    l = (l === 'zh') ? 'zh' : 'en';
+    apply(l);
+    try { localStorage.setItem('vcLang', l); } catch (e) {}
+    try { document.dispatchEvent(new CustomEvent('sitelangchange', { detail: { lang: l } })); } catch (e) {}
+  };
+  // 程式動態寫入的文字（送出中…、錯誤訊息等）
+  window.__t = function (s) { return (lang === 'zh' && DYN[s]) ? DYN[s] : s; };
+  window.__i18nMissing = function () { init(); return missing.slice(); };
+
+  var sw = document.getElementById('langSwitch');
+  if (sw) sw.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button[data-lang]') : null;
+    if (b) window.setSiteLang(b.getAttribute('data-lang'));
+  });
+
+  // 起始語言：網址 ?lang=zh|en → 上次的選擇 → 英文
+  var start = 'en';
+  try { start = localStorage.getItem('vcLang') || 'en'; } catch (e) {}
+  var m = /[?&]lang=(zh|en)\b/.exec(location.search);
+  if (m) start = m[1];
+  if (start === 'zh') window.setSiteLang('zh');
+})();
+</script>
+<!-- I18N:END -->
 </body>
 </html>
